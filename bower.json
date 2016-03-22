@@ -1,0 +1,19 @@
+{
+  "name": "reg.chula",
+  "version": "0.0.0",
+  "homepage": "https://github.com/charshu/sindicate_new",
+  "authors": [
+    "Rungsikorn Rungsikavarnich <rungsikorn@me.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ui-router": "~0.2.18"
+  }
+}
