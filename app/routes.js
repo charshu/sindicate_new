@@ -1,4 +1,5 @@
 // app/routes.js
+var path = require('path');
 module.exports = function(app, passport) {
 
 	// =====================================
@@ -71,6 +72,12 @@ module.exports = function(app, passport) {
 		req.logout();
 		res.redirect('/');
 	});
+
+
+	app.get('/editProfile',function(req,res){
+		res.sendfile('/client/editProfile.html', {root: path.join(__dirname,'../views') });
+
+	});
 };
 
 // route middleware to make sure
@@ -80,8 +87,6 @@ function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated()){
 			return next();
 	}
-
-
 	// if they aren't redirect them to the home page
 	res.redirect('/');
 }
