@@ -16,5 +16,11 @@
     "mysql": "^2.7.0",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.12.3",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-ruby-sass": "^2.0.6"
   }
 }

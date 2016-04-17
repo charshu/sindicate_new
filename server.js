@@ -20,9 +20,7 @@ require('./config/passport')(passport); // pass passport for configuration
 
 //Setup Path for Client resource
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
-app.use('/script',  express.static(__dirname + '/views/client/script'));
-app.use('/style',  express.static(__dirname + '/views/client/style'));
-
+app.use('/client',  express.static(__dirname + '/views/client'));
 
 
 

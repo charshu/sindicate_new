@@ -75,7 +75,7 @@ module.exports = function(app, passport) {
 
 
 	app.get('/editProfile',function(req,res){
-		res.sendfile('/client/editProfile.html', {root: path.join(__dirname,'../views') });
+		res.render('client/editProfile.ejs');
 
 	});
 };
