@@ -1,199 +1,531 @@
-
-
 <head>
-  <title>Node editProfile</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- load bootstrap css -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- load fontawesome -->
-  <link rel="stylesheet" href="client/style/editProfile.scss">
+    <title>Node editProfile</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="client/style/scss/editProfile.scss">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 
 </head>
 
+<body ng-app="tabsDemoDynamicHeight" ng-cloak>
+    <!--
+    Your HTML content here
+  -->
 
-  <div class="test">
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 
-  </div>
-  <div class="container">
-    <form style="width:700px;">
-      <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ข้อมูลทั่วไป</label>
-      <hr />
-      <div class="form-group">
-        <label for="exampleInputEmail1" style="font-size:20px;">รหัสนิสิต : 5630520921</label>
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+    <!-- Your application bootstrap  -->
+    <script type="text/javascript">
+        /**
+         * You must include the dependency on 'ngMaterial'
+         */
+        angular.module('tabsDemoDynamicHeight', ['ngMaterial']);
+        // angular.module('BlankApp', ['ngMaterial']);
+    </script>
 
 
-      </div>
-      <div class="form-inline">
-        <div class="form-group">
-          <label for="exampleInputEmail1">ชื่อ</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="วชิรกรณ์">
+
+    <div class="container">
+        <div ng-cloak>
+            <md-content>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="ข้อมูลส่วนตัว">
+                        <md-content class="md-padding">
+                            <form style="width:700px;">
+
+
+
+                                <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ข้อมูลทั่วไป</label>
+                                <hr />
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" style="font-size:20px;">รหัสนิสิต : 5630520921</label>
+
+
+                                </div>
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">ชื่อ</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="วชิรกรณ์">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">นามสกุล</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="รังสิกวานิช">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">เบอร์โทร</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="0882391875">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">เพศ</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ชาย">
+
+                                </div>
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">คณะ</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="วิศวกรรมศาสตร์">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">ภาค</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="วิศวกรรมคอมพิวเตอร์">
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group" style="width:300px;">
+                                    <label for="exampleInputEmail1">วันเกิด</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="26-10-2536">
+                                </div>
+                                <!-- addr main -->
+                                <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ตามทะเบียนบ้าน</label>
+                                <hr />
+
+                                <div class="form-inline">
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">เลขที่</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">หมู่</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">ถนน</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">แขวง/ตำบล</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">เขต/อำเภอ</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">จังหวัด/เมือง</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">รหัสไปรษณีย์</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">ประเทศ</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                </div>
+                                <!-- addr now -->
+                                <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ปัจจุบัน</label>
+                                <hr />
+                            
+                                <div class="form-inline">
+
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">เลขที่</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">หมู่</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">ถนน</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">แขวง/ตำบล</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+                                  <div class="form-group" style="">
+                                      <label for="exampleInputEmail1">เขต/อำเภอ</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                  </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">จังหวัด/เมือง</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">รหัสไปรษณีย์</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">ประเทศ</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                        </md-content>
+                    </md-tab>
+
+                    <md-tab label="ประวัติการศึกษา">
+                        <md-content class="md-padding">
+
+                            <form class="" action="index.html" method="post">
+
+                                <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ประวัติการศึกษา</label>
+                                <hr />
+                                <label for="exampleInputPassword1" style="font-size:20px;">ป.ตรี</label>
+                                <div class="tab">
+
+                                    <div class="form-inline">
+
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">ชื่อสถานศึกษา</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">วุฒิการศึกษา</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">สาขาวิชา</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">ปีที่สำเร็จ</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">เกรดเฉลี่ย</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <label for="exampleInputPassword1" style="font-size:20px;">ป.โท</label>
+                                <div class="tab">
+
+                                    <div class="form-inline">
+
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">ชื่อสถานศึกษา</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">วุฒิการศึกษา</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">สาขาวิชา</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">ปีที่สำเร็จ</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">เกรดเฉลี่ย</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <label for="exampleInputPassword1" style="font-size:20px;">ป.เอก</label>
+                                <div class="tab">
+
+                                    <div class="form-inline">
+
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">ชื่อสถานศึกษา</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">วุฒิการศึกษา</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">สาขาวิชา</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">ปีที่สำเร็จ</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">เกรดเฉลี่ย</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <hr/>
+                                <div class="form-group" style="width:500px;">
+                                    <label for="exampleInputPassword1">สถานที่ทำงาน</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+                                <div class="form-group" style="width:500px;">
+                                    <label for="exampleInputPassword1">หลักสูตรที่ศึกษา</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+                                <div class="form-group" style="width:500px;">
+                                    <label for="exampleInputPassword1">สถานภาพแรกเข้า</label>
+                                    <select class="form-control">
+                                        <option value="normal">สามัญ</option>
+                                        <option value="try">ทดลองศึกษา</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group" style="width:500px;">
+                                    <label for="exampleInputPassword1">คะแนนสอบภาษาอังกฤษ</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+
+
+                            </form>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="ข้อมูลวิทยานิพนธ์">
+                        <md-content class="md-padding">
+                            <form style="width:700px;">
+
+
+
+                                <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ข้อมูลวิทยานิพนธ์</label>
+                                <hr />
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" style="font-size:20px;">ข้อมูลทั่วไป</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ชื่อวิทยานิพนธ์(ไทย)</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">ชื่อวิทยานิพนธ์(อังกฤษ)</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">อาจารย์ที่ปรึกษา</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">อาจารย์ที่ปรึกษาร่วม</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+
+
+                                <!-- addr main -->
+                                <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ผลการเรียน</label>
+                                <hr />
+
+                                <div class="form-inline">
+
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">GPAX ภาค 1</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">GPAX ภาค 2</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">GPAX ภาค 3</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">GPAX ภาค 4</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">ปีที่สำเร็จการศึกษา</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+                                <div class="form-group" style="width:500px;">
+                                    <label for="exampleInputPassword1">สาเหตุที่ศึกษาไม่จบ</label>
+                                    <select class="form-control">
+                                        <option value="undefine">ไม่ระบุ</option>
+                                        <option value="resign">ลาออก</option>
+                                        <option value="disqualified">พ้นสภาพ</option>
+                                        <option value="failthesis">สอบวิทยานิพนธ์ไม่ผ่าน</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ทุนที่ได้รับ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">รางวัลที่ได้รับ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ผลงานที่เข้าร่วมประชุมวิชาการในประเทศ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ผลงานที่เข้าร่วมประชุมวิชาการต่างประเทศ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ผลงานที่ได้ตีพิมพ์ในประเทศ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ผลงานที่ได้ตีพิมพ์ต่างประเทศ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+
+                            </form>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="ข้อมูลหลังจบการศึกษา">
+                        <md-content class="md-padding">
+                            <form style="width:700px;">
+
+
+
+                                <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ข้อมูลหลังจบการศึกษา</label>
+                                <hr />
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" style="font-size:20px;">สถานที่ทำงานปัจจุบัน</label>
+                                </div>
+                                  <div class="form-inline">
+                                <div class="form-group" style="">
+                                    <label for="exampleInputPassword1">ประเภทของงาน</label>
+                                    <select class="form-control">
+                                        <option value="undefine">ธุรกิจส่วนตัว</option>
+                                        <option value="resign">ราชการ</option>
+                                        <option value="disqualified">รัฐวิสาหกิจ</option>
+                                        <option value="failthesis">เอกชน</option>
+                                        <option value="failthesis">อื่นๆระบุ</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <!--other -->
+                                      <label for="exampleInputEmail1">ระบุ</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                </div>
+                              </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ชื่อหน่วยงาน</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">ตำแหน่ง</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">เงินเดือน</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">ที่ตั้ง</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">โทรศัพท์</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Fax</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+
+
+                                <!-- addr main -->
+                                <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ผลการเรียน</label>
+                                <hr />
+
+                                <div class="form-inline">
+
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">GPAX ภาค 1</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">GPAX ภาค 2</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">GPAX ภาค 3</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">GPAX ภาค 4</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">ปีที่สำเร็จการศึกษา</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                </div>
+                                <div class="form-group" style="width:500px;">
+                                    <label for="exampleInputPassword1">สาเหตุที่ศึกษาไม่จบ</label>
+                                    <select class="form-control">
+                                        <option value="undefine">ไม่ระบุ</option>
+                                        <option value="resign">ลาออก</option>
+                                        <option value="disqualified">พ้นสภาพ</option>
+                                        <option value="failthesis">สอบวิทยานิพนธ์ไม่ผ่าน</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ทุนที่ได้รับ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">รางวัลที่ได้รับ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ผลงานที่เข้าร่วมประชุมวิชาการในประเทศ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ผลงานที่เข้าร่วมประชุมวิชาการต่างประเทศ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ผลงานที่ได้ตีพิมพ์ในประเทศ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">ผลงานที่ได้ตีพิมพ์ต่างประเทศ</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+
+                                </div>
+
+                            </form>
+                        </md-content>
+                    </md-tab>
+
+                </md-tabs>
+            </md-content>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">นามสกุล</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="รังสิกวานิช">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">เบอร์โทร</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="0882391875">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">เพศ</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ชาย">
 
-      </div>
-      <div class="form-inline">
-        <div class="form-group">
-          <label for="exampleInputEmail1">คณะ</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="วิศวกรรมศาสตร์">
-
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">ภาค</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="วิศวกรรมคอมพิวเตอร์">
-
-        </div>
-      </div>
+        <!-- edu info -->
 
 
-      <div class="form-group" style="width:300px;">
-        <label for="exampleInputEmail1">วันเกิด</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="26-10-2536">
-      </div>
-      <!-- addr main -->
-      <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ตามทะเบียนบ้าน</label>
-      <hr />
-      <div class="form-group">
-        <label for="exampleInputEmail1">ที่อยู่</label>
-        <textarea class="form-control" rows="3"></textarea>
-
-      </div>
-      <div class="form-inline">
-
-        <div class="form-group">
-          <label for="exampleInputPassword1">จังหวัด/เมือง</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">รหัสไปรษณีย์</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">ประเทศ</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-        </div>
-      </div>
-      <!-- addr now -->
-      <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ปัจจุบัน</label>
-      <hr />
-      <div class="form-group">
-        <label for="exampleInputEmail1">ที่อยู่</label>
-        <textarea class="form-control" rows="3"></textarea>
-
-      </div>
-      <div class="form-inline">
-
-        <div class="form-group">
-          <label for="exampleInputPassword1">จังหวัด/เมือง</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">รหัสไปรษณีย์</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">ประเทศ</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-        </div>
-      </div>
-
-      <!-- edu info -->
-      <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ประวัติการศึกษา</label>
-      <hr />
-      <label for="exampleInputPassword1" style="font-size:20px;">ป.ตรี</label>
-      <div class="tab">
-
-        <div class="form-inline">
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">ชื่อสถานศึกษา</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">วุฒิการศึกษา</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">สาขาวิชา</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">ปีที่สำเร็จ</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">เกรดเฉลี่ย</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-        </div>
-      </div>
-      <label for="exampleInputPassword1" style="font-size:20px;">ป.โท</label>
-      <div class="tab">
-
-        <div class="form-inline">
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">ชื่อสถานศึกษา</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">วุฒิการศึกษา</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">สาขาวิชา</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">ปีที่สำเร็จ</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">เกรดเฉลี่ย</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-        </div>
-      </div>
-      <label for="exampleInputPassword1" style="font-size:20px;">ป.เอก</label>
-      <div class="tab">
-
-        <div class="form-inline">
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">ชื่อสถานศึกษา</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">วุฒิการศึกษา</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">สาขาวิชา</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">ปีที่สำเร็จ</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">เกรดเฉลี่ย</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-          </div>
-        </div>
-
-      </div>
-
-
-    </form>
-
-  </div>
+    </div>
+</body>

@@ -1,0 +1,183 @@
+$main_blue: #448ccb;
+$dark_gray: lighten(black, 25);
+$blood : #8A0708;
+$bee : #FFA500;
+.header {
+    display: flex;
+    margin: 0;
+    width: 100%;
+    height: 250px;
+    background-color: $main_blue;
+    .toptools {
+        position: absolute;
+
+        top: 0;
+        height: 50px;
+        width: 100%;
+        background-color: lighten(grey, 40);
+        box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.2);
+
+        .logo{
+          position: relative;
+          text-align: center;
+          line-height: 50px;
+          margin-left: 10px;
+          font-size: 20px;
+          width:  150px;
+          height: 50px;
+          color: $dark_gray;
+
+          i{
+            position: absolute;
+            top:10px;
+            right: 0px;
+            color: $bee;
+            font-size: 30px;
+          }
+        }
+        .logout{
+          position: absolute;
+          top:0px;
+          height: 50px;
+          line-height: 50px;
+          right: 30px;
+
+        }
+    }
+    .brief-profile {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 100%;
+        height: auto;
+        margin-top: 50px;
+        .circle-picture {
+            margin: 20px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .desc {
+            width: 40%;
+            max-width: 350px;
+            font-family: "Sukhumvit Set",sans-serif;
+            //font-size: 30px;
+            color: white;
+            .greeting_msg{
+              font-size: 30px;
+              font-weight: bold;
+              font-style: italic;
+            }
+            p {
+                font-size: 25px;
+                line-height: 20px;
+            }
+            .icontools {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                height: 50px;
+                //  background-color: $main_blue;
+                .item {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: baseline;
+                    color: white;
+                    i {
+                        font-size: 15px;
+                    }
+                    p {
+                        font-size: 15px;
+                        padding-right: 10px;
+                        margin-right: 10px;
+                        &.rightborder {
+                            border-right: 1px solid white;
+                        }
+                    }
+                }
+                .item:hover {
+                    color: darken(white, 20);
+                    p &.rightborder {
+                        color: white;
+                    }
+                }
+            }
+            p.thx{
+              font-size: 15px;
+              width: 80%;
+            }
+            .progress{
+              width: 80%;
+
+
+            }
+        }
+
+    }
+}
+// end header
+.layout {
+    font-family: "Sukhumvit Set",sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    background-color: lighten(grey,45);
+    .menuwrapper {
+      display: flex;
+      flex-direction: column;
+      margin-left: 40px;
+      width: 40%;
+      min-width: 200px;
+      max-width: 400px;
+        .menu {
+            margin-top: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            max-width: 300px;
+            padding: 10px 10px 10px 15px;
+            .menuname {
+                color: $main_blue;
+                font-size: 25px;
+                font-weight: bold;
+                height: 40px;
+                border-bottom: 3px solid lighten(grey,40);
+            }
+            li{
+              display: block;
+              width: auto;
+              height: auto;
+
+              margin: 5px;
+              list-style: none;
+            }
+            li:hover{
+              color: $main_blue;
+              background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+    .contentwrapper {
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 60%;
+        padding: 40px;
+
+          .content{
+            background-color: white;
+            width: 100%;
+            height: 300px;
+              box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+          }
+    }
+}

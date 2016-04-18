@@ -78,6 +78,12 @@ module.exports = function(app, passport) {
 		res.render('client/editProfile.ejs');
 
 	});
+	app.get('/home',function(req,res){
+		res.render('client/home.ejs',{
+			msg: 'ยินดีต้อนรับ !' 
+		});
+
+	});
 };
 
 // route middleware to make sure

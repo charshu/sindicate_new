@@ -5,6 +5,6 @@ module.exports = {
         'user': 'root',
          'password': 'admin'
     },
-	'database': 'sindicate',
+	'database': 'sindicate2',
     'users_table': 'users'
 };
