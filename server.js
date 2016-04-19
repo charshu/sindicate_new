@@ -24,6 +24,7 @@ require('./config/passport')(passport); // pass passport for configuration
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/client',  express.static(__dirname + '/views/client'));
 app.use('/images',  express.static(__dirname + '/public/images'));
+app.use('/script',  express.static(__dirname + '/views/client/script'));
 
 
 

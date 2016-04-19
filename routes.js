@@ -6,6 +6,9 @@ module.exports = function(app, passport) {
 	// HOME PAGE (with login links) ========
 	// =====================================
 	app.get('/', function(req, res) {
+		res.render('index.ejs'); // load the index.ejs file
+	});
+	app.get('/test', function(req, res) {
 		res.render('client/index.ejs'); // load the index.ejs file
 	});
 
@@ -23,7 +26,7 @@ module.exports = function(app, passport) {
 	});
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/home', // redirect to the secure profile section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
 		}),
@@ -80,10 +83,26 @@ module.exports = function(app, passport) {
 	});
 	app.get('/home',function(req,res){
 		res.render('client/home.ejs',{
-			msg: 'ยินดีต้อนรับ !' 
+			msg: 'ยินดีต้อนรับ !',
+			thesisTH:'การออกแบบและวิเคราะห์อัลกอริทึมในการปิ้งลูกชิ้น',
+			thesisEN:'Design and Analysis of Algorithm in Grilling LookChin',
+			advisor:'ศ.ดร.บุญเสริม กิจศิริกุล',
+			coadvisor:'ผศ.ดร.โปรดปราน บุณยพุกกณะ',
+			scholarship:'ทุนอุดหนุนการวิจัย พัฒนาและวิศวกรรมภาครัฐ ด้านอิเล็กทรอนิกส์ คอมพิวเตอร์โทรคมนาคมและสารสนเทศ',
+			award:'รางวัลระบบเอื้ออำนวยการประกอบอาหารเชิงอุตสาหกรรม',
+			thconference:'การออกแบบและวิเคราะห์อัลกอริทึมในการปิ้งลูกชิ้น',
+			intconference:'การออกแบบและวิเคราะห์อัลกอริทึมในการปิ้งลูกชิ้น',
+			thpub:'การออกแบบและวิเคราะห์อัลกอริทึมในการปิ้งลูกชิ้น',
+			intpub:'Design and Analysis of Algorithm in Grilling LookChin'
+
 		});
 
 	});
+	app.get('/mythesis', function(req, res) {
+		res.render('client/mythesis.ejs'); // load the index.ejs file
+	});
+
+
 };
 
 // route middleware to make sure

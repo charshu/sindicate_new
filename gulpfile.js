@@ -8,6 +8,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
 var minifycss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var concatCss = require('gulp-concat-css');
 
 
 gulp.task('sass', function() {
@@ -16,7 +17,7 @@ gulp.task('sass', function() {
         .pipe(postcss([autoprefixer({
             browsers: ['last 2 versions']
         })]))
-        .pipe(rename({suffix: '.min'}))
+        .pipe(concatCss('style.min.css'))
         .pipe(minifycss())
         .pipe(gulp.dest('views/client/style/css-dest'))
         .pipe(livereload());

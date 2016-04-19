@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Node editProfile</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="client/style/css-dest/home.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+</head>
+
+
+<body ng-app="sindicate">
+
+
+    <div class="header">
+        <div class="toptools">
+            <div class="logo">
+                <p>
+                    sindicate <span><i class="fa fa-pie-chart"></i></span>
+                </p>
+            </div>
+            <div class="logout">
+                <p>
+                    <a href="/logout">ออกจากระบบ</a>
+                </p>
+            </div>
+        </div>
+        <div class="brief-profile">
+            <div class="circle-picture" style="background:url('/images/mypic.jpg') center center;background-size:cover;"></div>
+            <div class="desc">
+                <div class="greeting_msg">
+                
+                </div>
+
+                <p>วชิรกรณ์ รังสิกวานิช {{1+1}}</p>
+                <div class="icontools">
+                    <div class="item">
+                        <a href="/editProfile">
+                            <p class="rightborder"> <span><i class="fa fa-user" aria-hidden="true"></i></span> ข้อมูลส่วนตัว</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#">
+                            <p><span><i class="fa fa-file-image-o" aria-hidden="true"></i></span> อัพโหลดรูปโปรไฟล์</p>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="desc">
+                <p class="thx"> <span><i class="fa fa-line-chart"></i></span> ขอบคุณที่ให้ข้อมูลกับเราเพื่อนำไปพัฒนาปรับปรุงคุณภาพนิสิตต่อไป
+                </p>
+
+                <div class="progress">
+
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                        70%
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="layout">
+        <div class="menuwrapper">
+            <div class="menu">
+                <div class="menuname">
+                    ข้อมูลส่วนตัว
+                </div>
+
+                <ul>
+                    <li>ผลวิเคราะห์ข้อมูลทางการศึกษา</li>
+                    <li>ข้อมูลวิทยานิพนธ์</li>
+
+                </ul>
+            </div>
+            <div class="menu">
+                <div class="menuname">
+                    สถิติของภาควิชา
+                </div>
+
+
+                <ul>
+                    <li>จำนวนนิสิต</li>
+                    <li>ภาพรวมทางการศึกษา</li>
+                    <li>ภาพรวมวิทยานิพนธ์</li>
+                    <li>อันดับความสนใจของนิสิต</li>
+                    <li>ผลสำรวจการฝึกงาน</li>
+                    <li>ผลสำรวจการศึกษาต่อ</li>
+                    <li>ผลสำรวจการประกอบอาชีพ</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contentwrapper" ng-controller="MainController">
+            <div class="content" ng-show="isVisible">
+                {{ "angular test" }}
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+    </div>
+
+
+    <script src="script/app.js"></script>
+</body>
+
+</html>

@@ -1,18 +1,11 @@
-# Complete Guide to Node Authentication with MySQL
+วิธีลง
 
-Code for the entire scotch.io tutorial series: Complete Guide to Node Authentication with MongoDB
+1. clone ไปไว้ที่ในคอมตัวเอง
+2. cd ไปที่ folder นั้น
+3. สั่ง npm bower install -g
+4. สั่ง npm install
+5. สั่ง bower install
+6. สั่ง gulp
 
-Current version database is ported to MySQL
-
-We will be using Passport to authenticate users locally, 
-
-## Instructions
-
-If you would like to download the code and try it for yourself:
-
-1. Clone the repo: `git clone git@github.com:manjeshpv/node-express-passport-mysql.git`
-1. Install packages: `npm install`
-1. Edit the database configuration: `config/database.js`
-1. Create the database schema: `node scripts/create_database.js`
-1. Launch: `node server.js`
-1. Visit in your browser at: `http://localhost:8080`
+โครงสร้าง
+ ไฟล์ style ใช้ scss ถ้าต้องการสร้างเพิ่มไฟล์ใหม่ได้เลย แต่เวลาเรียกใช้ให้ใช้ path ของ css-dist ที่คอมไพล์และบีบอัดแล้ว

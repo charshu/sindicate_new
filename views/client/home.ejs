@@ -4,100 +4,368 @@
     <!-- load bootstrap css -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <!-- load fontawesome -->
-    <link rel="stylesheet" href="client/style/css-dest/home.min.css">
+    <link rel="stylesheet" href="client/style/css-dest/style.min.css">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#datepicker").datepicker();
+            //  $('#test2').attr("disabled","true");
+            $('#edit_btn').click(function() {
+                $("#thesisdata").find("input").removeAttr("disabled", "true");
+                $("#thesisdata").find("textarea").removeAttr("disabled", "true");
+                //  alert("click");
+            });
 
+
+        });
+    </script>
 </head>
 
-<div class="header">
-    <div class="toptools">
-        <div class="logo">
-          <p>
-            sindicate  <span><i class="fa fa-pie-chart"></i></span>
-          </p>
-        </div>
-        <div class="logout">
-            <p>
-              ออกจากระบบ
-            </p>
-        </div>
-    </div>
-    <div class="brief-profile">
-        <div class="circle-picture" style="background:url('/images/mypic.jpg') center center;background-size:cover;"></div>
-        <div class="desc">
-            <div class="greeting_msg">
-                <%=  msg %>
-            </div>
 
-            <p>วชิรกรณ์ รังสิกวานิช</p>
-            <div class="icontools">
-                <div class="item">
-                    <p class="rightborder"> <span><i class="fa fa-user" aria-hidden="true"></i></span> แก้ไขข้อมูลส่วนตัว์</p>
-                </div>
-                <div class="item">
-                    <p><span><i class="fa fa-file-image-o" aria-hidden="true"></i></span> อัพโหลดรูปโปรไฟล์</p>
+<body ng-app="sindicate">
+
+
+    <div class="header">
+        <div class="toptools">
+            <div class="logo">
+                <p>
+                    sindicate <span><i class="fa fa-pie-chart"></i></span>
+                </p>
+            </div>
+            <div class="logout">
+                <p>
+                    <a href="/logout">ออกจากระบบ</a>
+                </p>
+            </div>
+        </div>
+        <div class="brief-profile">
+            <div class="circle-picture" style="background:url('/images/mypic.jpg') center center;background-size:cover;"></div>
+            <div class="desc">
+                <div class="greeting_msg">
+                    <%=  msg %>
                 </div>
 
+                <p>วชิรกรณ์ รังสิกวานิช</p>
+                <div class="icontools">
+                    <div class="item">
+                        <a href="/editProfile">
+                            <p class="rightborder"> <span><i class="fa fa-user" aria-hidden="true"></i></span> ข้อมูลส่วนตัว</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#">
+                            <p><span><i class="fa fa-file-image-o" aria-hidden="true"></i></span> อัพโหลดรูปโปรไฟล์</p>
+                        </a>
+                    </div>
+
+                </div>
+
             </div>
+            <div class="desc">
+                <p class="thx"> <span><i class="fa fa-line-chart"></i></span> ขอบคุณที่ให้ข้อมูลกับเราเพื่อนำไปพัฒนาปรับปรุงคุณภาพนิสิตต่อไป
+                </p>
 
-        </div>
-        <div class="desc">
-            <p class="thx"> <span><i class="fa fa-line-chart"></i></span> ขอบคุณที่ให้ข้อมูลกับเราเพื่อนำไปพัฒนาปรับปรุงคุณภาพนิสิตต่อไป
-            </p>
+                <div class="progress">
 
-            <div class="progress">
-
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                    70%
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                        70%
+                    </div>
                 </div>
             </div>
+
         </div>
+
 
     </div>
 
+    <div class="layout" ng-controller="MainController">
+        <div class="menuwrapper" >
+            <div class="menu">
+                <div class="menuname">
+                    ข้อมูลส่วนตัว
+                </div>
 
-</div>
+                <ul>
+                    <li ng-click='isVisible = "manageprofile"'>ข้อมูลส่วนตัว</li>
+                    <li>ประวัติการลงทะเบียนเรียน</li>
+                    <li>ผลวิเคราะห์ข้อมูลทางการศึกษา</li>
+                    <li ng-click='isVisible = "thesis"'>ข้อมูลวิทยานิพนธ์</li>
 
-<div class="layout">
-    <div class="menuwrapper">
-        <div class="menu">
-            <div class="menuname">
-                ข้อมูลส่วนตัว
+                </ul>
+            </div>
+            <div class="menu">
+                <div class="menuname">
+                    สถิติของภาควิชา
+                </div>
+
+
+                <ul>
+                    <li>จำนวนนิสิต</li>
+                    <li>ภาพรวมทางการศึกษา</li>
+                    <li>ภาพรวมวิทยานิพนธ์</li>
+                    <li>อันดับความสนใจของนิสิต</li>
+                    <li>ผลสำรวจการฝึกงาน</li>
+                    <li>ผลสำรวจการศึกษาต่อ</li>
+                    <li>ผลสำรวจการประกอบอาชีพ</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contentwrapper">
+            <!-- myThesis -->
+            <div class="content" ng-show='isVisible === "thesis"'>
+                <div class="alert alert-warning">
+                    <strong>แจ้งเตือน!</strong> นิสิตปริญญาตรีไม่สามารถแก้ไขข้อมูลวิทยานิพนธ์ได้.
+                </div>
+                <div class="content_head">ข้อมูลวิทยานิพนธ์ของคุณ<span><i class="fa fa-print"></i></span></div>
+                <div id="thesis">
+                    <form id="thesisdata">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">ชื่อวิทยานิพนธ์(ไทย)</label>
+                            <input type="text" class="form-control" id="thesisTH" placeholder="" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">ชื่อวิทยานิพนธ์(อังกฤษ)</label>
+                            <input type="text" class="form-control" id="thesisEN" placeholder="" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">อาจารย์ที่ปรึกษา</label>
+                            <input type="text" class="form-control" id="advisor" placeholder="" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">อาจารย์ที่ปรึกษาร่วม</label>
+                            <input type="text" class="form-control" id="coadvisor" placeholder="" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">ทุนที่ได้รับ</label>
+                            <textarea class="form-control" id="scholarship" rows="3" placeholder="" disabled></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">รางวัลที่ได้รับ</label>
+                            <textarea class="form-control" id="award" rows="3" placeholder="" disabled></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">ผลงานที่เข้าร่วมประชุมวิชาการในประเทศ</label>
+                            <textarea class="form-control" id="thconference" rows="3" placeholder="" disabled></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">ผลงานที่เข้าร่วมประชุมวิชาการต่างประเทศ</label>
+                            <textarea class="form-control" id="intconference" rows="3" placeholder="" disabled></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">ผลงานที่ได้ตีพิมพ์ในประเทศ</label>
+                            <textarea class="form-control" id="thpub" rows="3" placeholder="" disabled></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">ผลงานที่ได้ตีพิมพ์ต่างประเทศ</label>
+                            <textarea class="form-control" id="intpub" rows="3" placeholder="" disabled></textarea>
+
+                        </div>
+                        <div class="form-group last">
+                            <button id="edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
+                            <button type="submit" class="btn btn-default">ยืนยัน</button>
+                        </div>
+
+                    </form>
+
+                </div>
             </div>
 
-            <ul>
-                <li>ผลวิเคราะห์ข้อมูลทางการศึกษา</li>
-                <li>ข้อมูลวิทยานิพนธ์</li>
-                <li>menu1</li>
-                <li>menu1</li>
-                <li>menu1</li>
-            </ul>
-        </div>
-        <div class="menu">
-            <div class="menuname">
-                สถิติของภาควิชา
+
+            <div class="content" ng-show='isVisible === "thesis"'>
+                <div class="content_head">แฟ้มเก็บวิทยานิพนธ์<span><i class="fa fa-print"></i></span></div>
+                <div id="thesis">
+
+
+                </div>
             </div>
+            <!-- end myThesis -->
+
+            <!-- manage profile -->
+            <div class="content" ng-show='isVisible === "manageprofile"'>
+                <div class="content_head">จัดการข้อมูลส่วนตัว<span><i class="fa fa-print"></i></span></div>
+                <div id="manageprofile">
+                    <form id="profiledata">
 
 
-            <ul>
-                <li>จำนวนนิสิต</li>
-                <li>ภาพรวมทางการศึกษา</li>
-                <li>ภาพรวมวิทยานิพนธ์</li>
-                <li>อันดับความสนใจของนิสิต</li>
-                <li>ผลสำรวจการฝึกงาน</li>
-                <li>ผลสำรวจการศึกษาต่อ</li>
-                <li>ผลสำรวจการประกอบอาชีพ</li>
-            </ul>
+
+                        <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ข้อมูลทั่วไป</label>
+                        <hr />
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" style="font-size:20px;">รหัสนิสิต : 5630520921</label>
+
+
+                        </div>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">ชื่อ</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="วชิรกรณ์">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">นามสกุล</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="รังสิกวานิช">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">เบอร์โทร</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="0882391875">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">เพศ</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ชาย">
+
+                        </div>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">คณะ</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="วิศวกรรมศาสตร์">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">ภาค</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="วิศวกรรมคอมพิวเตอร์">
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" style="width:300px;">
+                            <label for="exampleInputEmail1">วันเกิด</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="26-10-2536">
+                        </div>
+                        <!-- addr main -->
+                        <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ตามทะเบียนบ้าน</label>
+                        <hr />
+
+                        <div class="form-inline">
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">เลขที่</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">หมู่</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">ถนน</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">แขวง/ตำบล</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">เขต/อำเภอ</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">จังหวัด/เมือง</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">รหัสไปรษณีย์</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">ประเทศ</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                            </div>
+                        </div>
+                        <!-- addr now -->
+                        <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ปัจจุบัน</label>
+                        <hr />
+
+                        <div class="form-inline">
+
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">เลขที่</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">หมู่</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">ถนน</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">แขวง/ตำบล</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group" style="">
+                                <label for="exampleInputEmail1">เขต/อำเภอ</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">จังหวัด/เมือง</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">รหัสไปรษณีย์</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">ประเทศ</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+
+
+                <div class="content" ng-show='isVisible === "manageprofile"'>
+                    <div class="content_head">สถานที่ฝึกงาน<span><i class="fa fa-print"></i></span></div>
+
+                </div>
+
+                <div class="content" ng-show='isVisible === "manageprofile"'>
+                    <div class="content_head">สถานที่ฝึกงาน<span><i class="fa fa-print"></i></span></div>
+
+                </div>
+            </div>
+            <!-- end manage profile -->
         </div>
     </div>
 
-    <div class="contentwrapper">
-        <div class="content">
+    <div class="footer">
 
-        </div>
     </div>
-</div>
 
-<div class="footer">
 
-</div>
+    <script src="script/app.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            // thesis config
+            $("#thesisTH").val("<%=thesisTH%>");
+            $("#thesisEN").val("<%=thesisEN%>");
+            $("#advisor").val("<%=advisor%>");
+            $("#coadvisor").val("<%=coadvisor%>");
+            $("#scholarship").val("<%=scholarship%>");
+            $("#award").val("<%=award%>");
+            $("#thconference").val("<%=thconference%>");
+            $("#intconference").val("<%=intconference%>");
+            $("#thpub").val("<%=thpub%>");
+            $("#intpub").val("<%=intpub%>");
+
+        });
+    </script>
+</body>

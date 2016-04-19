@@ -1,7 +1,10 @@
 $main_blue: #448ccb;
 $dark_gray: lighten(black, 25);
-$blood : #8A0708;
-$bee : #FFA500;
+$blood: #8A0708;
+$bee: #FFA500;
+$light_grey : lighten(grey,45);
+
+
 .header {
     display: flex;
     margin: 0;
@@ -10,38 +13,34 @@ $bee : #FFA500;
     background-color: $main_blue;
     .toptools {
         position: absolute;
-
         top: 0;
         height: 50px;
         width: 100%;
         background-color: lighten(grey, 40);
         box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.2);
-
-        .logo{
-          position: relative;
-          text-align: center;
-          line-height: 50px;
-          margin-left: 10px;
-          font-size: 20px;
-          width:  150px;
-          height: 50px;
-          color: $dark_gray;
-
-          i{
-            position: absolute;
-            top:10px;
-            right: 0px;
-            color: $bee;
-            font-size: 30px;
-          }
+        .logo {
+            position: relative;
+            text-align: center;
+            line-height: 50px;
+            margin-left: 10px;
+            font-size: 20px;
+            width: 150px;
+            height: 50px;
+            color: $dark_gray;
+            i {
+                position: absolute;
+                top: 10px;
+                right: 0;
+                color: $bee;
+                font-size: 30px;
+            }
         }
-        .logout{
-          position: absolute;
-          top:0px;
-          height: 50px;
-          line-height: 50px;
-          right: 30px;
-
+        .logout {
+            position: absolute;
+            top: 0;
+            height: 50px;
+            line-height: 50px;
+            right: 30px;
         }
     }
     .brief-profile {
@@ -66,10 +65,10 @@ $bee : #FFA500;
             font-family: "Sukhumvit Set",sans-serif;
             //font-size: 30px;
             color: white;
-            .greeting_msg{
-              font-size: 30px;
-              font-weight: bold;
-              font-style: italic;
+            .greeting_msg {
+                font-size: 30px;
+                font-weight: bold;
+                font-style: italic;
             }
             p {
                 font-size: 25px;
@@ -85,37 +84,37 @@ $bee : #FFA500;
                     display: flex;
                     flex-direction: row;
                     align-items: baseline;
-                    color: white;
-                    i {
-                        font-size: 15px;
-                    }
-                    p {
-                        font-size: 15px;
-                        padding-right: 10px;
-                        margin-right: 10px;
-                        &.rightborder {
-                            border-right: 1px solid white;
+                    a {
+                        //  text-decoration: none;
+                        color: white;
+                        i {
+                            font-size: 15px;
+                        }
+                        p {
+                            font-size: 15px;
+                            padding-right: 10px;
+                            margin-right: 10px;
+                            &.rightborder {
+                                border-right: 1px solid white;
+                            }
                         }
                     }
                 }
                 .item:hover {
-                    color: darken(white, 20);
-                    p &.rightborder {
-                        color: white;
+                    a {
+                        //  text-decoration: none;
+                        color: darken(white, 20);
                     }
                 }
             }
-            p.thx{
-              font-size: 15px;
-              width: 80%;
+            p.thx {
+                font-size: 15px;
+                width: 80%;
             }
-            .progress{
-              width: 80%;
-
-
+            .progress {
+                width: 80%;
             }
         }
-
     }
 }
 // end header
@@ -125,16 +124,17 @@ $bee : #FFA500;
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    height: 600px;
+
     margin: 0;
-    background-color: lighten(grey,45);
+    background-color: $light_grey;
+
     .menuwrapper {
-      display: flex;
-      flex-direction: column;
-      margin-left: 40px;
-      width: 40%;
-      min-width: 200px;
-      max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 40px;
+        width: 40%;
+        min-width: 200px;
+        max-width: 300px;
         .menu {
             margin-top: 40px;
             background-color: white;
@@ -150,34 +150,53 @@ $bee : #FFA500;
                 height: 40px;
                 border-bottom: 3px solid lighten(grey,40);
             }
-            li{
-              display: block;
-              width: auto;
-              height: auto;
-
-              margin: 5px;
-              list-style: none;
+            li {
+                display: block;
+                width: auto;
+                height: auto;
+                margin: 5px;
+                list-style: none;
             }
-            li:hover{
-              color: $main_blue;
-              background-color: rgba(0, 0, 0, 0.1);
+            li:hover {
+                color: $main_blue;
+                background-color: rgba(0, 0, 0, 0.1);
             }
         }
     }
     .contentwrapper {
-        margin: 0px;
+        margin: 0;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        width: 60%;
+        width: 70%;
+        height: auto;
         padding: 40px;
-
-          .content{
+        .content {
             background-color: white;
             width: 100%;
-            height: 300px;
-              box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
-          }
+            box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            margin-top: 30px;
+
+            .content_head {
+                color: $main_blue;
+                font-size: 25px;
+                font-weight: bold;
+                height: 40px;
+                border-bottom: 3px solid lighten(grey,40);
+                span {
+                    font-size: 20px;
+                    color: $dark_gray;
+                    float: right;
+                }
+            }
+            #thesis {
+                // css for thesis content
+                form{
+                  padding: 20px 20px 20px 20px;
+                }
+            }
+        }
     }
 }
