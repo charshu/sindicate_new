@@ -1,4 +1,6 @@
 <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Node editProfile</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- load bootstrap css -->
@@ -8,22 +10,16 @@
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <!-- jquery-ui -->
+    <link rel="stylesheet" href="bower_components/jquery-ui/jquery-ui.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $("#datepicker").datepicker();
-            //  $('#test2').attr("disabled","true");
-            $('#edit_btn').click(function() {
-                $("#thesisdata").find("input").removeAttr("disabled", "true");
-                $("#thesisdata").find("textarea").removeAttr("disabled", "true");
-                //  alert("click");
-            });
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <!-- tag-editor -->
+    <script src="bower_components/jquery-tag-editor/jquery.tag-editor.js"></script>
+    <link rel="stylesheet" href="bower_components/jquery-tag-editor/jquery.tag-editor.css">
 
 
-        });
-    </script>
+
 </head>
 
 
@@ -51,6 +47,7 @@
                 </div>
 
                 <p>วชิรกรณ์ รังสิกวานิช</p>
+              
                 <div class="icontools">
                     <div class="item">
                         <a href="/editProfile">
@@ -84,17 +81,20 @@
     </div>
 
     <div class="layout" ng-controller="MainController">
-        <div class="menuwrapper" >
+        <div class="menuwrapper">
             <div class="menu">
                 <div class="menuname">
                     ข้อมูลส่วนตัว
                 </div>
 
                 <ul>
-                    <li ng-click='isVisible = "manageprofile"'>ข้อมูลส่วนตัว</li>
-                    <li>ประวัติการลงทะเบียนเรียน</li>
-                    <li>ผลวิเคราะห์ข้อมูลทางการศึกษา</li>
-                    <li ng-click='isVisible = "thesis"'>ข้อมูลวิทยานิพนธ์</li>
+                    <li  ng-click='isVisible = "manageProfile"'><a id="manageprofile" href="#">ข้อมูลส่วนตัว</a></li>
+                    <li ng-click='isVisible = "manageEdu"'><a href="#">ข้อมูลการศึกษา</a></li>
+                    <li ng-click='isVisible = "manageThesis"'><a href="#">ข้อมูลวิทยานิพนธ์</a></li>
+                    <li ng-click='isVisible = "manageinterested"'><a href="#">ข้อมูลความถนัด/ความสนใจ</a></li>
+                    <li ng-click='isVisible = "manageInternship"'><a href="#">ข้อมูลการฝึกงาน</a></li>
+                    <li ng-click='isVisible = "manageFurtherEdu"'><a href="#">ข้อมูลการศึกษาต่อ</a></li>
+
 
                 </ul>
             </div>
@@ -117,231 +117,356 @@
         </div>
 
         <div class="contentwrapper">
+
+            <!-- manage profile -->
+            <div class="content" ng-show='isVisible === "manageProfile"'>
+                <div class="content_head">จัดการข้อมูลส่วนตัว<span><i class="fa fa-print"></i></span></div>
+                <form id="profiledata">
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="x">รหัสนิสิต</label>
+                            <input type="text" class="form-control" id="stuid" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label for="x">ชื่อ</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="x">นามสกุล</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="x">เบอร์โทร</label>
+                        <input type="text" class="form-control" id="tel" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="x">เพศ</label>
+                        <input type="text" class="form-control" id="gender" placeholder="">
+
+                    </div>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label for="x">คณะ</label>
+                            <input type="text" class="form-control" id="faculty" placeholder="">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="x">ภาค</label>
+                            <input type="text" class="form-control" id="department" placeholder="">
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" style="width:300px;">
+                        <label for="x">วันเกิด</label>
+                        <input type="text" class="form-control" id="birthdate" placeholder="">
+                    </div>
+                    <!-- addr main -->
+                    <label for="x" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ตามทะเบียนบ้าน</label>
+                    <hr />
+
+                    <div class="form-inline">
+                        <div class="form-group" style="">
+                            <label for="x">เลขที่</label>
+                            <input type="text" class="form-control" id="f_address" placeholder="">
+                        </div>
+                        <div class="form-group" style="">
+                            <label for="x">หมู่</label>
+                            <input type="text" class="form-control" id="f_moo" placeholder="">
+                        </div>
+                        <div class="form-group" style="">
+                            <label for="x">ถนน</label>
+                            <input type="text" class="form-control" id="f_road" placeholder="">
+                        </div>
+                        <div class="form-group" style="">
+                            <label for="x">แขวง/ตำบล</label>
+                            <input type="text" class="form-control" id="f_subDistrict" placeholder="">
+                        </div>
+                        <div class="form-group" style="">
+                            <label for="x">เขต/อำเภอ</label>
+                            <input type="text" class="form-control" id="f_district" placeholder="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="x">จังหวัด/เมือง</label>
+                            <input type="text" class="form-control" id="f_city" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="x">รหัสไปรษณีย์</label>
+                            <input type="text" class="form-control" id="f_postcode" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="x">ประเทศ</label>
+                            <input type="text" class="form-control" id="f_country" placeholder="">
+                        </div>
+                    </div>
+                    <!-- addr now -->
+                    <label for="x" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ปัจจุบัน</label>
+                    <hr />
+
+                    <div class="form-inline">
+
+                        <div class="form-group" style="">
+                            <label for="x">เลขที่</label>
+                            <input type="text" class="form-control" id="s_address" placeholder="">
+                        </div>
+                        <div class="form-group" style="">
+                            <label for="x">หมู่</label>
+                            <input type="text" class="form-control" id="s_moo" placeholder="">
+                        </div>
+                        <div class="form-group" style="">
+                            <label for="x">ถนน</label>
+                            <input type="text" class="form-control" id="s_road" placeholder="">
+                        </div>
+                        <div class="form-group" style="">
+                            <label for="x">แขวง/ตำบล</label>
+                            <input type="text" class="form-control" id="s_subDistrict" placeholder="">
+                        </div>
+                        <div class="form-group" style="">
+                            <label for="x">เขต/อำเภอ</label>
+                            <input type="text" class="form-control" id="s_district" placeholder="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="x">จังหวัด/เมือง</label>
+                            <input type="text" class="form-control" id="s_city" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="x">รหัสไปรษณีย์</label>
+                            <input type="text" class="form-control" id="s_postcode" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="x">ประเทศ</label>
+                            <input type="text" class="form-control" id="s_country" placeholder="">
+                        </div>
+                        <div id="map"></div>
+                    </div>
+                    <div class="form-group last">
+                        <button id="manageProfile_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
+                        <button id="manageProfile_submit" type="submit" class="btn btn-default">ยืนยัน</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end manage profile -->
+
+
+            <div class="content" ng-show='isVisible === "manageEdu"'>
+                <div class="content_head">ข้อมูลทางการศึกษา<span><i class="fa fa-print"></i></span></div>
+                <form class="" action="" method="post">
+
+
+                    <label for="x" style="font-size:20px;">ป.ตรี</label>
+                    <div class="tab">
+
+                        <div id="eduGroup" class="form-inline">
+
+                            <div class="form-group">
+                                <label for="x">ชื่อสถานศึกษา</label>
+                                <input type="text" class="form-control" id="b_uniName" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">วุฒิการศึกษา</label>
+                                <input type="text" class="form-control" id="b_degree" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">สาขาวิชา</label>
+                                <input type="text" class="form-control" id="b_branch" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">ปีที่สำเร็จ</label>
+                                <input type="text" class="form-control" id="b_graduateYear" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">เกรดเฉลี่ย</label>
+                                <input type="text" class="form-control" id="b_gpa" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <label for="x" style="font-size:20px;">ป.โท</label>
+                    <div class="tab">
+
+                        <div id="eduGroup" class="form-inline">
+
+                            <div class="form-group">
+                                <label for="x">ชื่อสถานศึกษา</label>
+                                <input type="text" class="form-control" id="m_uniName" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">วุฒิการศึกษา</label>
+                                <input type="text" class="form-control" id="m_degree" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">สาขาวิชา</label>
+                                <input type="text" class="form-control" id="m_branch" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">ปีที่สำเร็จ</label>
+                                <input type="text" class="form-control" id="m_graduateYear" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">เกรดเฉลี่ย</label>
+                                <input type="text" class="form-control" id="m_gpa" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <label for="x" style="font-size:20px;">ป.เอก</label>
+                    <div class="tab">
+
+                        <div id="eduGroup" class="form-inline">
+
+                            <div class="form-group">
+                                <label for="x">ชื่อสถานศึกษา</label>
+                                <input type="text" class="form-control" id="d_uniName" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">วุฒิการศึกษา</label>
+                                <input type="text" class="form-control" id="d_degree" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">สาขาวิชา</label>
+                                <input type="text" class="form-control" id="d_branch" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">ปีที่สำเร็จ</label>
+                                <input type="text" class="form-control" id="d_graduateYear" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">เกรดเฉลี่ย</label>
+                                <input type="text" class="form-control" id="d_gpa" placeholder="">
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr/>
+                    <div class="form-group" style="width:500px;">
+                        <label for="x">สถานที่ทำงาน</label>
+                        <input type="text" class="form-control" id="x" placeholder="">
+                    </div>
+                    <div class="form-group" style="width:500px;">
+                        <label for="x">หลักสูตรที่ศึกษา</label>
+                        <input type="text" class="form-control" id="x" placeholder="">
+                    </div>
+                    <div class="form-group" style="width:500px;">
+                        <label for="x">สถานภาพแรกเข้า</label>
+                        <select class="form-control">
+                            <option value="normal">สามัญ</option>
+                            <option value="try">ทดลองศึกษา</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group" style="width:500px;">
+                        <label for="x">คะแนนสอบภาษาอังกฤษ</label>
+                        <input type="text" class="form-control" id="x" placeholder="">
+                    </div>
+                    <div class="form-group last">
+                        <button id="manageEdu_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
+                        <button id="manageEdu_submit" type="submit" class="btn btn-default">ยืนยัน</button>
+                    </div>
+
+                </form>
+            </div>
+            <!-- end manage edu -->
+
             <!-- myThesis -->
-            <div class="content" ng-show='isVisible === "thesis"'>
+            <div class="content" ng-show='isVisible === "manageThesis"'>
                 <div class="alert alert-warning">
                     <strong>แจ้งเตือน!</strong> นิสิตปริญญาตรีไม่สามารถแก้ไขข้อมูลวิทยานิพนธ์ได้.
                 </div>
                 <div class="content_head">ข้อมูลวิทยานิพนธ์ของคุณ<span><i class="fa fa-print"></i></span></div>
-                <div id="thesis">
-                    <form id="thesisdata">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">ชื่อวิทยานิพนธ์(ไทย)</label>
-                            <input type="text" class="form-control" id="thesisTH" placeholder="" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">ชื่อวิทยานิพนธ์(อังกฤษ)</label>
-                            <input type="text" class="form-control" id="thesisEN" placeholder="" disabled>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">อาจารย์ที่ปรึกษา</label>
-                            <input type="text" class="form-control" id="advisor" placeholder="" disabled>
-                        </div>
+                <form id="thesisdata">
+                    <div class="form-group">
+                        <label for="x">ชื่อวิทยานิพนธ์(ไทย)</label>
+                        <input type="text" class="form-control" id="thesisTH" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="x">ชื่อวิทยานิพนธ์(อังกฤษ)</label>
+                        <input type="text" class="form-control" id="thesisEN" placeholder="">
+                    </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">อาจารย์ที่ปรึกษาร่วม</label>
-                            <input type="text" class="form-control" id="coadvisor" placeholder="" disabled>
-                        </div>
+                    <div class="form-group">
+                        <label for="x">อาจารย์ที่ปรึกษา</label>
+                        <input type="text" class="form-control" id="advisor" placeholder="">
+                    </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">ทุนที่ได้รับ</label>
-                            <textarea class="form-control" id="scholarship" rows="3" placeholder="" disabled></textarea>
+                    <div class="form-group">
+                        <label for="x">อาจารย์ที่ปรึกษาร่วม</label>
+                        <input type="text" class="form-control" id="coadvisor" placeholder="">
+                    </div>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">รางวัลที่ได้รับ</label>
-                            <textarea class="form-control" id="award" rows="3" placeholder="" disabled></textarea>
+                    <div class="form-group">
+                        <label for="x">ทุนที่ได้รับ</label>
+                        <textarea class="form-control" id="scholarship" rows="3" placeholder=""></textarea>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">ผลงานที่เข้าร่วมประชุมวิชาการในประเทศ</label>
-                            <textarea class="form-control" id="thconference" rows="3" placeholder="" disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="x">รางวัลที่ได้รับ</label>
+                        <textarea class="form-control" id="award" rows="3" placeholder=""></textarea>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">ผลงานที่เข้าร่วมประชุมวิชาการต่างประเทศ</label>
-                            <textarea class="form-control" id="intconference" rows="3" placeholder="" disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="x">ผลงานที่เข้าร่วมประชุมวิชาการในประเทศ</label>
+                        <textarea class="form-control" id="thconference" rows="3" placeholder=""></textarea>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">ผลงานที่ได้ตีพิมพ์ในประเทศ</label>
-                            <textarea class="form-control" id="thpub" rows="3" placeholder="" disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="x">ผลงานที่เข้าร่วมประชุมวิชาการต่างประเทศ</label>
+                        <textarea class="form-control" id="intconference" rows="3" placeholder=""></textarea>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">ผลงานที่ได้ตีพิมพ์ต่างประเทศ</label>
-                            <textarea class="form-control" id="intpub" rows="3" placeholder="" disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="x">ผลงานที่ได้ตีพิมพ์ในประเทศ</label>
+                        <textarea class="form-control" id="thpub" rows="3" placeholder=""></textarea>
 
-                        </div>
-                        <div class="form-group last">
-                            <button id="edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                            <button type="submit" class="btn btn-default">ยืนยัน</button>
-                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="x">ผลงานที่ได้ตีพิมพ์ต่างประเทศ</label>
+                        <textarea class="form-control" id="intpub" rows="3" placeholder=""></textarea>
 
-                    </form>
+                    </div>
+                    <div class="form-group last">
+                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
+                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
+                    </div>
 
-                </div>
+                </form>
+
+
             </div>
 
 
-            <div class="content" ng-show='isVisible === "thesis"'>
+            <div class="content" ng-show='isVisible === "manageThesis"'>
                 <div class="content_head">แฟ้มเก็บวิทยานิพนธ์<span><i class="fa fa-print"></i></span></div>
-                <div id="thesis">
+                <button class="file-upload">
+                    <input type="file" class="file-input">Choose File</button>
 
-
-                </div>
             </div>
             <!-- end myThesis -->
 
-            <!-- manage profile -->
-            <div class="content" ng-show='isVisible === "manageprofile"'>
-                <div class="content_head">จัดการข้อมูลส่วนตัว<span><i class="fa fa-print"></i></span></div>
-                <div id="manageprofile">
-                    <form id="profiledata">
-
-
-
-                        <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ข้อมูลทั่วไป</label>
-                        <hr />
-                        <div class="form-group">
-                            <label for="exampleInputEmail1" style="font-size:20px;">รหัสนิสิต : 5630520921</label>
-
-
-                        </div>
-                        <div class="form-inline">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">ชื่อ</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="วชิรกรณ์">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">นามสกุล</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="รังสิกวานิช">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">เบอร์โทร</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="0882391875">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">เพศ</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ชาย">
-
-                        </div>
-                        <div class="form-inline">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">คณะ</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="วิศวกรรมศาสตร์">
-
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">ภาค</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="วิศวกรรมคอมพิวเตอร์">
-
-                            </div>
-                        </div>
-
-
-                        <div class="form-group" style="width:300px;">
-                            <label for="exampleInputEmail1">วันเกิด</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="26-10-2536">
-                        </div>
-                        <!-- addr main -->
-                        <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ตามทะเบียนบ้าน</label>
-                        <hr />
-
-                        <div class="form-inline">
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">เลขที่</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">หมู่</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">ถนน</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">แขวง/ตำบล</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">เขต/อำเภอ</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">จังหวัด/เมือง</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">รหัสไปรษณีย์</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">ประเทศ</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                        </div>
-                        <!-- addr now -->
-                        <label for="exampleInputEmail1" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ปัจจุบัน</label>
-                        <hr />
-
-                        <div class="form-inline">
-
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">เลขที่</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">หมู่</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">ถนน</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">แขวง/ตำบล</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-                            <div class="form-group" style="">
-                                <label for="exampleInputEmail1">เขต/อำเภอ</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">จังหวัด/เมือง</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">รหัสไปรษณีย์</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">ประเทศ</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-
-
-
-                <div class="content" ng-show='isVisible === "manageprofile"'>
-                    <div class="content_head">สถานที่ฝึกงาน<span><i class="fa fa-print"></i></span></div>
-
-                </div>
-
-                <div class="content" ng-show='isVisible === "manageprofile"'>
-                    <div class="content_head">สถานที่ฝึกงาน<span><i class="fa fa-print"></i></span></div>
-
-                </div>
+            <!-- manage internship -->
+            <div class="content" ng-show='isVisible === "manageinterested"'>
+                <div class="content_head">ข้อมูลความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
+                <textarea id="interested">jQuery,tags,autocomplete</textarea>
             </div>
-            <!-- end manage profile -->
+
+            <div class="content" ng-show='isVisible === "manageInternship"'>
+                <div class="content_head">ข้อมูลการฝึกงาน<span><i class="fa fa-print"></i></span></div>
+
+            </div>
+            <!-- manage further edu -->
+            <div class="content" ng-show='isVisible === "manageFurtherEdu"'>
+                <div class="content_head">ข้อมูลการศึกษาต่อ<span><i class="fa fa-print"></i></span></div>
+
+            </div>
+
+
         </div>
     </div>
 
@@ -350,22 +475,98 @@
     </div>
 
 
-    <script src="script/app.js"></script>
-    <script type="text/javascript">
-        $(function() {
-
-            // thesis config
-            $("#thesisTH").val("<%=thesisTH%>");
-            $("#thesisEN").val("<%=thesisEN%>");
-            $("#advisor").val("<%=advisor%>");
-            $("#coadvisor").val("<%=coadvisor%>");
-            $("#scholarship").val("<%=scholarship%>");
-            $("#award").val("<%=award%>");
-            $("#thconference").val("<%=thconference%>");
-            $("#intconference").val("<%=intconference%>");
-            $("#thpub").val("<%=thpub%>");
-            $("#intpub").val("<%=intpub%>");
-
-        });
-    </script>
 </body>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXhWzOAhkZp0VltRHFhwlrwOawGHP02nk&callback=initMap" async defer></script>
+<script src="script/app.js"></script>
+
+<script type="text/javascript">
+    var map;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 13.788399,
+                lng: 100.544284
+            },
+            zoom: 10
+        });
+        $(window).resize(function() {
+            google.maps.event.trigger(map, 'resize');
+        });
+
+    }
+
+    $(document).ready(function() {
+        $("body").find("input").attr("disabled", "true");
+        $("body").find("textarea").attr("disabled", "true");
+
+
+        google.maps.event.trigger(map, 'resize');
+
+    });
+
+    $(function() {
+        $('#manageprofile').click(function(){
+            google.maps.event.trigger(map, 'resize');
+            alert('aaa');
+        });
+        $("#datepicker").datepicker();
+        //  $('#test2').attr("disabled","true");
+        $('#thesis_edit_btn').click(function() {
+            $("#thesisdata").find("input").removeAttr("disabled", "true");
+            $("#thesisdata").find("textarea").removeAttr("disabled", "true");
+            //  alert("click");
+        });
+        // with jQuery UI autocomplete
+        $('#interested').tagEditor({
+            autocomplete: {
+                'source': '/url/',
+                minLength: 3
+            }
+        });
+        //manage profile config
+        $("#stuid").val("<%=profile.stuid%>");
+        $("#firstName").val("<%=profile.firstName%>");
+        $("#lastName").val("<%=profile.lastName%>");
+        $("#tel").val("<%=profile.tel%>");
+        $("#gender").val("<%=profile.gender%>");
+        $("#faculty").val("<%=profile.faculty%>");
+        $("#department").val("<%=profile.department%>");
+        $("#birthdate").val("<%=profile.birthdate%>");
+
+        $("#f_address").val("<%=profile.f_address%>");
+        $("#f_moo").val("<%=profile.f_moo%>");
+        $("#f_road").val("<%=profile.f_road%>");
+        $("#f_subDistrict").val("<%=profile.f_subDistrict%>");
+        $("#f_district").val("<%=profile.f_district%>");
+        $("#f_city").val("<%=profile.f_city%>");
+        $("#f_postcode").val("<%=profile.f_postcode%>");
+        $("#f_country").val("<%=profile.f_country%>");
+
+        $("#s_address").val("<%=profile.s_address%>");
+        $("#s_moo").val("<%=profile.s_moo%>");
+        $("#s_road").val("<%=profile.s_road%>");
+        $("#s_subDistrict").val("<%=profile.s_subDistrict%>");
+        $("#s_district").val("<%=profile.s_district%>");
+        $("#s_city").val("<%=profile.s_city%>");
+        $("#s_postcode").val("<%=profile.s_postcode%>");
+        $("#s_country").val("<%=profile.s_country%>");
+
+        // thesis config
+        $("#thesisTH").val("<%=thesis.thesisTH%>");
+        $("#thesisEN").val("<%=thesis.thesisEN%>");
+        $("#advisor").val("<%=thesis.advisor%>");
+        $("#coadvisor").val("<%=thesis.coadvisor%>");
+        $("#scholarship").val("<%=thesis.scholarship%>");
+        $("#award").val("<%=thesis.award%>");
+        $("#thconference").val("<%=thesis.thconference%>");
+        $("#intconference").val("<%=thesis.intconference%>");
+        $("#thpub").val("<%=thesis.thpub%>");
+        $("#intpub").val("<%=thesis.intpub%>");
+
+
+    });
+
+
+</script>
