@@ -89,7 +89,7 @@
                 </div>
 
                 <ul>
-                    <li ng-click='isVisible = "manageProfile"'><a id="manageprofile" href="">ข้อมูลส่วนตัว</a></li>
+                    <li ng-click='isVisible = "manageProfile"'><a href="">ข้อมูลส่วนตัว</a></li>
                     <li ng-click='isVisible = "manageEdu"'><a href="">ข้อมูลการศึกษา</a></li>
                     <li ng-click='isVisible = "manageThesis"'><a href="">ข้อมูลวิทยานิพนธ์</a></li>
                     <li ng-click='isVisible = "manageInterested"'><a href="">ข้อมูลความถนัด/ความสนใจ</a></li>
@@ -109,7 +109,7 @@
                     <li ng-click='isVisible = "numPeople"'><a id="numPeople" href="">จำนวนนิสิตและบุคลากร</a></li>
                     <li ng-click='isVisible = "eduOverview"'><a href="">ภาพรวมทางการศึกษา</a></li>
                     <li ng-click='isVisible = "thesisOverview"'><a href="">ภาพรวมวิทยานิพนธ์</a></li>
-                    <li ng-click='isVisible = "pollInterest"'><a href="">ข้อมูลความถนัด/ความสนใจ</a></li>
+                    <li ng-click='isVisible = "stuInterest"'><a href="">อันดับความสนใจของนิสิต</a></li>
                     <li ng-click='isVisible = "pollInternship"'><a href="">ผลสำรวจการฝึกงาน</a></li>
                     <li ng-click='isVisible = "pollFurtherEdu"'><a href="">ผลสำรวจการศึกษาต่อ</a></li>
                     <li ng-click='isVisible = "pollJob"'><a href="">ผลสำรวจการประกอบอาชีพ</a></li>
@@ -120,7 +120,7 @@
         <div class="contentwrapper">
 
             <!-- manage profile -->
-            <div class="content" ng-if='isVisible === "manageProfile"'>
+            <div class="content" ng-show='isVisible === "manageProfile"'>
                 <div class="content_head">จัดการข้อมูลส่วนตัว<span><i class="fa fa-print"></i></span></div>
                 <form id="profiledata">
 
@@ -449,14 +449,7 @@
             <!-- manage internship -->
             <div class="content" ng-show='isVisible === "manageInterested"'>
                 <div class="content_head">ข้อมูลความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
-                <label for="x" style="font-size:20px;padding:10px">ภาษาคอมพิวเตอร์ที่ถนัด</label>
-                <textarea id="comlang" rows="2" cols="50">c++,java</textarea>
-                <label for="x" style="font-size:20px;padding:10px">งานอดิเรก</label>
-                <textarea id="hobby"></textarea>
-                <label for="x" style="font-size:20px;padding:10px">ระบบปฏิบัติการที่ชอบ</label>
-                <textarea id="os"></textarea>
-                <label for="x" style="font-size:20px;padding:10px">ใช้โทรศัพท์ยี่ห้อ</label>
-                <textarea id="phone"></textarea>
+                <textarea id="interested"></textarea>
             </div>
 
             <div class="content" ng-show='isVisible === "manageInternship"'>
@@ -511,9 +504,6 @@
             </div>
             <!-- departmental students -->
             <div class="content" ng-show='isVisible === "numPeople"'>
-              <div class="alert alert-info">
-              <strong>อ้างอิง</strong>  รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
-              </div>
                 <div class="content_head">ข้อมูลจำนวนนิสิต<span><i class="fa fa-print"></i></span></div>
 
                 <label for="x" style="font-size:20px;padding:10px">ปริญญาตรี</label>
@@ -536,7 +526,7 @@
                 </div>
                 <hr>
 
-                <label for="x" style="font-size:20px;padding:10px">ปริญญาเอก</label>
+                <label for="x" style="font-size:20px;padding:10px">ปริญญาโท</label>
                 <div class="meterGroup">
                     <div class="meter" id="d_numStu"></div>
                     <div class="meter" id="d_numStuExchange"></div>
@@ -598,12 +588,36 @@
                 </form>
             </div>
 
-
-            <div class="content" ng-show='isVisible === "pollInterest"'>
-                <div class="content_head">ข้อมูลความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
+            <div class="content" ng-show='isVisible === "stuInterest"'>
+                <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
                 <form id="internshipdata">
                     <div class="form-group">
-                        <label for="x">ชื่อหน่วยงาน</label>
+                        <label for="x">ชื่อมหาวิทยาลัย</label>
+                        <input type="text" class="form-control" id="thesisTH" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="x">วันที่เข้าศึกษา</label>
+                        <input type="text" class="form-control" id="thesisEN" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="x">ปีที่คาดว่าจะจบ</label>
+                        <input type="text" class="form-control" id="advisor" placeholder="">
+                    </div>
+
+                    <div class="form-group last">
+                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
+                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="content" ng-show='isVisible === "pollInterest"'>
+                <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
+                <form id="internshipdata">
+                    <div class="form-group">
+                        <label for="x">ชื่อมหาวิทยาลัย</label>
                         <input type="text" class="form-control" id="thesisTH" placeholder="">
                     </div>
                     <div class="form-group">
@@ -625,7 +639,7 @@
             </div>
 
             <div class="content" ng-show='isVisible === "pollInternship"'>
-                <div class="content_head">ผลสำรวจการฝึกงาน<span><i class="fa fa-print"></i></span></div>
+                <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
                 <form id="internshipdata">
                     <div class="form-group">
                         <label for="x">ชื่อมหาวิทยาลัย</label>
@@ -712,94 +726,81 @@
     <script src="script/app.js"></script>
 
     <script type="text/javascript">
+        var map;
 
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {
-                lat: 13.788399,
-                lng: 100.544284
-            },
-            zoom: 10
-        });
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 13.788399,
+                    lng: 100.544284
+                },
+                zoom: 10
+            });
 
 
-    }
+        }
 
         $(document).ready(function() {
-
             $("body").find("input").attr("disabled", "true");
             $("body").find("textarea").attr("disabled", "true");
-            $('#manageprofile').click(function(){
-              $(document).ready(function(){
-                initMap();
-                alert("asd");
 
+            $('#b_numPeople').click(function() {
+              $("#numStu").empty();
+              $("#numStuExchange").empty();
+              $("#numStuRetry").empty();
+              $("#numStuDrop").empty();
+              $("#numStuSum").empty();
+
+              $("#b_numStu").circliful({
+                  foregroundColor: "#3498DB",
+                  backgroundColor: "#eee",
+                  fillColor: 'none',
+                  foregroundBorderWidth: 15,
+                  backgroundBorderWidth: 15,
+                  fontColor: '#aaa',
+                  percent: 409/480*100,
+                  animation: 1,
+                  animationStep: 3,
+                  percentageTextSize: 30,
+                  textAdditionalCss:'line-height:10px;',
+                  text: "นิสิตทั้งหมด",
+                  textStyle: 'font-size:11px;',
+                  textColor: '#666'
+                  // icon: 'f007',
+                  // iconSize: '20px',
+                  // iconColor: '#999',
+                  // iconPosition: 'top',
+                  // targetColor: '#2980B9',
               });
-
-            });
-            $('#numPeople').click(function() {
-
-              var numStu = [{id:'#b_numStu',percent:409/480*100},{id:'#m_numStu',percent:40/480*100},{id:'#d_numStu',percent:31/480*100}];
-              for (var i = 0; i < numStu.length; i++) {
-                  $(numStu[i].id).empty();
-                $(numStu[i].id).circliful({
-                    animationStep: 5,
-                    foregroundColor: "#3498DB",
-                    backgroundColor: "#eee",
-                    fillColor: 'none',
-                    foregroundBorderWidth: 15,
-                    backgroundBorderWidth: 15,
-                    fontColor: '#aaa',
-                    percent: numStu[i].percent,
-                    percentageTextSize: 30,
-                    textAdditionalCss:'line-height:10px;',
-                    text: "นิสิตทั้งหมด",
-                    textStyle: 'font-size:11px;',
-                    textColor: '#666'
-                });
-              }
-              var numStuExchange = [{id:'#b_numStuExchange',percent:20/480*100},{id:'#m_numStuExchange',percent:5/480*100},{id:'#d_numStuExchange',percent:5/480*100}];
-              for (var i = 0; i < numStu.length; i++) {
-                  $(numStuExchange[i].id).empty();
-              $(numStuExchange[i].id).circliful({
+              $("#b_numStuExchange").circliful({
                   animationStep: 5,
                   foregroundBorderWidth: 15,
                   backgroundBorderWidth: 15,
-                  percent: numStuExchange[i].percent,
+                  percent: 20/480*100,
                   text: "นิสิตแลกเปลี่ยน",
                   textStyle: 'font-size:11px;',
                   textColor: '#666'
               });
-            }
-            var numStuRetry = [{id:'#b_numStuRetry',percent:30/480*100},{id:'#m_numStuRetry',percent:0/480*100},{id:'#d_numStuRetry',percent:0/480*100}];
-            for (var i = 0; i < numStu.length; i++) {
-              $(numStuRetry[i].id).empty();
-              $(numStuRetry[i].id).circliful({
+              $("#b_numStuRetry").circliful({
 
                   foregroundColor: "#8A0708",
                   animationStep: 5,
                   foregroundBorderWidth: 15,
                   backgroundBorderWidth: 15,
-                  percent: numStuRetry[i].percent,
+                  percent: 6/480*100,
                   text: "นิสิตรีไทล์",
                   textStyle: 'font-size:11px;',
                   textColor: '#666'
               });
-            }
-            var numStuDrop = [{id:'#b_numStuDrop',percent:20/480*100},{id:'#m_numStuDrop',percent:0/480*100},{id:'#d_numStuDrop',percent:0/480*100}];
-            for (var i = 0; i < numStu.length; i++) {
-                $(numStuDrop[i].id).empty();
-              $(numStuDrop[i].id).circliful({
+              $("#numStuDrop").circliful({
                   animationStep: 5,
                   foregroundBorderWidth: 15,
                   backgroundBorderWidth: 15,
-                  percent: numStuDrop[i].percent,
+                  percent: 13/480*100,
                   text: "นิสิตดรอป",
                   textStyle: 'font-size:11px;',
                   textColor: '#666'
               });
-            }
               // $("#numStuSum").circliful({
               //     animationStep: 5,
               //     foregroundBorderWidth: 15,
@@ -829,17 +830,11 @@
                 //  alert("click");
             });
             // with jQuery UI autocomplete
-            $('#comlang').tagEditor({
-
-            });
-            $('#hobby').tagEditor({
-
-            });
-            $('#os').tagEditor({
-
-            });
-            $('#phone').tagEditor({
-
+            $('#interested').tagEditor({
+                autocomplete: {
+                    'source': '/url/',
+                    minLength: 3
+                }
             });
 
 

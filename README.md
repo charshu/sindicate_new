@@ -5,7 +5,9 @@
 3. สั่ง npm bower install -g
 4. สั่ง npm install
 5. สั่ง bower install
-6. สั่ง gulp
+6. npm install gulp -g
+7. ลง sass http://sass-lang.com/install -> window โหลด ruby install , linux ลง sudo apt-get install ruby
+8. สั่ง gulp
 
 โครงสร้าง
  ไฟล์ style ใช้ scss ถ้าต้องการสร้างเพิ่มไฟล์ใหม่ได้เลย แต่เวลาเรียกใช้ให้ใช้ path ของ css-dist ที่คอมไพล์และบีบอัดแล้ว
