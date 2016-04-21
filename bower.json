@@ -16,6 +16,7 @@
   "dependencies": {
     "ui-router": "~0.2.18",
     "bootstrap": "^3.3.6",
-    "font-awesome": "^4.6.1"
+    "font-awesome": "^4.6.1",
+    "highcharts": "^4.2.4"
   }
 }
