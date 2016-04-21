@@ -25,6 +25,7 @@ $(function meterGroup(){
         $(numStuExchange[i].id).empty();
     $(numStuExchange[i].id).circliful({
         animationStep: 5,
+        foregroundColor: "#e600e6",
         foregroundBorderWidth: 15,
         backgroundBorderWidth: 15,
         percent: numStuExchange[i].percent,
@@ -53,6 +54,7 @@ $(function meterGroup(){
       $(numStuDrop[i].id).empty();
     $(numStuDrop[i].id).circliful({
         animationStep: 5,
+        foregroundColor: "#ffcc00",
         foregroundBorderWidth: 15,
         backgroundBorderWidth: 15,
         percent: numStuDrop[i].percent,

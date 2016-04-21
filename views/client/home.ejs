@@ -21,10 +21,16 @@
     <link href="bower_components/circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
     <script src="bower_components/circliful/js/jquery.circliful.min.js"></script>
     <!-- hmap -->
-<script src="bower_components/highcharts/highmaps.js"></script>
-<script src="bower_components/highcharts/modules/data.js"></script>
-<script src="bower_components/highcharts/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/mapdata/custom/world-lowres.js"></script>
+    <script src="bower_components/highcharts/highcharts.js"></script>
+    <script src="bower_components/highcharts/modules/map.js"></script>
+    <script src="bower_components/highcharts/modules/data.js"></script>
+    <script src="bower_components/highcharts/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/th/th-all.js"></script>
+
+    <!-- rateYo -->
+    <link rel="stylesheet" href="bower_components/rateYo/min/jquery.rateyo.min.css" />
+    <script src="bower_components/rateYo/min/jquery.rateyo.min.js"></script>
+
 
 </head>
 
@@ -120,14 +126,30 @@
                     <li ng-click='isVisible = "pollJob"'><a href="">ผลสำรวจการประกอบอาชีพ</a></li>
                 </ul>
             </div>
+            <div class="menu">
+                <div class="menuname">
+                    เครื่องมือ
+                </div>
+
+
+                <ul>
+                    <li ng-click='isVisible = "trackStu"'><a href="">ระบบติดตามผลการเรียนนิสิต</a></li>
+                    <!-- <li ng-click='isVisible = "eduOverview"'><a href="">ภาพรวมทางการศึกษา</a></li>
+                    <li ng-click='isVisible = "thesisOverview"'><a href="">ภาพรวมวิทยานิพนธ์</a></li>
+                    <li ng-click='isVisible = "pollInterest"'><a href="">ข้อมูลความถนัด/ความสนใจ</a></li>
+                    <li ng-click='isVisible = "pollInternship"'><a href="">ผลสำรวจการฝึกงาน</a></li>
+                    <li ng-click='isVisible = "pollFurtherEdu"'><a href="">ผลสำรวจการศึกษาต่อ</a></li>
+                    <li ng-click='isVisible = "pollJob"'><a href="">ผลสำรวจการประกอบอาชีพ</a></li> -->
+                </ul>
+            </div>
         </div>
 
         <div class="contentwrapper">
 
             <!-- manage profile -->
-            <div class="content" ng-if='isVisible === "manageProfile"'>
+            <div class="content" ng-show='isVisible === "manageProfile"'>
                 <div class="content_head">จัดการข้อมูลส่วนตัว<span><i class="fa fa-print"></i></span></div>
-                <form id="profiledata">
+                <form id="manageprofiledata">
 
                     <div class="form-group">
                         <div class="form-group">
@@ -250,11 +272,18 @@
                             <label for="x">ประเทศ</label>
                             <input type="text" class="form-control" id="s_country" placeholder="">
                         </div>
-                        <div id="map"></div>
+                        <div class="form-group">
+                            <label for="x" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ปักหมุดที่อยู่ของคุณ</label>
+                            <hr />
+                            <div class="chartwrapper">
+                                <div id="map"></div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-group last">
-                        <button id="manageProfile_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="manageProfile_submit" type="submit" class="btn btn-default">ยืนยัน</button>
+                        <button id="manageprofile_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
+                        <button id="manageprofile_submit_btn" type="submit" class="btn btn-default">ยืนยัน</button>
                     </div>
                 </form>
             </div>
@@ -371,7 +400,7 @@
                     </div>
                     <div class="form-group last">
                         <button id="manageEdu_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="manageEdu_submit" type="submit" class="btn btn-default">ยืนยัน</button>
+                        <button id="manageEdu_submit_btn" type="submit" class="btn btn-default">ยืนยัน</button>
                     </div>
 
                 </form>
@@ -436,7 +465,7 @@
                     </div>
                     <div class="form-group last">
                         <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
+                        <button id="thesis_submit_btn" type="submit" class="btn btn-default">ยืนยัน</button>
                     </div>
 
                 </form>
@@ -481,6 +510,19 @@
                         <input type="text" class="form-control" id="advisor" placeholder="">
                     </div>
 
+                    <div class="form-group">
+                        <label for="x">ความประทับใจ</label>
+                        <textarea class="form-control" id="award" rows="3" placeholder=""></textarea>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="x">คะแนน</label>
+                        <div id="rateYo"></div>
+
+                    </div>
+
                     <div class="form-group last">
                         <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
                         <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
@@ -509,24 +551,25 @@
 
                     <div class="form-group last">
                         <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
+                        <button id="thesis_submit_btn" type="submit" class="btn btn-default">ยืนยัน</button>
                     </div>
 
                 </form>
             </div>
             <!-- departmental students -->
             <div class="content" ng-show='isVisible === "numPeople"'>
-              <div class="alert alert-info">
-              <strong>อ้างอิง</strong>  รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
-              </div>
+                <div class="alert alert-info">
+                    <strong>อ้างอิง</strong> รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
+                </div>
                 <div class="content_head">ข้อมูลจำนวนนิสิตจำแนกตามสถานะ<span><i class="fa fa-print"></i></span></div>
 
                 <label for="x" style="font-size:20px;padding:10px">ปริญญาตรี</label>
                 <div class="meterGroup">
                     <div class="meter" id="b_numStu"></div>
                     <div class="meter" id="b_numStuExchange"></div>
-                    <div class="meter" id="b_numStuRetry"></div>
                     <div class="meter" id="b_numStuDrop"></div>
+                    <div class="meter" id="b_numStuRetry"></div>
+
                     <!-- <div class="meter" id="numStuSum"></div> -->
                 </div>
                 <hr>
@@ -535,8 +578,9 @@
                 <div class="meterGroup">
                     <div class="meter" id="m_numStu"></div>
                     <div class="meter" id="m_numStuExchange"></div>
-                    <div class="meter" id="m_numStuRetry"></div>
                     <div class="meter" id="m_numStuDrop"></div>
+                    <div class="meter" id="m_numStuRetry"></div>
+
                     <!-- <div class="meter" id="numStuSum"></div> -->
                 </div>
                 <hr>
@@ -545,21 +589,22 @@
                 <div class="meterGroup">
                     <div class="meter" id="d_numStu"></div>
                     <div class="meter" id="d_numStuExchange"></div>
-                    <div class="meter" id="d_numStuRetry"></div>
                     <div class="meter" id="d_numStuDrop"></div>
+                    <div class="meter" id="d_numStuRetry"></div>
+
                     <!-- <div class="meter" id="numStuSum"></div> -->
                 </div>
                 <hr>
 
             </div>
             <div class="content" ng-show='isVisible === "numPeople"'>
-              <div class="alert alert-info">
-              <strong>อ้างอิง</strong>  รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
-              </div>
+                <div class="alert alert-info">
+                    <strong>อ้างอิง</strong> รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
+                </div>
                 <div class="content_head">ข้อมูลจำนวนนิสิตจำแนกตามที่อยุ่อาศัยปัจจุบัน<span><i class="fa fa-print"></i></span></div>
-                  <div id="container">
+                <div id="chartStuPlace">
 
-                  </div>
+                </div>
 
 
 
@@ -567,27 +612,11 @@
 
             <div class="content" ng-show='isVisible === "eduOverview"'>
                 <div class="content_head">ภาพรวมทางการศึกษาของคณะ<span><i class="fa fa-print"></i></span></div>
-                <form id="internshipdata">
-                    <div class="form-group">
-                        <label for="x">ชื่อมหาวิทยาลัย</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="x">วันที่เข้าศึกษา</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
-                    </div>
+                <div class="chartwrapper">
+                    <div id="eduOverview"></div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="x">ปีที่คาดว่าจะจบ</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
-                    </div>
 
-                    <div class="form-group last">
-                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
-                    </div>
-
-                </form>
             </div>
 
             <div class="content" ng-show='isVisible === "thesisOverview"'>
@@ -726,52 +755,75 @@
 
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXhWzOAhkZp0VltRHFhwlrwOawGHP02nk&callback=initMap" async defer></script>
-    <script type="text/javascript" src="../script/overviewStuPlace.js"> </script>
-    <script type="text/javascript" src="../script/stuMeter.js"> </script>
+    <script type="text/javascript" src="../script/overviewStuPlace.js"></script>
+    <script type="text/javascript" src="../script/stuMeter.js"></script>
+    <script type="text/javascript" src="../script/manageprofile.js"></script>
+    <script type="text/javascript" src="../script/eduOverview.js"></script>
     <script src="script/app.js"></script>
 
     <script type="text/javascript">
+        var map;
 
-    var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 13.788399,
+                    lng: 100.544284
+                },
+                zoom: 10
+            });
 
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {
-                lat: 13.788399,
-                lng: 100.544284
-            },
-            zoom: 10
-        });
+            //add location here
+            var engchula = {
+                lat: 13.7365719,
+                lng: 100.5332646
+            };
 
 
-    }
+            // end location variables
+            var marker = new google.maps.Marker({
+                position: engchula,
+                map: map,
+                title: 'Hello World!'
+            });
+
+
+        }
 
         $(document).ready(function() {
 
             $("body").find("input").attr("disabled", "true");
             $("body").find("textarea").attr("disabled", "true");
-            $('#manageprofile').click(function(){
-              $(document).ready(function(){
-                initMap();
-                alert("asd");
+            $('#manageprofile').click(function() {
 
-              });
 
 
             });
 
+            overviewStuPlace(<%- JSON.stringify(province) %>);
+            eduOverview();
 
 
         });
-        $(window).resize(function() {
-            cw = $('#meter').width();
-            $("body").find('#meter').css({
-                'height': cw + 'px'
-            });
+
+        $("#manageprofile").click(function() {
+
+            setTimeout(function() {
+                fillprofile(<%- JSON.stringify(profile) %>);
+                initMap();
+
+            }, 200);
+            setTimeout(function() {
+                $("body").find("input").attr("disabled", "true");
+
+            }, 300);
+
         });
 
         $(function() {
-
+            $("#rateYo").rateYo({
+                rating: 3.6
+            });
             $("#datepicker").datepicker();
             //  $('#test2').attr("disabled","true");
             $('#thesis_edit_btn').click(function() {
@@ -779,6 +831,13 @@
                 $("#thesisdata").find("textarea").removeAttr("disabled", "true");
                 //  alert("click");
             });
+            $('#thesis_submit_btn').click(function() {
+                $("#thesisdata").find("input").attr("disabled", "true");
+                $("#thesisdata").find("textarea").attr("disabled", "true");
+                //  alert("click");
+            });
+
+
             // with jQuery UI autocomplete
             $('#comlang').tagEditor({
 
@@ -794,33 +853,7 @@
             });
 
 
-            //manage profile config
-            $("#stuid").val("<%=profile.stuid%>");
-            $("#firstName").val("<%=profile.firstName%>");
-            $("#lastName").val("<%=profile.lastName%>");
-            $("#tel").val("<%=profile.tel%>");
-            $("#gender").val("<%=profile.gender%>");
-            $("#faculty").val("<%=profile.faculty%>");
-            $("#department").val("<%=profile.department%>");
-            $("#birthdate").val("<%=profile.birthdate%>");
 
-            $("#f_address").val("<%=profile.f_address%>");
-            $("#f_moo").val("<%=profile.f_moo%>");
-            $("#f_road").val("<%=profile.f_road%>");
-            $("#f_subDistrict").val("<%=profile.f_subDistrict%>");
-            $("#f_district").val("<%=profile.f_district%>");
-            $("#f_city").val("<%=profile.f_city%>");
-            $("#f_postcode").val("<%=profile.f_postcode%>");
-            $("#f_country").val("<%=profile.f_country%>");
-
-            $("#s_address").val("<%=profile.s_address%>");
-            $("#s_moo").val("<%=profile.s_moo%>");
-            $("#s_road").val("<%=profile.s_road%>");
-            $("#s_subDistrict").val("<%=profile.s_subDistrict%>");
-            $("#s_district").val("<%=profile.s_district%>");
-            $("#s_city").val("<%=profile.s_city%>");
-            $("#s_postcode").val("<%=profile.s_postcode%>");
-            $("#s_country").val("<%=profile.s_country%>");
 
             // thesis config
             $("#thesisTH").val("<%=thesis.thesisTH%>");
@@ -836,7 +869,6 @@
 
 
         });
-
     </script>
 
 </body>
