@@ -18,6 +18,7 @@
     "bootstrap": "^3.3.6",
     "font-awesome": "^4.6.1",
     "circliful": "^1.0.0",
-    "jquery-tag-editor": "^1.0.18"
+    "jquery-tag-editor": "^1.0.18",
+    "jquery-ui": "^1.11.4"
   }
 }
