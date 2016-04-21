@@ -4,7 +4,6 @@ var browserSync = require('browser-sync');
 var server = require('gulp-express');
 var livereload = require('gulp-livereload');
 var postcss = require('gulp-postcss');
-var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
 var minifycss = require('gulp-minify-css');
 var rename = require('gulp-rename');
