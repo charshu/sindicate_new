@@ -3,3 +3,4 @@ bower_components/*
 !bower_components/jquery-tag-editor
 !bower_components/circliful
 node_modules/
+views/client/style/css-dest
