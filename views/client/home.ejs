@@ -119,8 +119,8 @@
                 <ul>
                     <li ng-click='isVisible = "numPeople"'><a id="numPeople" href="">จำนวนนิสิตและบุคลากร</a></li>
                     <li ng-click='isVisible = "eduOverview"'><a href="">ภาพรวมทางการศึกษา</a></li>
-                    <li ng-click='isVisible = "thesisOverview"'><a href="">ภาพรวมวิทยานิพนธ์</a></li>
-                    <li ng-click='isVisible = "pollInterest"'><a href="">ข้อมูลความถนัด/ความสนใจ</a></li>
+                    <li ng-click='isVisible = "thesisOverview"'><a id="thesisOverview" href="">ภาพรวมวิทยานิพนธ์</a></li>
+                    <li ng-click='isVisible = "pollInterest"'><a href="">ผลสำรวจความถนัด/ความสนใจ</a></li>
                     <li ng-click='isVisible = "pollInternship"'><a href="">ผลสำรวจการฝึกงาน</a></li>
                     <li ng-click='isVisible = "pollFurtherEdu"'><a href="">ผลสำรวจการศึกษาต่อ</a></li>
                     <li ng-click='isVisible = "pollJob"'><a href="">ผลสำรวจการประกอบอาชีพ</a></li>
@@ -602,273 +602,328 @@
                     <strong>อ้างอิง</strong> รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
                 </div>
                 <div class="content_head">ข้อมูลจำนวนนิสิตจำแนกตามที่อยุ่อาศัยปัจจุบัน<span><i class="fa fa-print"></i></span></div>
-                <div id="chartStuPlace">
-
+                <div class="chartwrapper">
+                    <div  class="item" id="chartStuPlace"></div>
                 </div>
-
-
 
             </div>
 
             <div class="content" ng-show='isVisible === "eduOverview"'>
                 <div class="content_head">ภาพรวมทางการศึกษาของคณะ<span><i class="fa fa-print"></i></span></div>
                 <div class="chartwrapper">
-                    <div id="eduOverview"></div>
+                    <div class="item" id="eduOverview"></div>
                 </div>
-
 
             </div>
 
             <div class="content" ng-show='isVisible === "thesisOverview"'>
                 <div class="content_head">ภาพรวมวิทยานิพนธ์ของคณะ<span><i class="fa fa-print"></i></span></div>
-                <form id="internshipdata">
-                    <div class="form-group">
-                        <label for="x">ชื่อมหาวิทยาลัย</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="x">วันที่เข้าศึกษา</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
-                    </div>
+                <div class="meterGroup">
+                    <div class="meter" id="m_thpub"></div>
+                    <div class="meter" id="m_intpub"></div>
 
-                    <div class="form-group">
-                        <label for="x">ปีที่คาดว่าจะจบ</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
-                    </div>
+                    <!-- <div class="meter" id="numStuSum"></div> -->
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">ปริญญาโท</div>
+                    <div class="panel-body">
 
-                    <div class="form-group last">
-                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
+                        <p>สงวนลิขสิทธิ์ วิทยานิพนธ์ของบัณฑิตวิทยาลัย จุฬาลงกรณ์มหาวิทยาลัย จัดทำโดยแอปพลิเคชันซินดิเคท </p>
                     </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>รหัส</th>
+                                <th>หัวเรื่อง</th>
+                                <th>ชื่อผู้แต่ง</th>
+                                <th>สาขาวิชา</th>
+                                <th>อาจารย์ที่ปรึกษา</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">563321094</a></th>
+                                <td>การออกแบบและวิเคราะห์อัลกอริทึมในการปิ้งลูกชิ้น</td>
+                                <td>นายวชิรกรณ์ รังสิกวานิช</td>
+                                <td>วิศวกรรมคอมพิวเตอร์</td>
+                                <td>ดร.สมคิด จิตอาสา</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">513321489</a></th>
+                                <td>การสร้างภาพเคลื่อนไหวด้วยคำสั่งเสียง</td>
+                                <td>นายสมร สอนสาย</td>
+                                <td>วิศวกรรมคอมพิวเตอร์</td>
+                                <td>ดร.อะไรดี มีตังใช้</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">234321489</a></th>
+                                <td>เกมเสมือนจริงจำลองการบินของนก</td>
+                                <td>นางสาวลารี่</td>
+                                <td>วิศวกรรมคอมพิวเตอร์</td>
+                                <td>ศ.ดร.ปัญญา พามีชัย</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                </form>
             </div>
 
 
             <div class="content" ng-show='isVisible === "pollInterest"'>
                 <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
-                <form id="internshipdata">
-                    <div class="form-group">
-                        <label for="x">ชื่อหน่วยงาน</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="x">วันที่เข้าศึกษา</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
-                    </div>
+                <div class="chartwrapper">
+                    <div class="item" id="poll1" ></div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="x">ปีที่คาดว่าจะจบ</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
-                    </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">อันดับความนิยมของภาษาคอมพิวเตอร์</div>
 
-                    <div class="form-group last">
-                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
-                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>อันดับ</th>
+                                <th>ชื่อ</th>
+                                <th>จำนวน</th>
 
-                </form>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">1</a></th>
+                                <td>C++</td>
+                                <td>200</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2</a></th>
+                                <td>Python</td>
+                                <td>100</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">3</a></th>
+                                <td>Javascript</td>
+                                <td>50</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4</a></th>
+                                <td>Java</td>
+                                <td>40</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">5</a></th>
+                                <td>Ruby on rails</td>
+                                <td>35</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">6</a></th>
+                                <td>PHP</td>
+                                <td>75</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+              <div class="content" ng-show='isVisible === "pollInterest"'>
+                  <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
+                  <div class="chartwrapper">
+                      <div class="item" id="poll2" ></div>
+                  </div>
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading">อันดับงานอดิเรก</div>
+
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>อันดับ</th>
+                                  <th>ชื่อ</th>
+                                  <th>จำนวน</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th scope="row"><a href="#">1</a></th>
+                                  <td>เล่นเกม</td>
+                                  <td>180</td>
+
+                              </tr>
+                              <tr>
+                                  <th scope="row"><a href="#">2</a></th>
+                                  <td>ดูอนิเมะ</td>
+                                  <td>90</td>
+
+                              </tr>
+                              <tr>
+                                  <th scope="row"><a href="#">3</a></th>
+                                  <td>เขียนเว็บ</td>
+                                  <td>87</td>
+
+                              </tr>
+                              <tr>
+                                  <th scope="row"><a href="#">3</a></th>
+                                  <td>ดูทีวี</td>
+                                  <td>87</td>
+
+                              </tr>
+                              <tr>
+                                  <th scope="row"><a href="#">3</a></th>
+                                  <td>นอน</td>
+                                  <td>87</td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </div>
+
+
+                <div class="content" ng-show='isVisible === "pollInternship"'>
+                    <div class="content_head">ผลสำรวจการฝึกงาน<span><i class="fa fa-print"></i></span></div>
+
+                </div>
+
+                <div class="content" ng-show='isVisible === "pollFurtherEdu"'>
+                    <div class="content_head">ผลสำรวจการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
+
+                </div>
+
+                <div class="content" ng-show='isVisible === "pollJob"'>
+                    <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
+
+                </div>
+
+
             </div>
 
-            <div class="content" ng-show='isVisible === "pollInternship"'>
-                <div class="content_head">ผลสำรวจการฝึกงาน<span><i class="fa fa-print"></i></span></div>
-                <form id="internshipdata">
-                    <div class="form-group">
-                        <label for="x">ชื่อมหาวิทยาลัย</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="x">วันที่เข้าศึกษา</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
-                    </div>
 
-                    <div class="form-group">
-                        <label for="x">ปีที่คาดว่าจะจบ</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
-                    </div>
-
-                    <div class="form-group last">
-                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
-                    </div>
-
-                </form>
-            </div>
-
-            <div class="content" ng-show='isVisible === "pollFurtherEdu"'>
-                <div class="content_head">ผลสำรวจการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
-                <form id="internshipdata">
-                    <div class="form-group">
-                        <label for="x">ชื่อมหาวิทยาลัย</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="x">วันที่เข้าศึกษา</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="x">ปีที่คาดว่าจะจบ</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
-                    </div>
-
-                    <div class="form-group last">
-                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
-                    </div>
-
-                </form>
-            </div>
-
-            <div class="content" ng-show='isVisible === "pollJob"'>
-                <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
-                <form id="internshipdata">
-                    <div class="form-group">
-                        <label for="x">ชื่อมหาวิทยาลัย</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="x">วันที่เข้าศึกษา</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="x">ปีที่คาดว่าจะจบ</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
-                    </div>
-
-                    <div class="form-group last">
-                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
-                    </div>
-
-                </form>
-            </div>
-
+        <div class="footer">
 
         </div>
-    </div>
-
-    <div class="footer">
-
-    </div>
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXhWzOAhkZp0VltRHFhwlrwOawGHP02nk&callback=initMap" async defer></script>
-    <script type="text/javascript" src="../script/overviewStuPlace.js"></script>
-    <script type="text/javascript" src="../script/stuMeter.js"></script>
-    <script type="text/javascript" src="../script/manageprofile.js"></script>
-    <script type="text/javascript" src="../script/eduOverview.js"></script>
-    <script src="script/app.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXhWzOAhkZp0VltRHFhwlrwOawGHP02nk&callback=initMap" async defer></script>
+        <script type="text/javascript" src="../script/overviewStuPlace.js"></script>
+        <script type="text/javascript" src="../script/stuMeter.js"></script>
+        <script type="text/javascript" src="../script/manageprofile.js"></script>
+        <script type="text/javascript" src="../script/eduOverview.js"></script>
+        <script type="text/javascript" src="../script/pie.js"></script>
+        <script src="script/app.js"></script>
 
-    <script type="text/javascript">
-        var map;
+        <script type="text/javascript">
+            var map;
 
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                    lat: 13.788399,
-                    lng: 100.544284
-                },
-                zoom: 10
-            });
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {
+                        lat: 13.788399,
+                        lng: 100.544284
+                    },
+                    zoom: 10
+                });
 
-            //add location here
-            var engchula = {
-                lat: 13.7365719,
-                lng: 100.5332646
-            };
-
-
-            // end location variables
-            var marker = new google.maps.Marker({
-                position: engchula,
-                map: map,
-                title: 'Hello World!'
-            });
+                //add location here
+                var engchula = {
+                    lat: 13.7365719,
+                    lng: 100.5332646
+                };
 
 
-        }
-
-        $(document).ready(function() {
-
-            $("body").find("input").attr("disabled", "true");
-            $("body").find("textarea").attr("disabled", "true");
-            $('#manageprofile').click(function() {
-
+                // end location variables
+                var marker = new google.maps.Marker({
+                    position: engchula,
+                    map: map,
+                    title: 'Hello World!'
+                });
 
 
-            });
+            }
 
-            overviewStuPlace(<%- JSON.stringify(province) %>);
-            eduOverview();
+            $(document).ready(function() {
 
-
-        });
-
-        $("#manageprofile").click(function() {
-
-            setTimeout(function() {
-                fillprofile(<%- JSON.stringify(profile) %>);
-                initMap();
-
-            }, 200);
-            setTimeout(function() {
                 $("body").find("input").attr("disabled", "true");
-
-            }, 300);
-
-        });
-
-        $(function() {
-            $("#rateYo").rateYo({
-                rating: 3.6
-            });
-            $("#datepicker").datepicker();
-            //  $('#test2').attr("disabled","true");
-            $('#thesis_edit_btn').click(function() {
-                $("#thesisdata").find("input").removeAttr("disabled", "true");
-                $("#thesisdata").find("textarea").removeAttr("disabled", "true");
-                //  alert("click");
-            });
-            $('#thesis_submit_btn').click(function() {
-                $("#thesisdata").find("input").attr("disabled", "true");
-                $("#thesisdata").find("textarea").attr("disabled", "true");
-                //  alert("click");
-            });
+                $("body").find("textarea").attr("disabled", "true");
+                $('#manageprofile').click(function() {
 
 
-            // with jQuery UI autocomplete
-            $('#comlang').tagEditor({
 
-            });
-            $('#hobby').tagEditor({
+                });
 
-            });
-            $('#os').tagEditor({
+                overviewStuPlace(<%- JSON.stringify(province) %>);
+                eduOverview();
+                pollInerest();
 
-            });
-            $('#phone').tagEditor({
 
             });
 
+            $("#manageprofile").click(function() {
+
+                setTimeout(function() {
+                    fillprofile(<%- JSON.stringify(profile) %>);
+                    initMap();
+
+                }, 200);
+                setTimeout(function() {
+                    $("body").find("input").attr("disabled", "true");
+
+                }, 300);
+
+            });
+
+            $(function() {
+                $("#rateYo").rateYo({
+                    rating: 3.6
+                });
+                $("#datepicker").datepicker();
+                //  $('#test2').attr("disabled","true");
+                $('#thesis_edit_btn').click(function() {
+                    $("#thesisdata").find("input").removeAttr("disabled", "true");
+                    $("#thesisdata").find("textarea").removeAttr("disabled", "true");
+                    //  alert("click");
+                });
+                $('#thesis_submit_btn').click(function() {
+                    $("#thesisdata").find("input").attr("disabled", "true");
+                    $("#thesisdata").find("textarea").attr("disabled", "true");
+                    //  alert("click");
+                });
+
+
+                // with jQuery UI autocomplete
+                $('#comlang').tagEditor({
+
+                });
+                $('#hobby').tagEditor({
+
+                });
+                $('#os').tagEditor({
+
+                });
+                $('#phone').tagEditor({
+
+                });
 
 
 
-            // thesis config
-            $("#thesisTH").val("<%=thesis.thesisTH%>");
-            $("#thesisEN").val("<%=thesis.thesisEN%>");
-            $("#advisor").val("<%=thesis.advisor%>");
-            $("#coadvisor").val("<%=thesis.coadvisor%>");
-            $("#scholarship").val("<%=thesis.scholarship%>");
-            $("#award").val("<%=thesis.award%>");
-            $("#thconference").val("<%=thesis.thconference%>");
-            $("#intconference").val("<%=thesis.intconference%>");
-            $("#thpub").val("<%=thesis.thpub%>");
-            $("#intpub").val("<%=thesis.intpub%>");
+
+                // thesis config
+                $("#thesisTH").val("<%=thesis.thesisTH%>");
+                $("#thesisEN").val("<%=thesis.thesisEN%>");
+                $("#advisor").val("<%=thesis.advisor%>");
+                $("#coadvisor").val("<%=thesis.coadvisor%>");
+                $("#scholarship").val("<%=thesis.scholarship%>");
+                $("#award").val("<%=thesis.award%>");
+                $("#thconference").val("<%=thesis.thconference%>");
+                $("#intconference").val("<%=thesis.intconference%>");
+                $("#thpub").val("<%=thesis.thpub%>");
+                $("#intpub").val("<%=thesis.intpub%>");
 
 
-        });
-    </script>
+            });
+        </script>
 
 </body>
