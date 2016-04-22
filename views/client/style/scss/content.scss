@@ -3,6 +3,8 @@ $dark_gray: lighten(black, 25);
 $blood: #8A0708;
 $bee: #FFA500;
 $light_grey: lighten(grey,45);
+
+
 .chartwrapper {
     display: flex;
     flex-direction: row;
@@ -56,6 +58,10 @@ $light_grey: lighten(grey,45);
                 color: $dark_gray;
                 float: right;
             }
+        }
+        .collapse-container>:nth-child(even) {
+            display : none;
+          
         }
         .panel{
           .table{

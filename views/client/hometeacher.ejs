@@ -31,9 +31,6 @@
     <link rel="stylesheet" href="bower_components/rateYo/min/jquery.rateyo.min.css" />
     <script src="bower_components/rateYo/min/jquery.rateyo.min.js"></script>
 
-    <!-- collapse -->
-    <script type="text/javascript" src="bower_components/collapsible.js/jquery.collapsible.js"></script>
-
 
 </head>
 
@@ -136,7 +133,7 @@
 
 
                 <ul>
-                    <li ng-click='isVisible = "track"'><a href="">ระบบติดตามผลการเรียนนิสิต</a></li>
+                    <li ng-click='isVisible = "trackStu"'><a href="">ระบบติดตามผลการเรียนนิสิต</a></li>
                     <!-- <li ng-click='isVisible = "eduOverview"'><a href="">ภาพรวมทางการศึกษา</a></li>
                     <li ng-click='isVisible = "thesisOverview"'><a href="">ภาพรวมวิทยานิพนธ์</a></li>
                     <li ng-click='isVisible = "pollInterest"'><a href="">ข้อมูลความถนัด/ความสนใจ</a></li>
@@ -606,7 +603,7 @@
                 </div>
                 <div class="content_head">ข้อมูลจำนวนนิสิตจำแนกตามที่อยุ่อาศัยปัจจุบัน<span><i class="fa fa-print"></i></span></div>
                 <div class="chartwrapper">
-                    <div class="item" id="chartStuPlace"></div>
+                    <div  class="item" id="chartStuPlace"></div>
                 </div>
 
             </div>
@@ -675,7 +672,7 @@
             <div class="content" ng-show='isVisible === "pollInterest"'>
                 <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
                 <div class="chartwrapper">
-                    <div class="item" id="poll1"></div>
+                    <div class="item" id="poll1" ></div>
                 </div>
 
                 <div class="panel panel-default">
@@ -730,154 +727,79 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="content" ng-show='isVisible === "pollInterest"'>
-                <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
-                <div class="chartwrapper">
-                    <div class="item" id="poll2"></div>
+              </div>
+              <div class="content" ng-show='isVisible === "pollInterest"'>
+                  <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
+                  <div class="chartwrapper">
+                      <div class="item" id="poll2" ></div>
+                  </div>
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading">อันดับงานอดิเรก</div>
+
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>อันดับ</th>
+                                  <th>ชื่อ</th>
+                                  <th>จำนวน</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th scope="row"><a href="#">1</a></th>
+                                  <td>เล่นเกม</td>
+                                  <td>180</td>
+
+                              </tr>
+                              <tr>
+                                  <th scope="row"><a href="#">2</a></th>
+                                  <td>ดูอนิเมะ</td>
+                                  <td>90</td>
+
+                              </tr>
+                              <tr>
+                                  <th scope="row"><a href="#">3</a></th>
+                                  <td>เขียนเว็บ</td>
+                                  <td>87</td>
+
+                              </tr>
+                              <tr>
+                                  <th scope="row"><a href="#">3</a></th>
+                                  <td>ดูทีวี</td>
+                                  <td>87</td>
+
+                              </tr>
+                              <tr>
+                                  <th scope="row"><a href="#">3</a></th>
+                                  <td>นอน</td>
+                                  <td>87</td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
                 </div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">อันดับงานอดิเรก</div>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>อันดับ</th>
-                                <th>ชื่อ</th>
-                                <th>จำนวน</th>
+                <div class="content" ng-show='isVisible === "pollInternship"'>
+                    <div class="content_head">ผลสำรวจการฝึกงาน<span><i class="fa fa-print"></i></span></div>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row"><a href="#">1</a></th>
-                                <td>เล่นเกม</td>
-                                <td>180</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">2</a></th>
-                                <td>ดูอนิเมะ</td>
-                                <td>90</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">3</a></th>
-                                <td>เขียนเว็บ</td>
-                                <td>87</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">3</a></th>
-                                <td>ดูทีวี</td>
-                                <td>43</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">3</a></th>
-                                <td>นอน</td>
-                                <td>15</td>
-
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-            </div>
 
+                <div class="content" ng-show='isVisible === "pollFurtherEdu"'>
+                    <div class="content_head">ผลสำรวจการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
 
-            <div class="content" ng-show='isVisible === "pollInternship"'>
-                <div class="content_head">ผลสำรวจการฝึกงาน<span><i class="fa fa-print"></i></span></div>
-
-            </div>
-
-            <div class="content" ng-show='isVisible === "pollFurtherEdu"'>
-                <div class="content_head">ผลสำรวจการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
-
-            </div>
-
-            <div class="content" ng-show='isVisible === "pollJob"'>
-                <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
-
-            </div>
-
-            <div class="content" ng-show='isVisible === "track"'>
-                <div class="content_head">ระบบติดตามผลการเรียนนิสิต<span><i class="fa fa-print"></i></span></div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">นิสิตที่ได้รับการปักหมุด</div>
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th >รหัสนิสิต</th>
-                                <th>ชื่อ</th>
-                                <th>ชั้นปี</th>
-                                <th>GPAX</th>
-                                <th>ปักหมุด</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-
-                                <td colspan="5" style="padding:0px;">
-                                    <div id="firstCollapseMenu" class="collapse-container">
-
-                                        <!--  -->
-                                        <div class="panel panel-default">
-                                            <table class="table">
-                                                <th scope="row"><a href="#">5630513521</a></th>
-                                                <td>นางสาวรุจิรา รุจิราบัตร</td>
-                                                <td>3</td>
-                                                <td>3.21</td>
-                                                <td>x</td>
-                                            </table>
-                                        </div>
-                                        <!--  -->
-
-                                        <div>
-                                            <p>First container paragraph</p>
-                                        </div>
-
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row"><a href="#">5630513521</a></th>
-                                <td>นางสาวรุจิรา รุจิราบัตร</td>
-                                <td>3</td>
-                                <td>3.21</td>
-                                <td>x</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">x</a></th>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>3.21</td>
-                                <td>x</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">x</a></th>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>3.21</td>
-                                <td>x</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">x</a></th>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>3.21</td>
-                                <td>x</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
+
+                <div class="content" ng-show='isVisible === "pollJob"'>
+                    <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
+
+                </div>
+
+
             </div>
-
-
-        </div>
 
 
         <div class="footer">
@@ -891,7 +813,6 @@
         <script type="text/javascript" src="../script/manageprofile.js"></script>
         <script type="text/javascript" src="../script/eduOverview.js"></script>
         <script type="text/javascript" src="../script/pie.js"></script>
-        <script type="text/javascript" src="../script/collapse.js"></script>
         <script src="script/app.js"></script>
 
         <script type="text/javascript">
