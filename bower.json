@@ -19,6 +19,7 @@
     "font-awesome": "^4.6.1",
     "highcharts": "~4.2.4",
     "rateYo": "rateyo#^2.1.0",
-    "collapsible.js": "^1.1.2"
+    "collapsible.js": "^1.1.2",
+    "bootstrap-social": "^4.12.0"
   }
 }
