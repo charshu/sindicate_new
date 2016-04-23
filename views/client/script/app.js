@@ -27,12 +27,32 @@ app.controller("modalController", ["$scope", function($scope){
         // profilestuid:'5630520921',
         tel:'0882391875',
         parentTel:"0814295635",
-        gender:'หญิง',
+        gender:'ชาย',
         faculty:'วิศวกรรมศาสตร์',
         department:'วิศวกรรมคอมพิวเตอร์',
         degree:"ปริญญาตรี",
         year:"3",
-        birthdate:'26-10-2536'
+        birthdate:'24-11-2536'
+      },
+      {
+        id:'5631005321',
+        name: "รวีกร เรืองทรัพย์",
+        gpax: "3.25",
+        attendScore:"90",
+        isflagged:false,
+        note:"มาเรียนตรงเวลา ตั้งใจเรียนทุกวัน",
+        imgUrl:'/images/mypic.jpg',
+        fbUrl:'https://www.facebook.com/chi.zzwzz',
+
+        // profilestuid:'5630520921',
+        tel:'0882391875',
+        parentTel:"0814295635",
+        gender:'ชาย',
+        faculty:'วิศวกรรมศาสตร์',
+        department:'วิศวกรรมคอมพิวเตอร์',
+        degree:"ปริญญาตรี",
+        year:"3",
+        birthdate:'24-12-2536'
       },
       {
       id:'5630520921',
@@ -40,7 +60,7 @@ app.controller("modalController", ["$scope", function($scope){
       gpax: "3.27",
       gpa:"3.47",
       attendScore:"88",
-      isflagged:false,
+      isflagged:true,
       note:"มาเรียนตรงเวลา ตั้งใจเรียนทุกวัน",
       imgUrl:'/images/mypic.jpg',
       fbUrl:'https://www.facebook.com/chi.zzwzz',
@@ -59,7 +79,7 @@ app.controller("modalController", ["$scope", function($scope){
       id:'5630513521',
       name: "รุจิรา รุจิสมบัติ",
       gpax: "3.46",
-      attendScore:"99",
+      attendScore:"95",
       isflagged:false,
       note:"มาเรียนตรงเวลา ตั้งใจเรียนทุกวัน",
       imgUrl:'/images/mypic.jpg',
@@ -73,27 +93,7 @@ app.controller("modalController", ["$scope", function($scope){
       department:'วิศวกรรมคอมพิวเตอร์',
       degree:"ปริญญาตรี",
       year:"3",
-      birthdate:'26-10-2536'
-    },
-    {
-      id:'5631005321',
-      name: "รวีกร เรืองทรัพย์",
-      gpax: "3.25",
-      attendScore:"90",
-      isflagged:false,
-      note:"มาเรียนตรงเวลา ตั้งใจเรียนทุกวัน",
-      imgUrl:'/images/mypic.jpg',
-      fbUrl:'https://www.facebook.com/chi.zzwzz',
-
-      // profilestuid:'5630520921',
-      tel:'0882391875',
-      parentTel:"0814295635",
-      gender:'ชาย',
-      faculty:'วิศวกรรมศาสตร์',
-      department:'วิศวกรรมคอมพิวเตอร์',
-      degree:"ปริญญาตรี",
-      year:"3",
-      birthdate:'26-10-2536'
+      birthdate:'12-05-2537'
     },
     {
       id:'5631079921',
@@ -113,7 +113,7 @@ app.controller("modalController", ["$scope", function($scope){
       department:'วิศวกรรมคอมพิวเตอร์',
       degree:"ปริญญาตรี",
       year:"3",
-      birthdate:'26-10-2536'
+      birthdate:'02-01-2537'
     }];
 
 }
