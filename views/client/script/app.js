@@ -34,7 +34,7 @@ app.controller("modalController", ["$scope", function($scope){
         year:"3",
         birthdate:'26-10-2536'
       },
-      }
+      {
       id:'5630520921',
       name: "วชิรกรณ์ รังสิกวานิช",
       gpax: "3.27",
