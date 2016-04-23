@@ -38,3 +38,30 @@ function fillprofile(data){
   $("#s_country").val(data.s_country);
 
 }
+
+function fillprofile(datateacher){
+  //manage data config
+  $('#manageprofile_edit_btn').click(function() {
+      $("#manageprofiledata").find("input").removeAttr("disabled", "true");
+      $("#manageprofiledata").find("textarea").removeAttr("disabled", "true");
+      //  alert("click");
+  });
+  $('#manageprofile_submit_btn').click(function() {
+      $("#manageprofiledata").find("input").attr("disabled", "true");
+      $("#manageprofiledata").find("textarea").attr("disabled", "true");
+      //  alert("click");
+  });
+  $("#tt").val(datateacher.tt);
+  $("#firstName").val(datateacher.firstName);
+  $("#lastName").val(datateacher.lastName);
+  $("#gender").val(datateacher.gender);
+  $("#faculty").val(datateacher.faculty);
+  $("#department").val(datateacher.department);
+  $("#position").val(datateacher.position);
+  $("#spacialize").val(datateacher.spacialize);
+  $("#startdate").val(datateacher.startdate);
+  $("#enddate").val(datateacher.enddate);
+  $("#birthdate").val(datateacher.birthdate);
+  $("#building").val(datateacher.building);
+  $("#room").val(datateacher.room);
+}

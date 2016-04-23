@@ -3,6 +3,7 @@
     <meta charset="utf-8">
     <title>Node editProfile</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
     <!-- load bootstrap css -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <!-- load fontawesome -->
@@ -31,7 +32,12 @@
     <link rel="stylesheet" href="bower_components/rateYo/min/jquery.rateyo.min.css" />
     <script src="bower_components/rateYo/min/jquery.rateyo.min.js"></script>
 
-
+    <!-- collapse -->
+    <script type="text/javascript" src="bower_components/collapsible.js/jquery.collapsible.js"></script>
+    <!--modals  -->
+    <script src="bower_components/bootstrap/js/modal.js"></script>
+    <!-- bootstrap social -->
+    <link href="bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet" type="text/css" />
 </head>
 
 
@@ -58,7 +64,7 @@
                     <%=  msg %>
                 </div>
 
-                <p>วชิรกรณ์ รังสิกวานิช</p>
+                <p>เคโรโระ เซนเซย์</p>
 
                 <div class="icontools">
                     <div class="item">
@@ -101,13 +107,6 @@
 
                 <ul>
                     <li ng-click='isVisible = "manageProfile"'><a id="manageprofile" href="">ข้อมูลส่วนตัว</a></li>
-                    <li ng-click='isVisible = "manageEdu"'><a href="">ข้อมูลการศึกษา</a></li>
-                    <li ng-click='isVisible = "manageThesis"'><a href="">ข้อมูลวิทยานิพนธ์</a></li>
-                    <li ng-click='isVisible = "manageInterested"'><a href="">ข้อมูลความถนัด/ความสนใจ</a></li>
-                    <li ng-click='isVisible = "manageInternship"'><a href="">ข้อมูลการฝึกงาน</a></li>
-                    <li ng-click='isVisible = "manageFurtherEdu"'><a href="">ข้อมูลการศึกษาต่อ</a></li>
-
-
                 </ul>
             </div>
             <div class="menu">
@@ -133,7 +132,7 @@
 
 
                 <ul>
-                    <li ng-click='isVisible = "trackStu"'><a href="">ระบบติดตามผลการเรียนนิสิต</a></li>
+                    <li ng-click='isVisible = "track"'><a id="track" href="">ระบบติดตามผลการเรียนนิสิต</a></li>
                     <!-- <li ng-click='isVisible = "eduOverview"'><a href="">ภาพรวมทางการศึกษา</a></li>
                     <li ng-click='isVisible = "thesisOverview"'><a href="">ภาพรวมวิทยานิพนธ์</a></li>
                     <li ng-click='isVisible = "pollInterest"'><a href="">ข้อมูลความถนัด/ความสนใจ</a></li>
@@ -152,11 +151,10 @@
                 <form id="manageprofiledata">
 
                     <div class="form-group">
-                        <div class="form-group">
-                            <label for="x">รหัสนิสิต</label>
-                            <input type="text" class="form-control" id="stuid" placeholder="">
-                        </div>
+                        <label for="x">คำนำหน้าชื่อ</label>
+                        <input type="text" class="form-control" id="tt" placeholder="">
                     </div>
+
                     <div class="form-inline">
                         <div class="form-group">
                             <label for="x">ชื่อ</label>
@@ -167,120 +165,63 @@
                             <input type="text" class="form-control" id="lastName" placeholder="">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="x">เบอร์โทร</label>
-                        <input type="text" class="form-control" id="tel" placeholder="">
-                    </div>
+
                     <div class="form-group">
                         <label for="x">เพศ</label>
                         <input type="text" class="form-control" id="gender" placeholder="">
-
                     </div>
+
+                    <div class="form-group">
+                        <label for="x">ตำแหน่ง</label>
+                        <input type="text" class="form-control" id="position" placeholder="">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <label for="x">คณะ</label>
+                                <input type="text" class="form-control" id="faculty" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">ภาค</label>
+                                <input type="text" class="form-control" id="department" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="x">ความเชี่ยวชาญ</label>
+                        <input type="text" class="form-control" id="spacialize" placeholder="">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="x">ห้องพักอาจารย์</label>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <label for="x">ห้อง</label>
+                                <input type="text" class="form-control" id="room" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="x">ตึก</label>
+                                <input type="text" class="form-control" id="building" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-inline">
                         <div class="form-group">
-                            <label for="x">คณะ</label>
-                            <input type="text" class="form-control" id="faculty" placeholder="">
-
+                            <label for="x">วันเริ่มทำงาน</label>
+                            <input type="text" class="form-control" id="startdate" placeholder="">
                         </div>
                         <div class="form-group">
-                            <label for="x">ภาค</label>
-                            <input type="text" class="form-control" id="department" placeholder="">
-
+                            <label for="x">วันสิ้นสุดการทำงาน</label>
+                            <input type="text" class="form-control" id="enddate" placeholder="">
                         </div>
                     </div>
-
 
                     <div class="form-group" style="width:300px;">
                         <label for="x">วันเกิด</label>
                         <input type="text" class="form-control" id="birthdate" placeholder="">
                     </div>
-                    <!-- addr main -->
-                    <label for="x" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ตามทะเบียนบ้าน</label>
-                    <hr />
 
-                    <div class="form-inline">
-                        <div class="form-group" style="">
-                            <label for="x">เลขที่</label>
-                            <input type="text" class="form-control" id="f_address" placeholder="">
-                        </div>
-                        <div class="form-group" style="">
-                            <label for="x">หมู่</label>
-                            <input type="text" class="form-control" id="f_moo" placeholder="">
-                        </div>
-                        <div class="form-group" style="">
-                            <label for="x">ถนน</label>
-                            <input type="text" class="form-control" id="f_road" placeholder="">
-                        </div>
-                        <div class="form-group" style="">
-                            <label for="x">แขวง/ตำบล</label>
-                            <input type="text" class="form-control" id="f_subDistrict" placeholder="">
-                        </div>
-                        <div class="form-group" style="">
-                            <label for="x">เขต/อำเภอ</label>
-                            <input type="text" class="form-control" id="f_district" placeholder="">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="x">จังหวัด/เมือง</label>
-                            <input type="text" class="form-control" id="f_city" placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label for="x">รหัสไปรษณีย์</label>
-                            <input type="text" class="form-control" id="f_postcode" placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label for="x">ประเทศ</label>
-                            <input type="text" class="form-control" id="f_country" placeholder="">
-                        </div>
-                    </div>
-                    <!-- addr now -->
-                    <label for="x" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ที่อยู่ปัจจุบัน</label>
-                    <hr />
-
-                    <div class="form-inline">
-
-                        <div class="form-group" style="">
-                            <label for="x">เลขที่</label>
-                            <input type="text" class="form-control" id="s_address" placeholder="">
-                        </div>
-                        <div class="form-group" style="">
-                            <label for="x">หมู่</label>
-                            <input type="text" class="form-control" id="s_moo" placeholder="">
-                        </div>
-                        <div class="form-group" style="">
-                            <label for="x">ถนน</label>
-                            <input type="text" class="form-control" id="s_road" placeholder="">
-                        </div>
-                        <div class="form-group" style="">
-                            <label for="x">แขวง/ตำบล</label>
-                            <input type="text" class="form-control" id="s_subDistrict" placeholder="">
-                        </div>
-                        <div class="form-group" style="">
-                            <label for="x">เขต/อำเภอ</label>
-                            <input type="text" class="form-control" id="s_district" placeholder="">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="x">จังหวัด/เมือง</label>
-                            <input type="text" class="form-control" id="s_city" placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label for="x">รหัสไปรษณีย์</label>
-                            <input type="text" class="form-control" id="s_postcode" placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label for="x">ประเทศ</label>
-                            <input type="text" class="form-control" id="s_country" placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label for="x" style="margin-top:30px;vertical-align:bottom;font-size:30px;">ปักหมุดที่อยู่ของคุณ</label>
-                            <hr />
-                            <div class="chartwrapper">
-                                <div id="map"></div>
-                            </div>
-                        </div>
-
-                    </div>
                     <div class="form-group last">
                         <button id="manageprofile_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
                         <button id="manageprofile_submit_btn" type="submit" class="btn btn-default">ยืนยัน</button>
@@ -288,274 +229,7 @@
                 </form>
             </div>
             <!-- end manage profile -->
-            <div class="content" ng-show='isVisible === "manageEdu"'>
-                <div class="content_head">ข้อมูลทางการศึกษา<span><i class="fa fa-print"></i></span></div>
-                <form class="" action="" method="post">
 
-
-                    <label for="x" style="font-size:20px;">ป.ตรี</label>
-                    <div class="tab">
-
-                        <div id="eduGroup" class="form-inline">
-
-                            <div class="form-group">
-                                <label for="x">ชื่อสถานศึกษา</label>
-                                <input type="text" class="form-control" id="b_uniName" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">วุฒิการศึกษา</label>
-                                <input type="text" class="form-control" id="b_degree" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">สาขาวิชา</label>
-                                <input type="text" class="form-control" id="b_branch" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">ปีที่สำเร็จ</label>
-                                <input type="text" class="form-control" id="b_graduateYear" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">เกรดเฉลี่ย</label>
-                                <input type="text" class="form-control" id="b_gpa" placeholder="">
-                            </div>
-                        </div>
-                    </div>
-                    <hr/>
-                    <label for="x" style="font-size:20px;">ป.โท</label>
-                    <div class="tab">
-
-                        <div id="eduGroup" class="form-inline">
-
-                            <div class="form-group">
-                                <label for="x">ชื่อสถานศึกษา</label>
-                                <input type="text" class="form-control" id="m_uniName" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">วุฒิการศึกษา</label>
-                                <input type="text" class="form-control" id="m_degree" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">สาขาวิชา</label>
-                                <input type="text" class="form-control" id="m_branch" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">ปีที่สำเร็จ</label>
-                                <input type="text" class="form-control" id="m_graduateYear" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">เกรดเฉลี่ย</label>
-                                <input type="text" class="form-control" id="m_gpa" placeholder="">
-                            </div>
-                        </div>
-                    </div>
-                    <hr/>
-                    <label for="x" style="font-size:20px;">ป.เอก</label>
-                    <div class="tab">
-
-                        <div id="eduGroup" class="form-inline">
-
-                            <div class="form-group">
-                                <label for="x">ชื่อสถานศึกษา</label>
-                                <input type="text" class="form-control" id="d_uniName" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">วุฒิการศึกษา</label>
-                                <input type="text" class="form-control" id="d_degree" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">สาขาวิชา</label>
-                                <input type="text" class="form-control" id="d_branch" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">ปีที่สำเร็จ</label>
-                                <input type="text" class="form-control" id="d_graduateYear" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="x">เกรดเฉลี่ย</label>
-                                <input type="text" class="form-control" id="d_gpa" placeholder="">
-                            </div>
-                        </div>
-
-                    </div>
-                    <hr/>
-                    <div class="form-group" style="width:500px;">
-                        <label for="x">สถานที่ทำงาน</label>
-                        <input type="text" class="form-control" id="x" placeholder="">
-                    </div>
-                    <div class="form-group" style="width:500px;">
-                        <label for="x">หลักสูตรที่ศึกษา</label>
-                        <input type="text" class="form-control" id="x" placeholder="">
-                    </div>
-                    <div class="form-group" style="width:500px;">
-                        <label for="x">สถานภาพแรกเข้า</label>
-                        <select class="form-control">
-                            <option value="normal">สามัญ</option>
-                            <option value="try">ทดลองศึกษา</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group" style="width:500px;">
-                        <label for="x">คะแนนสอบภาษาอังกฤษ</label>
-                        <input type="text" class="form-control" id="x" placeholder="">
-                    </div>
-                    <div class="form-group last">
-                        <button id="manageEdu_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="manageEdu_submit_btn" type="submit" class="btn btn-default">ยืนยัน</button>
-                    </div>
-
-                </form>
-            </div>
-            <!-- end manage edu -->
-            <!-- myThesis -->
-            <div class="content" ng-show='isVisible === "manageThesis"'>
-                <div class="alert alert-warning">
-                    <strong>แจ้งเตือน!</strong> นิสิตปริญญาตรีไม่สามารถแก้ไขข้อมูลวิทยานิพนธ์ได้.
-                </div>
-                <div class="content_head">ข้อมูลวิทยานิพนธ์ของคุณ<span><i class="fa fa-print"></i></span></div>
-
-                <form id="thesisdata">
-                    <div class="form-group">
-                        <label for="x">ชื่อวิทยานิพนธ์(ไทย)</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="x">ชื่อวิทยานิพนธ์(อังกฤษ)</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="x">อาจารย์ที่ปรึกษา</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="x">อาจารย์ที่ปรึกษาร่วม</label>
-                        <input type="text" class="form-control" id="coadvisor" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="x">ทุนที่ได้รับ</label>
-                        <textarea class="form-control" id="scholarship" rows="3" placeholder=""></textarea>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="x">รางวัลที่ได้รับ</label>
-                        <textarea class="form-control" id="award" rows="3" placeholder=""></textarea>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="x">ผลงานที่เข้าร่วมประชุมวิชาการในประเทศ</label>
-                        <textarea class="form-control" id="thconference" rows="3" placeholder=""></textarea>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="x">ผลงานที่เข้าร่วมประชุมวิชาการต่างประเทศ</label>
-                        <textarea class="form-control" id="intconference" rows="3" placeholder=""></textarea>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="x">ผลงานที่ได้ตีพิมพ์ในประเทศ</label>
-                        <textarea class="form-control" id="thpub" rows="3" placeholder=""></textarea>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="x">ผลงานที่ได้ตีพิมพ์ต่างประเทศ</label>
-                        <textarea class="form-control" id="intpub" rows="3" placeholder=""></textarea>
-
-                    </div>
-                    <div class="form-group last">
-                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit_btn" type="submit" class="btn btn-default">ยืนยัน</button>
-                    </div>
-
-                </form>
-
-
-            </div>
-
-            <div class="content" ng-show='isVisible === "manageThesis"'>
-                <div class="content_head">แฟ้มเก็บวิทยานิพนธ์<span><i class="fa fa-print"></i></span></div>
-                <button class="file-upload">
-                    <input type="file" class="file-input">Choose File</button>
-
-            </div>
-            <!-- end myThesis -->
-            <!-- manage internship -->
-            <div class="content" ng-show='isVisible === "manageInterested"'>
-                <div class="content_head">ข้อมูลความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
-                <label for="x" style="font-size:20px;padding:10px">ภาษาคอมพิวเตอร์ที่ถนัด</label>
-                <textarea id="comlang" rows="2" cols="50">c++,java</textarea>
-                <label for="x" style="font-size:20px;padding:10px">งานอดิเรก</label>
-                <textarea id="hobby"></textarea>
-                <label for="x" style="font-size:20px;padding:10px">ระบบปฏิบัติการที่ชอบ</label>
-                <textarea id="os"></textarea>
-                <label for="x" style="font-size:20px;padding:10px">ใช้โทรศัพท์ยี่ห้อ</label>
-                <textarea id="phone"></textarea>
-            </div>
-
-            <div class="content" ng-show='isVisible === "manageInternship"'>
-                <div class="content_head">ข้อมูลการฝึกงาน<span><i class="fa fa-print"></i></span></div>
-                <form id="internshipdata">
-                    <div class="form-group">
-                        <label for="x">ชื่อหน่วยงาน</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="x">วันที่เริ่มฝึกงาน</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="x">วันที่จบฝึกงาน</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="x">ความประทับใจ</label>
-                        <textarea class="form-control" id="award" rows="3" placeholder=""></textarea>
-
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="x">คะแนน</label>
-                        <div id="rateYo"></div>
-
-                    </div>
-
-                    <div class="form-group last">
-                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit" type="submit" class="btn btn-default">ยืนยัน</button>
-                    </div>
-
-                </form>
-
-            </div>
-            <!-- manage further edu -->
-            <div class="content" ng-show='isVisible === "manageFurtherEdu"'>
-                <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
-                <form id="internshipdata">
-                    <div class="form-group">
-                        <label for="x">ชื่อมหาวิทยาลัย</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="x">วันที่เข้าศึกษา</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="x">ปีที่คาดว่าจะจบ</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
-                    </div>
-
-                    <div class="form-group last">
-                        <button id="thesis_edit_btn" type="submit" class="btn btn-default">แก้ไข</button>
-                        <button id="thesis_submit_btn" type="submit" class="btn btn-default">ยืนยัน</button>
-                    </div>
-
-                </form>
-            </div>
             <!-- departmental students -->
             <div class="content" ng-show='isVisible === "numPeople"'>
                 <div class="alert alert-info">
@@ -603,7 +277,7 @@
                 </div>
                 <div class="content_head">ข้อมูลจำนวนนิสิตจำแนกตามที่อยุ่อาศัยปัจจุบัน<span><i class="fa fa-print"></i></span></div>
                 <div class="chartwrapper">
-                    <div  class="item" id="chartStuPlace"></div>
+                    <div class="item" id="chartStuPlace"></div>
                 </div>
 
             </div>
@@ -658,7 +332,7 @@
                             <tr>
                                 <th scope="row"><a href="#">234321489</a></th>
                                 <td>เกมเสมือนจริงจำลองการบินของนก</td>
-                                <td>นางสาวลารี่</td>
+                                <td>นางสาวลารี่ เหินนภา</td>
                                 <td>วิศวกรรมคอมพิวเตอร์</td>
                                 <td>ศ.ดร.ปัญญา พามีชัย</td>
                             </tr>
@@ -672,7 +346,7 @@
             <div class="content" ng-show='isVisible === "pollInterest"'>
                 <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
                 <div class="chartwrapper">
-                    <div class="item" id="poll1" ></div>
+                    <div class="item" id="poll1"></div>
                 </div>
 
                 <div class="panel panel-default">
@@ -727,79 +401,182 @@
                         </tbody>
                     </table>
                 </div>
-              </div>
-              <div class="content" ng-show='isVisible === "pollInterest"'>
-                  <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
-                  <div class="chartwrapper">
-                      <div class="item" id="poll2" ></div>
-                  </div>
-
-                  <div class="panel panel-default">
-                      <div class="panel-heading">อันดับงานอดิเรก</div>
-
-                      <table class="table">
-                          <thead>
-                              <tr>
-                                  <th>อันดับ</th>
-                                  <th>ชื่อ</th>
-                                  <th>จำนวน</th>
-
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <th scope="row"><a href="#">1</a></th>
-                                  <td>เล่นเกม</td>
-                                  <td>180</td>
-
-                              </tr>
-                              <tr>
-                                  <th scope="row"><a href="#">2</a></th>
-                                  <td>ดูอนิเมะ</td>
-                                  <td>90</td>
-
-                              </tr>
-                              <tr>
-                                  <th scope="row"><a href="#">3</a></th>
-                                  <td>เขียนเว็บ</td>
-                                  <td>87</td>
-
-                              </tr>
-                              <tr>
-                                  <th scope="row"><a href="#">3</a></th>
-                                  <td>ดูทีวี</td>
-                                  <td>87</td>
-
-                              </tr>
-                              <tr>
-                                  <th scope="row"><a href="#">3</a></th>
-                                  <td>นอน</td>
-                                  <td>87</td>
-
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
+            </div>
+            <div class="content" ng-show='isVisible === "pollInterest"'>
+                <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
+                <div class="chartwrapper">
+                    <div class="item" id="poll2"></div>
                 </div>
 
+                <div class="panel panel-default">
+                    <div class="panel-heading">อันดับงานอดิเรก</div>
 
-                <div class="content" ng-show='isVisible === "pollInternship"'>
-                    <div class="content_head">ผลสำรวจการฝึกงาน<span><i class="fa fa-print"></i></span></div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>อันดับ</th>
+                                <th>ชื่อ</th>
+                                <th>จำนวน</th>
 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">1</a></th>
+                                <td>เล่นเกม</td>
+                                <td>180</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2</a></th>
+                                <td>ดูอนิเมะ</td>
+                                <td>90</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">3</a></th>
+                                <td>เขียนเว็บ</td>
+                                <td>87</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">3</a></th>
+                                <td>ดูทีวี</td>
+                                <td>43</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">3</a></th>
+                                <td>นอน</td>
+                                <td>15</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+            </div>
 
-                <div class="content" ng-show='isVisible === "pollFurtherEdu"'>
-                    <div class="content_head">ผลสำรวจการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
 
-                </div>
+            <div class="content" ng-show='isVisible === "pollInternship"'>
+                <div class="content_head">ผลสำรวจการฝึกงาน<span><i class="fa fa-print"></i></span></div>
+                <!-- <div id="chart1_{{student.id}}" style="height: 200px;width:500px;"></div>
+                <div id="chart1_{{student.id}}" style="height: 200px;width:500px;"></div> -->
+            </div>
 
-                <div class="content" ng-show='isVisible === "pollJob"'>
-                    <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
-
-                </div>
-
+            <div class="content" ng-show='isVisible === "pollFurtherEdu"'>
+                <div class="content_head">ผลสำรวจการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
 
             </div>
+
+            <div class="content" ng-show='isVisible === "pollJob"'>
+                <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
+
+            </div>
+
+            <div class="content" ng-show='isVisible === "track"' ng-controller="modalController">
+                <div class="content_head">ระบบติดตามผลการเรียนนิสิต<span><i class="fa fa-print"></i></span></div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">รายชื่อนิสิตในที่ปรึกษา </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>รหัสนิสิต</th>
+                                <th>ชื่อ</th>
+                                <th>ชั้นปี</th>
+                                <th>GPAX</th>
+                                <th>ปักธง</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="student in students">
+                                <th scope="row"><a href="#">{{student.id}}</a></th>
+                                <td>{{student.name}}</td>
+                                <td>{{student.year}}</td>
+                                <td>{{student.gpax}}</td>
+                                <td><i class="fa fa-flag" style="color:#e60000;" ng-show="{{student.isflagged}}" aria-hidden="true"></i> </td>
+                                <td>
+
+
+                                    <!-- Trigger the modal with a button -->
+
+
+                                    <!-- Modal -->
+
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{'modal'+student.id}}" id="more_btn">{{modal_btn_text}}</button>
+                                    <div class="modal fade" id="{{'modal'+student.id}}" role="dialog">
+                                        <div class="modal-dialog modal-lg">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h2 class="modal-title">{{ prefixtitle}} <b>{{student.name}}</b></h2>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="stuwrapper">
+                                                        <div class="circle-picture" style="background:url('{{student.imgUrl}}') center center;background-size:cover;"></div>
+                                                        <div class="studata">
+                                                            <label for="">ผลการศึกษา</label>
+                                                            <hr>
+                                                            <li>GPAX : {{student.gpax}}</li>
+                                                            <li>GPA : {{student.gpa}}</li>
+                                                            <li>คะแนนการเข้าเรียน : {{student.attendScore}}</li>
+                                                        </div>
+                                                        <div class="studata">
+                                                            <label for="">ข้อมูลส่วนตัว</label>
+                                                            <hr>
+                                                            <li>เพศ : {{student.gender}}</li>
+                                                            <li>วันเกิด : {{student.birthdate| date}}</li>
+                                                            <li>คณะ : {{student.faculty}}</li>
+                                                            <li>ภาควิชา : {{student.department}}</li>
+                                                            <li>วุฒิการศึกาา : {{student.degree}}</li>
+                                                            <li>ชั้นปี : {{student.year}}</li>
+                                                            <li>เบอร์โทรศัพท์ : {{student.tel}}</li>
+                                                            <li>เบอร์โทรผู้ปกครอง : {{student.parentTel}}</li>
+
+
+                                                            <span><a class="btn btn-social-icon btn-twitter">
+                                                                <span class="fa fa-twitter"></span>
+                                                            </a>
+                                                            <a href="{{student.fbUrl}}" class="btn btn-social-icon btn-facebook">
+                                                                <span class="fa fa-facebook"></span>
+                                                            </a>
+                                                            </span>
+                                                        </div>
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m8!1m3!1d242.23621818145554!2d100.52824510028262!3d13.73179600289022!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d13.7317859!2d100.5281526!5e0!3m2!1sth!2sth!4v1461355591682" width="25%" height="100%"
+                                                            style="max-height: 500px;" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="chartwrapper">
+                                                        <div id="chart1_{{student.id}}" style="height: 200px;width:100%;"></div>
+
+                                                    </div>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+        </div>
 
 
         <div class="footer">
@@ -813,6 +590,7 @@
         <script type="text/javascript" src="../script/manageprofile.js"></script>
         <script type="text/javascript" src="../script/eduOverview.js"></script>
         <script type="text/javascript" src="../script/pie.js"></script>
+        <script type="text/javascript" src="../script/collapse.js"></script>
         <script src="script/app.js"></script>
 
         <script type="text/javascript">
@@ -844,22 +622,23 @@
 
             }
 
-            $(document).ready(function() {
+            /*            $(document).ready(function() {
 
-                $("body").find("input").attr("disabled", "true");
-                $("body").find("textarea").attr("disabled", "true");
-                $('#manageprofile').click(function() {
+                            $("body").find("input").attr("disabled", "true");
+                            $("body").find("textarea").attr("disabled", "true");
+                            $('#manageprofile').click(function() {
+
+                            });
+
+                            overviewStuPlace(<%- JSON.stringify(province) %>);
+                            eduOverview();
+                            pollInerest();
+
+                        });
+            */
 
 
 
-                });
-
-                overviewStuPlace(<%- JSON.stringify(province) %>);
-                eduOverview();
-                pollInerest();
-
-
-            });
 
             $("#manageprofile").click(function() {
 
@@ -874,6 +653,14 @@
                 }, 300);
 
             });
+
+
+
+
+
+
+
+
 
             $(function() {
                 $("#rateYo").rateYo({
@@ -893,6 +680,13 @@
                 });
 
 
+
+
+
+
+
+
+
                 // with jQuery UI autocomplete
                 $('#comlang').tagEditor({
 
@@ -906,21 +700,45 @@
                 $('#phone').tagEditor({
 
                 });
+                setTimeout(function() {
+
+                    $('#chart1_5630237221').highcharts({
+                        title: {
+                            text: 'ข้อมูล GPA ตามปีการศึกษา',
+                            x: -20 //center
+                        },
+                        chart: {
+
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'GPA'
+                            }
+                        },
+
+                        tooltip: {
+                            enabled: false
+                        },
+
+                        xAxis: {
+                            categories: ['2014/1', '2014/2', '2015/1', '2015/2', '2016/1', '2016/2', '2017/1', '2017/2', '2018/1', '2018/2', '2019/1', '2019/2', '2020/1', '2020/2']
+                        },
+
+                        series: [{
+                            data: [3.14, 2.97, 3.01, 3.34, 3.43, 3.58]
+                        }]
+                    });
+                }, 300);
+
+                $('#more_btn').click(function() {
+                    //  alert("reflow");
+                    setTimeout(function() {
+                        $("#chart1_5630237221").highcharts().reflow();
+
+                    }, 300);
 
 
-
-
-                // thesis config
-                $("#thesisTH").val("<%=thesis.thesisTH%>");
-                $("#thesisEN").val("<%=thesis.thesisEN%>");
-                $("#advisor").val("<%=thesis.advisor%>");
-                $("#coadvisor").val("<%=thesis.coadvisor%>");
-                $("#scholarship").val("<%=thesis.scholarship%>");
-                $("#award").val("<%=thesis.award%>");
-                $("#thconference").val("<%=thesis.thconference%>");
-                $("#intconference").val("<%=thesis.intconference%>");
-                $("#thpub").val("<%=thesis.thpub%>");
-                $("#intpub").val("<%=thesis.intpub%>");
+                });
 
 
             });
