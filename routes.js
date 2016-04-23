@@ -205,52 +205,26 @@ module.exports = function(app, passport) {
 					pb: 4
 			}
 
-
 		});
-
 	});
-	app.get('/hometeacher',function(req,res){
+
+  app.get('/hometeacher',function(req,res){
 		res.render('client/hometeacher.ejs',{
 
 			msg: 'ยินดีต้อนรับ !',
 			profile : {
-				stuid:'5630520921',
-				firstName:'วชิรกรณ์',
-				lastName:'รังสิกวานิช',
-				tel:'0882391875',
+				firstName:'เคโรโระ',
+				lastName:'เซนเซย์',
 				gender:'ชาย',
 				faculty:'วิศวกรรมศาสตร์',
 				department:'วิศวกรรมคอมพิวเตอร์',
-				birthdate:'26-10-2536',
-				f_address:'44/2',
-				f_moo:'4',
-				f_road:'สุขุมวิท',
-				f_subDistrict:'เสม็ด',
-				f_district:'เมือง',
-				f_city:'ชลบุรี',
-				f_postcode:'20000',
-				f_country:'ไทย',
-				s_address:'83 85 87',
-				s_moo:'-',
-				s_road:'ทรัพย์',
-				s_subDistrict:'สี่พระยา',
-				s_district:'บางรัก',
-				s_city:'กรุงเทพฯ',
-				s_postcode:'10500',
-				s_country:'ไทย'
+				startdate: '16-05-2547',
+				enddate: '',
+				birthdate:'09-12-2522',
+				building: 'ENG4',
+				room: '19-03'
 			},
 			thesis : {
-				thesisTH:'การออกแบบและวิเคราะห์อัลกอริทึมในการปิ้งลูกชิ้น',
-				thesisEN:'Design and Analysis of Algorithm in Grilling LookChin',
-				advisor:'ศ.ดร.บุญเสริม กิจศิริกุล',
-				coadvisor:'ผศ.ดร.โปรดปราน บุณยพุกกณะ',
-				scholarship:'ทุนอุดหนุนการวิจัย พัฒนาและวิศวกรรมภาครัฐ ด้านอิเล็กทรอนิกส์ คอมพิวเตอร์โทรคมนาคมและสารสนเทศ',
-				award:'รางวัลระบบเอื้ออำนวยการประกอบอาหารเชิงอุตสาหกรรม',
-				thconference:'การออกแบบและวิเคราะห์อัลกอริทึมในการปิ้งลูกชิ้น',
-				intconference:'การออกแบบและวิเคราะห์อัลกอริทึมในการปิ้งลูกชิ้น',
-				thpub:'การออกแบบและวิเคราะห์อัลกอริทึมในการปิ้งลูกชิ้น',
-				intpub:'Design and Analysis of Algorithm in Grilling LookChin'
-
 			},
 			province : {
 					ct:10,
@@ -331,12 +305,13 @@ module.exports = function(app, passport) {
 					ln: 4,
 					nn: 4,
 					pb: 4
-			}
-
+			},
+			other : {
+			},
 
 		});
-
 	});
+
 	app.get('/mythesis', function(req, res) {
 		res.render('client/mythesis.ejs'); // load the index.ejs file
 	});
