@@ -1,0 +1,97 @@
+
+<div class="panel panel-default">
+    <div class="panel-heading">นิสิตที่ได้รับการปักหมุด</div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>รหัสนิสิต</th>
+                <th>ชื่อ</th>
+                <th>ชั้นปี</th>
+                <th>GPAX</th>
+                <th>ปักธง</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="student in students">
+                <th scope="row"><a href="#">{{student.id}}</a></th>
+                <td>{{student.name}}</td>
+                <td>{{student.year}}</td>
+                <td>{{student.gpax}}</td>
+                <td><i class="fa fa-flag" style="color:#e60000;" ng-show="{{student.isflagged}}" aria-hidden="true"></i> </td>
+                <td>
+
+
+                    <!-- Trigger the modal with a button -->
+
+
+                    <!-- Modal -->
+
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{'modal'+student.id}}" id="more_btn">{{modal_btn_text}}</button>
+                    <div class="modal fade" id="{{'modal'+student.id}}" role="dialog">
+                        <div class="modal-dialog modal-lg">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="modal-title">{{ prefixtitle}} <b>{{student.name}}</b></h2>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="stuwrapper">
+                                        <div class="circle-picture" style="background:url('{{student.imgUrl}}') center center;background-size:cover;"></div>
+                                        <div class="studata">
+                                            <label for="">ผลการศึกษา</label>
+                                            <hr>
+                                            <li>GPAX : {{student.gpax}}</li>
+                                            <li>GPA : {{student.gpa}}</li>
+                                            <li>คะแนนการเข้าเรียน : {{student.attendScore}}</li>
+                                        </div>
+                                        <div class="studata">
+                                            <label for="">ข้อมูลส่วนตัว</label>
+                                            <hr>
+                                            <li>เพศ : {{student.gender}}</li>
+                                            <li>วันเกิด : {{student.birthdate| date}}</li>
+                                            <li>คณะ : {{student.faculty}}</li>
+                                            <li>ภาควิชา : {{student.department}}</li>
+                                            <li>วุฒิการศึกาา : {{student.degree}}</li>
+                                            <li>ชั้นปี : {{student.year}}</li>
+                                            <li>เบอร์โทรศัพท์ : {{student.tel}}</li>
+                                            <li>เบอร์โทรผู้ปกครอง : {{student.parentTel}}</li>
+
+
+                                            <span><a class="btn btn-social-icon btn-twitter">
+                                                <span class="fa fa-twitter"></span>
+                                            </a>
+                                            <a href="{{student.fbUrl}}" class="btn btn-social-icon btn-facebook">
+                                                <span class="fa fa-facebook"></span>
+                                            </a>
+                                            </span>
+                                        </div>
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m8!1m3!1d242.23621818145554!2d100.52824510028262!3d13.73179600289022!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d13.7317859!2d100.5281526!5e0!3m2!1sth!2sth!4v1461355591682" width="25%" height="100%"
+                                            style="max-height: 500px;" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="chartwrapper">
+                                        <div id="chi" style="height: 200px;width:500px;"></div>
+
+                                    </div>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
