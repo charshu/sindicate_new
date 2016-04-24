@@ -38,6 +38,8 @@
     <script src="bower_components/bootstrap/js/modal.js"></script>
     <!-- bootstrap social -->
     <link href="bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet" type="text/css" />
+    <!-- noty -->
+    <script type="text/javascript" src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
 </head>
 
 
@@ -50,6 +52,9 @@
                 <!-- <p>
                     sindicate <span><i class="fa fa-pie-chart"></i></span>
                 </p> -->
+            </div>
+            <div class="notify">
+                test
             </div>
             <div class="logout">
                 <p>
@@ -69,7 +74,7 @@
                 <div class="icontools">
                     <div class="item">
                         <a href="/editProfile">
-                            <p class="rightborder"> <span><i class="fa fa-user" aria-hidden="true"></i></span> ข้อมูลส่วนตัว</p>
+                            <p class="rightborder"> <span><i class="fa fa-share-square-o" aria-hidden="true"></i></span> แชร์ข้อมูลของคุณสิ</p>
                         </a>
                     </div>
                     <div class="item">
@@ -1244,7 +1249,7 @@
 
             }
             $(document).ready(function() {
-
+                var n = noty({text: 'noty - a jquery notification library!'});
                 $("body").find("input").attr("disabled", "true");
                 $("body").find("textarea").attr("disabled", "true");
 
