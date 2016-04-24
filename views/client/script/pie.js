@@ -1,4 +1,4 @@
-function pollInerest() {
+function pieinterest() {
 
     setTimeout(function() {
         $('#poll1').highcharts({

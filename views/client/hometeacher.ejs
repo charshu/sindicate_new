@@ -500,10 +500,10 @@
                                 <td>{{student.gpax}}</td>
                                 <td>
                                     <div class="" ng-if="student.isflagged">
-                                        <i class="fa fa-flag" ng-click="flag($index)" style="color:#e60000;" aria-hidden="true"></i>
+                                        <i  class="fa fa-flag" ng-click="flag($index)" style="color:#e60000;" aria-hidden="true"></i>
                                     </div>
                                     <div class="" ng-if="!student.isflagged">
-                                        <i class="fa fa-flag" ng-click="flag($index)" style="color:#f2f2f2;" aria-hidden="true"></i>
+                                        <i  class="fa fa-flag" ng-click="flag($index)" style="color:#f2f2f2;" aria-hidden="true"></i>
                                     </div>
 
 
@@ -610,12 +610,12 @@
                                 <td>{{student.name}}</td>
                                 <td>{{student.year}}</td>
                                 <td>{{student.gpax}}</td>
-                                <td>
+                                <td >
                                     <div class="" ng-if="student.isflagged">
-                                        <i class="fa fa-flag" ng-click="flag($index)" style="color:#e60000;" aria-hidden="true"></i>
+                                        <i  class="fa fa-flag" ng-click="flag($index)" style="color:#e60000;" aria-hidden="true"></i>
                                     </div>
                                     <div class="" ng-if="!student.isflagged">
-                                        <i class="fa fa-flag" ng-click="flag($index)" style="color:#f2f2f2;" aria-hidden="true"></i>
+                                        <i  class="fa fa-flag" ng-click="flag($index)" style="color:#f2f2f2;" aria-hidden="true"></i>
                                     </div>
 
 
@@ -713,8 +713,7 @@
         <script type="text/javascript" src="../script/fillform.js"></script>
         <script type="text/javascript" src="../script/chart.js"></script>
         <script type="text/javascript" src="../script/pie.js"></script>
-        <script type="text/javascript" src="../script/collapse.js"></script>
-        <script type="text/javascript" src="../script/tageditor.js"></script>
+
 
         <script src="script/app.js"></script>
 
@@ -770,9 +769,10 @@
 
                 //menu1
                 $('#manageprofile').click(function() {
-                    fillprofileteacher(<%- JSON.stringify(profile) %>);
+
                     setTimeout(function() {
-                        $("body").find("input").attr("disabled", "true");
+                      fillprofileteacher(<%- JSON.stringify(profile) %>);
+                      $("body").find("input").attr("disabled", "true");
 
                     }, 100);
                 });
@@ -792,11 +792,15 @@
 
                 });
                 $("#pollinterest_btn").click(function() {
-                    pollInerest();
+                    pieinterest();
 
                 });
-                $("#track_btn").click(function() {
+
+                $("#track_btn").click(function trackpanel() {
+
                     setTimeout(function() {
+
+
                         //oon
                         $('#more_btn5630237221').click(function() {
                             showchart();
@@ -832,20 +836,6 @@
 
             });
 
-            $(function() {
-                //
-                // $('#thesis_edit_btn').click(function() {
-                //     $("#thesisdata").find("input").removeAttr("disabled", "true");
-                //     $("#thesisdata").find("textarea").removeAttr("disabled", "true");
-                //     //  alert("click");
-                // });
-                // $('#thesis_submit_btn').click(function() {
-                //     $("#thesisdata").find("input").attr("disabled", "true");
-                //     $("#thesisdata").find("textarea").attr("disabled", "true");
-                //     //  alert("click");
-                // });
-
-            });
         </script>
 
 </body>

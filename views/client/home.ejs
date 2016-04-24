@@ -123,26 +123,27 @@
 
 
                 <ul>
-                    <li ng-click='isVisible = "numPeople"'><a id="numPeople" href="">จำนวนนิสิตและบุคลากร</a></li>
+                    <li ng-click='isVisible = "numPeople"'><a id="numPeople" href="">จำนวนนิสิต</a></li>
+                    <li ng-click='isVisible = "numEdu"'><a id="numedu_btn" href="">จำนวนบุคลากร</a></li>
                     <li ng-click='isVisible = "eduOverview"'><a id="eduOverview_btn" href="">ภาพรวมทางการศึกษา</a></li>
                     <li ng-click='isVisible = "thesisOverview"'><a id="thesisOverview_btn" href="">ภาพรวมวิทยานิพนธ์</a></li>
                     <li ng-click='isVisible = "pollInterest"'><a id="pollinterest_btn" href="">ผลสำรวจความถนัด/ความสนใจ</a></li>
-                    <li ng-click='isVisible = "pollInternship"'><a href="">ผลสำรวจการฝึกงาน</a></li>
-                    <li ng-click='isVisible = "pollFurtherEdu"'><a href="">ผลสำรวจการศึกษาต่อ</a></li>
-                    <li ng-click='isVisible = "pollJob"'><a href="">ผลสำรวจการประกอบอาชีพ</a></li>
+                    <li ng-click='isVisible = "pollInternship"'><a id="pollinternship_btn" href="">ผลสำรวจการฝึกงาน</a></li>
+                    <li ng-click='isVisible = "pollFurtherEdu"'><a id="pollfurtheredu_btn" href="">ผลสำรวจการศึกษาต่อ</a></li>
+                    <li ng-click='isVisible = "pollJob"'><a id="polljob_btn" href="">ผลสำรวจการประกอบอาชีพ</a></li>
                 </ul>
             </div>
-            <div class="menu">
+            <!-- <div class="menu">
                 <div class="menuname">
                     เครื่องมือ
                 </div>
 
 
                 <ul>
-                    <!-- <li ng-click='isVisible = "track"'><a id="track" href="">ระบบติดตามผลการเรียนนิสิต</a></li> -->
+                    <li ng-click='isVisible = "track"'><a id="track" href="">ระบบติดตามผลการเรียนนิสิต</a></li>
 
                 </ul>
-            </div>
+            </div> -->
         </div>
 
         <div class="contentwrapper">
@@ -485,14 +486,14 @@
             <div class="content" ng-show='isVisible === "manageInterested"'>
                 <div class="content_head">ข้อมูลความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
 
-                    <label for="x" style="font-size:20px;padding:10px">ภาษาคอมพิวเตอร์ที่ถนัด</label>
-                    <textarea id="comlang" rows="2" cols="50">c++,java</textarea>
-                    <label for="x" style="font-size:20px;padding:10px">งานอดิเรก</label>
-                    <textarea id="hobby"></textarea>
-                    <label for="x" style="font-size:20px;padding:10px">ระบบปฏิบัติการที่ชอบ</label>
-                    <textarea id="os"></textarea>
-                    <label for="x" style="font-size:20px;padding:10px">ใช้โทรศัพท์ยี่ห้อ</label>
-                    <textarea id="phone"></textarea>
+                <label for="x" style="font-size:20px;padding:10px">ภาษาคอมพิวเตอร์ที่ถนัด</label>
+                <textarea id="comlang" rows="2" cols="50">c++,java</textarea>
+                <label for="x" style="font-size:20px;padding:10px">งานอดิเรก</label>
+                <textarea id="hobby"></textarea>
+                <label for="x" style="font-size:20px;padding:10px">ระบบปฏิบัติการที่ชอบ</label>
+                <textarea id="os"></textarea>
+                <label for="x" style="font-size:20px;padding:10px">ใช้โทรศัพท์ยี่ห้อ</label>
+                <textarea id="phone"></textarea>
 
 
             </div>
@@ -523,7 +524,7 @@
 
                     <div class="form-group">
                         <label for="x">คะแนน</label>
-                        <div id="rateYo"></div>
+                        <div id="rateinput"></div>
 
                     </div>
 
@@ -561,12 +562,113 @@
                 </form>
             </div>
             <!-- departmental students -->
+
+
+
+            <div class="content" ng-show='isVisible === "numPeople"'>
+                <div class="alert alert-info">
+                    <strong>อ้างอิง</strong> รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
+                </div>
+                <div class="content_head">ข้อมูลจำนวนนิสิตจำแนกตามเพศ<span><i class="fa fa-print"></i></span></div>
+                <!-- panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">ตารางแสดงจำนวนนิสิตแยกตามเพศ</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ระดับการศึกษา</th>
+                                <th>ชาย</th>
+                                <th>หญิง</th>
+                                <th>รวม</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">ปริญญาตรี</a></th>
+                                <td>354</td>
+                                <td>55</td>
+                                <td>409</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">ปริญญาโท</a></th>
+                                <td>32</td>
+                                <td>8</td>
+                                <td>40</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">ปริญญาเอก</a></th>
+                                <td>23</td>
+                                <td>8</td>
+                                <td>31</td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end panel -->
+                <div class="meterGroup" style="width:50%;">
+                    <div class="meter" id="male"></div>
+                    <div class="meter" id="female"></div>
+
+                </div>
+
+            </div>
+
             <div class="content" ng-show='isVisible === "numPeople"'>
                 <div class="alert alert-info">
                     <strong>อ้างอิง</strong> รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
                 </div>
                 <div class="content_head">ข้อมูลจำนวนนิสิตจำแนกตามสถานะ<span><i class="fa fa-print"></i></span></div>
+                <!-- panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">ตารางแสดงจำนวนนิสิตแยกตามเพศ</div>
 
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ระดับการศึกษา</th>
+                                <th>ปกติ</th>
+                                <th>แลกเปลี่ยน</th>
+                                <th>ดรอป</th>
+                                <th>รีไทล์</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">ปริญญาตรี</a></th>
+                                <td>360</td>
+                                <td>20</td>
+                                <td>20</td>
+                                <td>9</td>
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">ปริญญาโท</a></th>
+                              <td>30</td>
+                              <td>10</td>
+                              <td>0</td>
+                              <td>0</td>
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">ปริญญาเอก</a></th>
+                              <td>28</td>
+                              <td>3</td>
+                              <td>0</td>
+                              <td>0</td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end panel -->
                 <label for="x" style="font-size:20px;padding:10px">ปริญญาตรี</label>
                 <div class="meterGroup">
                     <div class="meter" id="b_numStu"></div>
@@ -576,6 +678,7 @@
 
                     <!-- <div class="meter" id="numStuSum"></div> -->
                 </div>
+
                 <hr>
 
                 <label for="x" style="font-size:20px;padding:10px">ปริญญาโท</label>
@@ -600,6 +703,7 @@
                 </div>
                 <hr>
 
+
             </div>
             <div class="content" ng-show='isVisible === "numPeople"'>
                 <div class="alert alert-info">
@@ -612,10 +716,117 @@
 
             </div>
 
+            <div class="content" ng-show='isVisible === "numEdu"'>
+                <div class="alert alert-info">
+                    <strong>อ้างอิง</strong> รายงานบุคลากรทั้งหมดจําแนกตาม ประเภทบุคลากรและสายงาน ภาคการศึกษา 2/2558
+                </div>
+
+                <div class="content_head">จำนวนบุคลากร<span><i class="fa fa-print"></i></span></div>
+
+
+
+
+                <!-- panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">ตารางแสดงจำนวนบุคลากรแยกตามปีการศึกษา</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ปีการศึกษา</th>
+                                <th>อาจารย์</th>
+                                <th>นักวิจัย</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">2551</a></th>
+                                <td>132</td>
+                                <td>23</td>
+
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">2552</a></th>
+                              <td>134</td>
+                              <td>43</td>
+
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">2553</a></th>
+                              <td>146</td>
+                              <td>31</td>
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">2554</a></th>
+                              <td>147</td>
+                              <td>65</td>
+
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">2555</a></th>
+                              <td>157</td>
+                              <td>43</td>
+
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">2556</a></th>
+                              <td>154</td>
+                              <td>23</td>
+
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">2557</a></th>
+                              <td>158</td>
+                              <td>12</td>
+
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">2558</a></th>
+                              <td>156</td>
+                              <td>32</td>
+
+
+                            </tr>
+                            <tr>
+                              <th scope="row"><a href="#">2559</a></th>
+                              <td>162</td>
+                              <td>43</td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end panel -->
+
+                  <div class="item" id="numeduchart"></div>
+
+            </div>
+
             <div class="content" ng-show='isVisible === "eduOverview"'>
-                <div class="content_head">ภาพรวมทางการศึกษาของคณะ<span><i class="fa fa-print"></i></span></div>
+                <div class="content_head">เกรดเฉลี่ยรวมของนิสิตภาควิศวคอมพิวเตอร์<span><i class="fa fa-print"></i></span></div>
                 <div class="chartwrapper">
                     <div class="item" id="eduOverview"></div>
+                </div>
+
+            </div>
+
+            <div class="content" ng-show='isVisible === "eduOverview"'>
+                <div class="content_head">เกรดเฉลี่ยรวมของนิสิตจำแนกตามวิชา<span><i class="fa fa-print"></i></span></div>
+                <div class="chartwrapper">
+                    <div class="item" id="course1"></div>
+                      <div class="item" id="course2"></div>
+                        <div class="item" id="course3"></div>
                 </div>
 
             </div>
@@ -789,18 +1000,200 @@
 
             <div class="content" ng-show='isVisible === "pollInternship"'>
                 <div class="content_head">ผลสำรวจการฝึกงาน<span><i class="fa fa-print"></i></span></div>
-                <!-- <div id="chart1_{{student.id}}" style="height: 200px;width:500px;"></div>
-                <div id="chart1_{{student.id}}" style="height: 200px;width:500px;"></div> -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">ตารางผลสำรวจการฝึกงาน</div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>อันดับ</th>
+                                <th>ชื่อหน่วยงาน</th>
+                                <th>จำนวนนิสิต</th>
+                                <th>คะแนนโหวต</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">1</a></th>
+                                <td>บริษัท เมจิกซอฟท์แวร์ (ประเทศไทย) จำกัด</td>
+                                <td>43</td>
+                                <td>
+                                    <div id="rate1" style="display:block !important;"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2</a></th>
+                                <td>บริษัท เทคโนโลยี่ แอพพลิเคชั่นส์ จำกัด (มหาชน)</td>
+                                <td>35</td>
+                                <td>
+                                    <div id="rate2"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">3</a></th>
+                                <td>บริษัท จีเคเอ็น ไดรฟไลน์ โตโยดะ แมนูแฟคเจอริ่ง จำกัด</td>
+                                <td>10</td>
+                                <td>
+                                    <div id="rate3"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4</a></th>
+                                <td>บริษัท ซินโก้ ซิสเท็ม (ไทยแลนด์) จำกัด</td>
+                                <td>20</td>
+                                <td>
+                                    <div id="rate4"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">5</a></th>
+                                <td>ห้างหุ้นส่วนจำกัด พราวด์ ยูเนี่ยน กรุ๊ป</td>
+                                <td>1</td>
+                                <td>
+                                    <div id="rate5"></div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="content" ng-show='isVisible === "pollFurtherEdu"'>
                 <div class="content_head">ผลสำรวจการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">ตารางผลสำรวจการศึกษาต่อ</div>
 
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>อันดับ</th>
+                                <th>ชื่อสถานศึกษา</th>
+                                <th>จำนวนนิสิต</th>
+                                <th>คะแนนโหวต</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">1</a></th>
+                                <td>สถาบันเทคโนโลยีแมสซาชูเซตส์ (เอ็มไอที)</td>
+                                <td>43</td>
+                                <td>
+                                    <div id="rate6"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2</a></th>
+                                <td>มหาวิทยาลัยเคมบริดจ์</td>
+                                <td>35</td>
+                                <td>
+                                    <div id="rate7"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">3</a></th>
+                                <td>มหาวิทยาลัยโคลัมเบีย</td>
+                                <td>9</td>
+                                <td>
+                                    <div id="rate8"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">4</a></th>
+                                <td>มหาวิทยาลัยแคลิฟอร์เนีย เบิร์กลีย์</td>
+                                <td>7</td>
+                                <td>
+                                    <div id="rate9"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">5</a></th>
+                                <td>มหาวิทยาลัยออกซ์ฟอร์ด</td>
+                                <td>8</td>
+                                <td>
+                                    <div id="rate10"></div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="content" ng-show='isVisible === "pollJob"'>
-                <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
+                <div class="content_head">ผลสำรวจการเข้าทำงาน<span><i class="fa fa-print"></i></span></div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">ตารางผลสำรวจการเข้าทำงาน</div>
 
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>อันดับ</th>
+                                <th>ชื่อหน่วยงาน</th>
+                                <th>จำนวนนิสิต</th>
+                                <th>คะแนนโหวต</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="#">1</a></th>
+                                <td>Google ประเทศไทย</td>
+                                <td>130</td>
+                                <td>
+                                    <div id="rate11"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">2</a></th>
+                                <td>Wongnai</td>
+                                <td>35</td>
+                                <td>
+                                    <div id="rate12"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">3</a></th>
+                                <td>ธนาคารไทยพาณิชย์</td>
+                                <td>10</td>
+                                <td>
+                                    <div id="rate13"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">3</a></th>
+                                <td>True Corporation</td>
+                                <td>20</td>
+                                <td>
+                                    <div id="rate14"></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="#">3</a></th>
+                                <td>ตลาดหลักทรัพย์แห่งประเทศไทย</td>
+                                <td>1</td>
+                                <td>
+                                    <div id="rate15"></div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
 
@@ -876,14 +1269,10 @@
 
                     setTimeout(function() {
 
-                        $('#comlang').tagEditor({
-                        });
-                        $('#hobby').tagEditor({
-                        });
-                        $('#os').tagEditor({
-                        });
-                        $('#phone').tagEditor({
-                        });
+                        $('#comlang').tagEditor({});
+                        $('#hobby').tagEditor({});
+                        $('#os').tagEditor({});
+                        $('#phone').tagEditor({});
 
                     }, 100);
 
@@ -892,7 +1281,11 @@
                     fillmanageinternship(<%- JSON.stringify(internship) %>);
                     setTimeout(function() {
                         $("body").find("input").attr("disabled", "true");
+                        $("#rateinput").rateYo().on("rateyo.change", function(e, data) {
 
+                            var rating = data.rating;
+                            $(this).next().text(rating);
+                        });
                     }, 100);
                 });
                 $('#managefurtheredu').click(function() {
@@ -910,6 +1303,12 @@
 
 
                 });
+                $('#numedu_btn').click(function() {
+                    numeduchart();
+
+
+
+                });
                 $("#eduOverview_btn").click(function() {
                     eduoverviewchart();
 
@@ -919,8 +1318,87 @@
 
                 });
                 $("#pollinterest_btn").click(function() {
-                    pollInerest();
+                    pieinterest();
 
+                });
+                $("#pollinternship_btn").click(function() {
+                    setTimeout(function() {
+
+                        $("#rate1").rateYo({
+                            rating: 4.4,
+                            readOnly: true
+                        });
+                        $("#rate2").rateYo({
+                            rating: 4,
+                            readOnly: true
+                        });
+                        $("#rate3").rateYo({
+                            rating: 3.6,
+                            readOnly: true
+                        });
+                        $("#rate4").rateYo({
+                            rating: 3,
+                            readOnly: true
+                        });
+                        $("#rate5").rateYo({
+                            rating: 1,
+                            readOnly: true
+                        });
+
+                    }, 100);
+                });
+                $("#pollfurtheredu_btn").click(function() {
+                    setTimeout(function() {
+                        $("#rate6").rateYo({
+                            rating: 4.4,
+                            readOnly: true
+                        });
+                        $("#rate7").rateYo({
+                            rating: 4,
+                            readOnly: true
+                        });
+                        $("#rate8").rateYo({
+                            rating: 3.6,
+                            readOnly: true
+                        });
+                        $("#rate9").rateYo({
+                            rating: 3,
+                            readOnly: true
+                        });
+                        $("#rate10").rateYo({
+                            rating: 1,
+                            readOnly: true
+                        });
+                    }, 100);
+                });
+                $("#polljob_btn").click(function() {
+                    setTimeout(function() {
+                        $("body").find("input").attr("disabled", "true");
+                        $("#rate10").rateYo({
+                            rating: 4.4,
+                            readOnly: true
+                        });
+                        $("#rate11").rateYo({
+                            rating: 4,
+                            readOnly: true
+                        });
+                        $("#rate12").rateYo({
+                            rating: 3.6,
+                            readOnly: true
+                        });
+                        $("#rate13").rateYo({
+                            rating: 3,
+                            readOnly: true
+                        });
+                        $("#rate14").rateYo({
+                            rating: 1,
+                            readOnly: true
+                        });
+                        $("#rate15").rateYo({
+                            rating: 4.4,
+                            readOnly: true
+                        });
+                    }, 100);
                 });
                 $("#track_btn").click(function() {
                     setTimeout(function() {
@@ -959,4 +1437,6 @@
 
             });
         </script>
+
+
 </body>
