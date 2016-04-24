@@ -15,14 +15,15 @@ app.controller("modalController", ["$scope", function($scope){
   $scope.prefixtitle = "แฟ้มข้อมูลของ";
     $scope.students = [{
       // left
-        id:'5630237221',
-        name: "ภูผา วัฒนชลาชล",
-        gpax: "2.67",
-        attendScore:"50",
+        id:'5630103921',
+        name: "นายชนวิทย์ อ้นชู",
+        gpax: "3.33",
+        gpa:"3.47",
+        attendScore:"80",
         isflagged:true,
         note:"ไม่ค่อยเข้าเรียน มาสายบ่อย",
-        imgUrl:'/images/mypic.jpg',
-        fbUrl:'https://www.facebook.com/chi.zzwzz',
+        imgUrl:'/images/oon.jpg',
+        fbUrl:'https://www.facebook.com/bosschanawit',
 
         // profilestuid:'5630520921',
         tel:'0882391875',
@@ -56,7 +57,7 @@ app.controller("modalController", ["$scope", function($scope){
       },
       {
       id:'5630520921',
-      name: "วชิรกรณ์ รังสิกวานิช",
+      name: "นายวชิรกรณ์ รังสิกวานิช",
       gpax: "3.27",
       gpa:"3.47",
       attendScore:"88",
@@ -77,13 +78,13 @@ app.controller("modalController", ["$scope", function($scope){
     },
     {
       id:'5630513521',
-      name: "รุจิรา รุจิสมบัติ",
+      name: "นางสาวรุจิรา รุจิสมบัติ",
       gpax: "3.46",
       attendScore:"95",
       isflagged:false,
       note:"มาเรียนตรงเวลา ตั้งใจเรียนทุกวัน",
-      imgUrl:'/images/mypic.jpg',
-      fbUrl:'https://www.facebook.com/chi.zzwzz',
+      imgUrl:'/images/fah.jpg',
+      fbUrl:'https://www.facebook.com/bluefasis',
 
       // profilestuid:'5630520921',
       tel:'0882391875',
@@ -94,11 +95,13 @@ app.controller("modalController", ["$scope", function($scope){
       degree:"ปริญญาตรี",
       year:"3",
       birthdate:'12-05-2537'
+
     },
     {
       id:'5631079921',
       name: "มารี รักเรียน",
       gpax: "3.99",
+      gpa:"3.47",
       attendScore:"100",
       isflagged:false,
       note:"มาเรียนตรงเวลา ตั้งใจเรียนทุกวัน",

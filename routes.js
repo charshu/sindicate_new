@@ -203,6 +203,14 @@ module.exports = function(app, passport) {
 					ln: 4,
 					nn: 4,
 					pb: 4
+			},
+			internship :{
+				name:'CP ALL',
+				start:'23/05/2016',
+				end:'23/07/2016',
+				impression:'ก็ดี',
+				rate:'5'
+
 			}
 
 		});

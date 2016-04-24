@@ -1,4 +1,4 @@
-function fillprofile(data){
+function fillprofile(data,data2){
   //manage data config
   $('#manageprofile_edit_btn').click(function() {
       $("#manageprofiledata").find("input").removeAttr("disabled", "true");

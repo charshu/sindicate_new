@@ -504,21 +504,21 @@
                 <form id="internshipdata">
                     <div class="form-group">
                         <label for="x">ชื่อหน่วยงาน</label>
-                        <input type="text" class="form-control" id="thesisTH" placeholder="">
+                        <input type="text" class="form-control" id="nameInternshipCompany" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="x">วันที่เริ่มฝึกงาน</label>
-                        <input type="text" class="form-control" id="thesisEN" placeholder="">
+                        <input type="text" class="form-control" id="startDateIntern" placeholder="">
                     </div>
 
                     <div class="form-group">
                         <label for="x">วันที่จบฝึกงาน</label>
-                        <input type="text" class="form-control" id="advisor" placeholder="">
+                        <input type="text" class="form-control" id="endDateIntern" placeholder="">
                     </div>
 
                     <div class="form-group">
-                        <label for="x">ความประทับใจ</label>
-                        <textarea class="form-control" id="award" rows="3" placeholder=""></textarea>
+                        <label for="x">ความประทับใจของคุณต่อหน่วยงาน</label>
+                        <textarea class="form-control" id="impression" rows="3" placeholder=""></textarea>
 
 
                     </div>
@@ -839,7 +839,7 @@
 
                                     <!-- Modal -->
 
-                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{'modal'+student.id}}" id="more_btn">{{modal_btn_text}}</button>
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{'modal'+student.id}}" id="more_btn{{student.id}}">{{modal_btn_text}}</button>
                                     <div class="modal fade" id="{{'modal'+student.id}}" role="dialog">
                                         <div class="modal-dialog modal-lg">
 
@@ -923,6 +923,11 @@
         <script type="text/javascript" src="../script/eduOverview.js"></script>
         <script type="text/javascript" src="../script/pie.js"></script>
         <script type="text/javascript" src="../script/collapse.js"></script>
+        <script type="text/javascript" src="../script/managethesis.js"></script>
+        <script type="text/javascript" src="../script/modalgpa.js"></script>
+        <script type="text/javascript" src="../script/tageditor.js"></script>
+          <script type="text/javascript" src="../script/manageinternship.js"></script>
+
         <script src="script/app.js"></script>
 
         <script type="text/javascript">
@@ -968,40 +973,25 @@
                 eduOverview();
                 pollInerest();
 
+                $("#manageprofile").click(function() {
 
+                    setTimeout(function() {
+                        fillprofile(<%- JSON.stringify(profile) %>);
+                        initMap();
 
-            });
+                    }, 200);
+                    setTimeout(function() {
+                        $("body").find("input").attr("disabled", "true");
 
+                    }, 300);
 
-
-
-
-            $("#manageprofile").click(function() {
-
-                setTimeout(function() {
-                    fillprofile(<%- JSON.stringify(profile) %>);
-                    initMap();
-
-                }, 200);
-                setTimeout(function() {
-                    $("body").find("input").attr("disabled", "true");
-
-                }, 300);
+                });
 
             });
-
-
-
-
-
-
-
 
 
             $(function() {
-                $("#rateYo").rateYo({
-                    rating: 3.6
-                });
+
                 $("#datepicker").datepicker();
                 //  $('#test2').attr("disabled","true");
                 $('#thesis_edit_btn').click(function() {
@@ -1015,82 +1005,10 @@
                     //  alert("click");
                 });
 
-
-
-
-
-
-
-
-
-                // with jQuery UI autocomplete
-                $('#comlang').tagEditor({
-
-                });
-                $('#hobby').tagEditor({
-
-                });
-                $('#os').tagEditor({
-
-                });
-                $('#phone').tagEditor({
-
-                });
-                setTimeout(function() {
-
-                    $('#chart1_5630237221').highcharts({
-                        title: {
-                            text: 'ข้อมูล GPA ตามปีการศึกษา',
-                            x: -20 //center
-                        },
-                        chart: {
-
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'GPA'
-                            }
-                        },
-
-                        tooltip: {
-                            enabled: false
-                        },
-
-                        xAxis: {
-                            categories: ['2014/1', '2014/2','2015/1', '2015/2', '2016/1', '2016/2', '2017/1', '2017/2', '2018/1', '2018/2', '2019/1', '2019/2', '2020/1', '2020/2']
-                        },
-
-                        series: [{
-                            data: [3.14, 2.97, 3.01, 3.34,3.43, 3.58]
-                        }]
-                    });
-                }, 300);
-
-                $('#more_btn').click(function() {
-                    //  alert("reflow");
-                    setTimeout(function() {
-                        $("#chart1_5630237221").highcharts().reflow();
-
-                    }, 300);
-
-
-                });
-
-
-
-                // thesis config
-                $("#thesisTH").val("<%=thesis.thesisTH%>");
-                $("#thesisEN").val("<%=thesis.thesisEN%>");
-                $("#advisor").val("<%=thesis.advisor%>");
-                $("#coadvisor").val("<%=thesis.coadvisor%>");
-                $("#scholarship").val("<%=thesis.scholarship%>");
-                $("#award").val("<%=thesis.award%>");
-                $("#thconference").val("<%=thesis.thconference%>");
-                $("#intconference").val("<%=thesis.intconference%>");
-                $("#thpub").val("<%=thesis.thpub%>");
-                $("#intpub").val("<%=thesis.intpub%>");
-
-
+                fillmanagethesis(<%- JSON.stringify(thesis) %>);
+                fillmanageinternship(<%- JSON.stringify(internship) %>);
+                tagEditorForm();
+                modalgpa();
 
             });
         </script>
