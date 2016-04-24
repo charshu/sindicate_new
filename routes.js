@@ -211,6 +211,14 @@ module.exports = function(app, passport) {
 				impression:'ก็ดี',
 				rate:'5'
 
+			},
+			furtheredu :{
+				name:'CP ALL',
+				start:'23/05/2016',
+				end:'23/07/2016',
+				impression:'ก็ดี',
+				rate:'5'
+
 			}
 
 		});

@@ -13,6 +13,10 @@ app.controller("MainController", ["$scope", function($scope){
 app.controller("modalController", ["$scope", function($scope){
   $scope.modal_btn_text = "เพิ่มเติม";
   $scope.prefixtitle = "แฟ้มข้อมูลของ";
+  $scope.flag = function(index){
+      $scope.students[index].isflagged = !$scope.students[index].isflagged ;
+
+  }
     $scope.students = [{
       // left
         id:'5630237221',
@@ -37,7 +41,7 @@ app.controller("modalController", ["$scope", function($scope){
       },
       {
       id:'5630520921',
-      name: "นายวชิรกรณ์ รังสิกวานิช",
+      name: "วชิรกรณ์ รังสิกวานิช",
       gpax: "3.27",
       gpa:"3.47",
       attendScore:"88",
@@ -57,66 +61,88 @@ app.controller("modalController", ["$scope", function($scope){
       birthdate:'26-10-2536'
     },
     {
+      id:'5631050421',
+      name: "ธีรภัทร ศรีไตรรัตนรักษ์",
+      gpax: "3.53",
+      gpa:"3.47",
+      attendScore:"60",
+      isflagged:false,
+      note:"มาเรียนสาย แต่ตั้งใจเรียน",
+      imgUrl:'/images/tee.jpg',
+      fbUrl:'https://www.facebook.com/teerapat.sri',
+
+      // profilestuid:'5630520921',
+      tel:'0876792380',
+      parentTel:"0818670666",
+      gender:'ชาย',
+      faculty:'วิศวกรรมศาสตร์',
+      department:'วิศวกรรมคอมพิวเตอร์',
+      degree:"ปริญญาตรี",
+      year:"3",
+      birthdate:'06-12-2537'
+    },
+    {
+      id:'5630648621',
+      name: "อภิภู หนองบัวล่าง",
+      gpax: "3.60",
+      gpa:"3.47",
+      attendScore:"100",
+      isflagged:false,
+      note:"goodboy",
+      imgUrl:'/images/ball.jpg',
+      fbUrl:'https://www.facebook.com/aphipu.nongbualang',
+
+      // profilestuid:'5630520921',
+      tel:'0874894249',
+      parentTel:"0874825772",
+      gender:'ชาย',
+      faculty:'วิศวกรรมศาสตร์',
+      department:'วิศวกรรมคอมพิวเตอร์',
+      degree:"ปริญญาตรี",
+      year:"3",
+      birthdate:'18-05-2538'
+    },
+    {
       id:'5630513521',
-      name: "นางสาวรุจิรา รุจิสมบัติ",
-      gpax: "3.46",
-      attendScore:"99",
+      name: "รุจิรา จิตรเจริญพร",
+      gpax: "3.00",
+      gpa:"3.47",
+      attendScore:"100",
       isflagged:false,
       note:"มาเรียนตรงเวลา ตั้งใจเรียนทุกวัน",
       imgUrl:'/images/fah.jpg',
       fbUrl:'https://www.facebook.com/bluefasis',
 
       // profilestuid:'5630520921',
-      tel:'0882391875',
-      parentTel:"0814295635",
+      tel:'0838948991',
+      parentTel:"0805088056",
       gender:'หญิง',
       faculty:'วิศวกรรมศาสตร์',
       department:'วิศวกรรมคอมพิวเตอร์',
       degree:"ปริญญาตรี",
       year:"3",
-      birthdate:'26-10-2536'
+      birthdate:'12-05-2537'
     },
     {
-      id:'5631005321',
-      name: "รวีกร เรืองทรัพย์",
-      gpax: "3.25",
-      gpa:"3.47",
-      attendScore:"90",
-      isflagged:false,
-      note:"มาเรียนตรงเวลา ตั้งใจเรียนทุกวัน",
-      imgUrl:'/images/mypic.jpg',
-      fbUrl:'https://www.facebook.com/chi.zzwzz',
-
-      // profilestuid:'5630520921',
-      tel:'0882391875',
-      parentTel:"0814295635",
-      gender:'ชาย',
-      faculty:'วิศวกรรมศาสตร์',
-      department:'วิศวกรรมคอมพิวเตอร์',
-      degree:"ปริญญาตรี",
-      year:"3",
-      birthdate:'26-10-2536'
-    },
-    {
-      id:'5631079921',
-      name: "มารี รักเรียน",
-      gpax: "3.99",
+      id:'56301063621',
+      name: "พรเทพ อัชระฉัตร",
+      gpax: "3.00",
       gpa:"3.47",
       attendScore:"100",
       isflagged:false,
       note:"มาเรียนตรงเวลา ตั้งใจเรียนทุกวัน",
-      imgUrl:'/images/mypic.jpg',
-      fbUrl:'https://www.facebook.com/chi.zzwzz',
+      imgUrl:'/images/lookchin.jpg',
+      fbUrl:'https://www.facebook.com/lookchin.cules',
 
       // profilestuid:'5630520921',
-      tel:'0882391875',
-      parentTel:"0814295635",
+      tel:'0838948991',
+      parentTel:"0805088056",
       gender:'หญิง',
       faculty:'วิศวกรรมศาสตร์',
       department:'วิศวกรรมคอมพิวเตอร์',
       degree:"ปริญญาตรี",
       year:"3",
-      birthdate:'26-10-2536'
+      birthdate:'12-05-2537'
     }];
 
 }

@@ -107,11 +107,11 @@
 
                 <ul>
                     <li ng-click='isVisible = "manageProfile"'><a id="manageprofile" href="">ข้อมูลส่วนตัว</a></li>
-                    <li ng-click='isVisible = "manageEdu"'><a href="">ข้อมูลการศึกษา</a></li>
-                    <li ng-click='isVisible = "manageThesis"'><a href="">ข้อมูลวิทยานิพนธ์</a></li>
-                    <li ng-click='isVisible = "manageInterested"'><a href="">ข้อมูลความถนัด/ความสนใจ</a></li>
-                    <li ng-click='isVisible = "manageInternship"'><a href="">ข้อมูลการฝึกงาน</a></li>
-                    <li ng-click='isVisible = "manageFurtherEdu"'><a href="">ข้อมูลการศึกษาต่อ</a></li>
+                    <li ng-click='isVisible = "manageEdu"'><a id="manageedu" href="">ข้อมูลการศึกษา</a></li>
+                    <li ng-click='isVisible = "manageThesis"'><a id="managethesis" href="">ข้อมูลวิทยานิพนธ์</a></li>
+                    <li ng-click='isVisible = "manageInterested"'><a id="manageinterested" href="">ข้อมูลความถนัด/ความสนใจ</a></li>
+                    <li ng-click='isVisible = "manageInternship"'><a id="manageinternship" href="">ข้อมูลการฝึกงาน</a></li>
+                    <li ng-click='isVisible = "manageFurtherEdu"'><a id="managefurtheredu" href="">ข้อมูลการศึกษาต่อ</a></li>
 
 
                 </ul>
@@ -124,9 +124,9 @@
 
                 <ul>
                     <li ng-click='isVisible = "numPeople"'><a id="numPeople" href="">จำนวนนิสิตและบุคลากร</a></li>
-                    <li ng-click='isVisible = "eduOverview"'><a href="">ภาพรวมทางการศึกษา</a></li>
-                    <li ng-click='isVisible = "thesisOverview"'><a id="thesisOverview" href="">ภาพรวมวิทยานิพนธ์</a></li>
-                    <li ng-click='isVisible = "pollInterest"'><a href="">ผลสำรวจความถนัด/ความสนใจ</a></li>
+                    <li ng-click='isVisible = "eduOverview"'><a id="eduOverview_btn" href="">ภาพรวมทางการศึกษา</a></li>
+                    <li ng-click='isVisible = "thesisOverview"'><a id="thesisOverview_btn" href="">ภาพรวมวิทยานิพนธ์</a></li>
+                    <li ng-click='isVisible = "pollInterest"'><a id="pollinterest_btn" href="">ผลสำรวจความถนัด/ความสนใจ</a></li>
                     <li ng-click='isVisible = "pollInternship"'><a href="">ผลสำรวจการฝึกงาน</a></li>
                     <li ng-click='isVisible = "pollFurtherEdu"'><a href="">ผลสำรวจการศึกษาต่อ</a></li>
                     <li ng-click='isVisible = "pollJob"'><a href="">ผลสำรวจการประกอบอาชีพ</a></li>
@@ -484,14 +484,17 @@
             <!-- manage internship -->
             <div class="content" ng-show='isVisible === "manageInterested"'>
                 <div class="content_head">ข้อมูลความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
-                <label for="x" style="font-size:20px;padding:10px">ภาษาคอมพิวเตอร์ที่ถนัด</label>
-                <textarea id="comlang" rows="2" cols="50">c++,java</textarea>
-                <label for="x" style="font-size:20px;padding:10px">งานอดิเรก</label>
-                <textarea id="hobby"></textarea>
-                <label for="x" style="font-size:20px;padding:10px">ระบบปฏิบัติการที่ชอบ</label>
-                <textarea id="os"></textarea>
-                <label for="x" style="font-size:20px;padding:10px">ใช้โทรศัพท์ยี่ห้อ</label>
-                <textarea id="phone"></textarea>
+
+                    <label for="x" style="font-size:20px;padding:10px">ภาษาคอมพิวเตอร์ที่ถนัด</label>
+                    <textarea id="comlang" rows="2" cols="50">c++,java</textarea>
+                    <label for="x" style="font-size:20px;padding:10px">งานอดิเรก</label>
+                    <textarea id="hobby"></textarea>
+                    <label for="x" style="font-size:20px;padding:10px">ระบบปฏิบัติการที่ชอบ</label>
+                    <textarea id="os"></textarea>
+                    <label for="x" style="font-size:20px;padding:10px">ใช้โทรศัพท์ยี่ห้อ</label>
+                    <textarea id="phone"></textarea>
+
+
             </div>
 
             <div class="content" ng-show='isVisible === "manageInternship"'>
@@ -810,16 +813,12 @@
 
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXhWzOAhkZp0VltRHFhwlrwOawGHP02nk&callback=initMap" async defer></script>
-        <script type="text/javascript" src="../script/overviewStuPlace.js"></script>
-        <script type="text/javascript" src="../script/stuMeter.js"></script>
-        <script type="text/javascript" src="../script/manageprofile.js"></script>
-        <script type="text/javascript" src="../script/eduOverview.js"></script>
+        <script type="text/javascript" src="../script/mapthai.js"></script>
+        <script type="text/javascript" src="../script/meter.js"></script>
+        <script type="text/javascript" src="../script/fillform.js"></script>
+        <script type="text/javascript" src="../script/chart.js"></script>
         <script type="text/javascript" src="../script/pie.js"></script>
-        <script type="text/javascript" src="../script/collapse.js"></script>
-        <script type="text/javascript" src="../script/managethesis.js"></script>
-        <script type="text/javascript" src="../script/modalgpa.js"></script>
-        <script type="text/javascript" src="../script/tageditor.js"></script>
-          <script type="text/javascript" src="../script/manageinternship.js"></script>
+
 
         <script src="script/app.js"></script>
 
@@ -851,59 +850,113 @@
 
 
             }
-
             $(document).ready(function() {
 
                 $("body").find("input").attr("disabled", "true");
                 $("body").find("textarea").attr("disabled", "true");
+
+
+                //menu1
                 $('#manageprofile').click(function() {
-
-
+                    fillstudentprofile(<%- JSON.stringify(profile) %>);
+                    setTimeout(function() {
+                        $("body").find("input").attr("disabled", "true");
+                        initMap();
+                    }, 100);
 
                 });
-
-                overviewStuPlace(<%- JSON.stringify(province) %>);
-                eduOverview();
-                pollInerest();
-
-                $("#manageprofile").click(function() {
+                $('#managethesis').click(function() {
+                    fillmanagethesis(<%- JSON.stringify(thesis) %>);
+                    setTimeout(function() {
+                        $("body").find("input").attr("disabled", "true");
+                        $("body").find("textarea").attr("disabled", "true");
+                    }, 100);
+                });
+                $('#manageinterested').click(function() {
 
                     setTimeout(function() {
-                        fillprofile(<%- JSON.stringify(profile) %>);
-                        initMap();
 
-                    }, 200);
+                        $('#comlang').tagEditor({
+                        });
+                        $('#hobby').tagEditor({
+                        });
+                        $('#os').tagEditor({
+                        });
+                        $('#phone').tagEditor({
+                        });
+
+                    }, 100);
+
+                });
+                $('#manageinternship').click(function() {
+                    fillmanageinternship(<%- JSON.stringify(internship) %>);
                     setTimeout(function() {
                         $("body").find("input").attr("disabled", "true");
 
-                    }, 300);
+                    }, 100);
+                });
+                $('#managefurtheredu').click(function() {
+                    fillmanagefurtheredu(<%- JSON.stringify(furtheredu) %>);
+                    setTimeout(function() {
+                        $("body").find("input").attr("disabled", "true");
+
+                    }, 100);
+                });
+
+                //menu2
+                $('#numPeople').click(function() {
+                    meternumpeople();
+                    mapthai(<%- JSON.stringify(province) %>);
+
+
+                });
+                $("#eduOverview_btn").click(function() {
+                    eduoverviewchart();
+
+                });
+                $("#thesisOverview_btn").click(function() {
+                    meterthesis();
+
+                });
+                $("#pollinterest_btn").click(function() {
+                    pollInerest();
+
+                });
+                $("#track_btn").click(function() {
+                    setTimeout(function() {
+                        //oon
+                        $('#more_btn5630237221').click(function() {
+                            showchart();
+                        });
+                        //chi
+                        $('#more_btn5630520921').click(function() {
+                            showchart();
+                        });
+                        //tee
+                        $('#more_btn5631050421').click(function() {
+                            showchart();
+                        });
+                        //ball
+                        $('#more_btn5630648621').click(function() {
+                            showchart();
+                        });
+                        //fah
+                        $('#more_btn5630513521').click(function() {
+                            showchart();
+                        });
+
+                        $('#more_btn56301063621').click(function() {
+                            showchart();
+                        });
+
+
+                    }, 100);
+
 
                 });
 
-            });
 
-
-            $(function() {
-
-                $("#datepicker").datepicker();
-                //  $('#test2').attr("disabled","true");
-                $('#thesis_edit_btn').click(function() {
-                    $("#thesisdata").find("input").removeAttr("disabled", "true");
-                    $("#thesisdata").find("textarea").removeAttr("disabled", "true");
-                    //  alert("click");
-                });
-                $('#thesis_submit_btn').click(function() {
-                    $("#thesisdata").find("input").attr("disabled", "true");
-                    $("#thesisdata").find("textarea").attr("disabled", "true");
-                    //  alert("click");
-                });
-
-                fillmanagethesis(<%- JSON.stringify(thesis) %>);
-                fillmanageinternship(<%- JSON.stringify(internship) %>);
-                tagEditorForm();
-                modalgpa();
 
             });
         </script>
-
 </body>

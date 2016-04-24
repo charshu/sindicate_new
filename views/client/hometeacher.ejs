@@ -117,9 +117,9 @@
 
                 <ul>
                     <li ng-click='isVisible = "numPeople"'><a id="numPeople" href="">จำนวนนิสิตและบุคลากร</a></li>
-                    <li ng-click='isVisible = "eduOverview"'><a href="">ภาพรวมทางการศึกษา</a></li>
-                    <li ng-click='isVisible = "thesisOverview"'><a id="thesisOverview" href="">ภาพรวมวิทยานิพนธ์</a></li>
-                    <li ng-click='isVisible = "pollInterest"'><a href="">ผลสำรวจความถนัด/ความสนใจ</a></li>
+                    <li ng-click='isVisible = "eduOverview"'><a id="eduOverview_btn" href="">ภาพรวมทางการศึกษา</a></li>
+                    <li ng-click='isVisible = "thesisOverview"'><a id="thesisOverview_btn" href="">ภาพรวมวิทยานิพนธ์</a></li>
+                    <li ng-click='isVisible = "pollInterest"'><a id="pollinterest_btn" href="">ผลสำรวจความถนัด/ความสนใจ</a></li>
                     <li ng-click='isVisible = "pollInternship"'><a href="">ผลสำรวจการฝึกงาน</a></li>
                     <li ng-click='isVisible = "pollFurtherEdu"'><a href="">ผลสำรวจการศึกษาต่อ</a></li>
                     <li ng-click='isVisible = "pollJob"'><a href="">ผลสำรวจการประกอบอาชีพ</a></li>
@@ -132,7 +132,7 @@
 
 
                 <ul>
-                    <li ng-click='isVisible = "track"'><a id="track" href="">ระบบติดตามผลการเรียนนิสิต</a></li>
+                    <li ng-click='isVisible = "track"'><a id="track_btn" href="">ระบบติดตามผลการเรียนนิสิต</a></li>
                     <!-- <li ng-click='isVisible = "eduOverview"'><a href="">ภาพรวมทางการศึกษา</a></li>
                     <li ng-click='isVisible = "thesisOverview"'><a href="">ภาพรวมวิทยานิพนธ์</a></li>
                     <li ng-click='isVisible = "pollInterest"'><a href="">ข้อมูลความถนัด/ความสนใจ</a></li>
@@ -143,10 +143,10 @@
             </div>
         </div>
 
-        <div class="contentwrapper">
+        <div class="contentwrapper" ng-controller="modalController">
 
             <!-- manage profile -->
-            <div class="content" ng-show='isVisible === "manageProfile"'>
+            <div class="content" ng-if='isVisible === "manageProfile"'>
                 <div class="content_head">จัดการข้อมูลส่วนตัว<span><i class="fa fa-print"></i></span></div>
                 <form id="manageprofiledata">
 
@@ -231,7 +231,7 @@
             <!-- end manage profile -->
 
             <!-- departmental students -->
-            <div class="content" ng-show='isVisible === "numPeople"'>
+            <div class="content" ng-if='isVisible === "numPeople"'>
                 <div class="alert alert-info">
                     <strong>อ้างอิง</strong> รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
                 </div>
@@ -271,7 +271,7 @@
                 <hr>
 
             </div>
-            <div class="content" ng-show='isVisible === "numPeople"'>
+            <div class="content" ng-if='isVisible === "numPeople"'>
                 <div class="alert alert-info">
                     <strong>อ้างอิง</strong> รายงานจํานวนนิสิตทั้งหมด ภาคการศึกษา 2/2558 จําแนกตามคณะ สาขาวิชา ระดับการศึกษา
                 </div>
@@ -282,7 +282,7 @@
 
             </div>
 
-            <div class="content" ng-show='isVisible === "eduOverview"'>
+            <div class="content" ng-if='isVisible === "eduOverview"'>
                 <div class="content_head">ภาพรวมทางการศึกษาของคณะ<span><i class="fa fa-print"></i></span></div>
                 <div class="chartwrapper">
                     <div class="item" id="eduOverview"></div>
@@ -290,7 +290,7 @@
 
             </div>
 
-            <div class="content" ng-show='isVisible === "thesisOverview"'>
+            <div class="content" ng-if='isVisible === "thesisOverview"'>
                 <div class="content_head">ภาพรวมวิทยานิพนธ์ของคณะ<span><i class="fa fa-print"></i></span></div>
                 <div class="meterGroup">
                     <div class="meter" id="m_thpub"></div>
@@ -343,7 +343,7 @@
             </div>
 
 
-            <div class="content" ng-show='isVisible === "pollInterest"'>
+            <div class="content" ng-if='isVisible === "pollInterest"'>
                 <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
                 <div class="chartwrapper">
                     <div class="item" id="poll1"></div>
@@ -402,7 +402,7 @@
                     </table>
                 </div>
             </div>
-            <div class="content" ng-show='isVisible === "pollInterest"'>
+            <div class="content" ng-if='isVisible === "pollInterest"'>
                 <div class="content_head">ผลสำรวจความถนัด/ความสนใจ<span><i class="fa fa-print"></i></span></div>
                 <div class="chartwrapper">
                     <div class="item" id="poll2"></div>
@@ -457,23 +457,23 @@
             </div>
 
 
-            <div class="content" ng-show='isVisible === "pollInternship"'>
+            <div class="content" ng-if='isVisible === "pollInternship"'>
                 <div class="content_head">ผลสำรวจการฝึกงาน<span><i class="fa fa-print"></i></span></div>
                 <!-- <div id="chart1_{{student.id}}" style="height: 200px;width:500px;"></div>
                 <div id="chart1_{{student.id}}" style="height: 200px;width:500px;"></div> -->
             </div>
 
-            <div class="content" ng-show='isVisible === "pollFurtherEdu"'>
+            <div class="content" ng-if='isVisible === "pollFurtherEdu"'>
                 <div class="content_head">ผลสำรวจการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
 
             </div>
 
-            <div class="content" ng-show='isVisible === "pollJob"'>
+            <div class="content" ng-if='isVisible === "pollJob"'>
                 <div class="content_head">ข้อมูลการศึกษาต่อต่างมหาวิทยาลัย<span><i class="fa fa-print"></i></span></div>
 
             </div>
 
-            <div class="content" ng-show='isVisible === "track"' ng-controller="modalController">
+            <div class="content" ng-if='isVisible === "track"'>
                 <div class="content_head">ระบบติดตามผลการเรียนนิสิต<span><i class="fa fa-print"></i></span></div>
 
                 <div class="panel panel-default">
@@ -493,12 +493,22 @@
                         </thead>
                         <tbody>
 
-                            <tr ng-repeat="student in students">
+                            <tr ng-repeat="student in students" ng-if="student.isflagged">
                                 <th scope="row"><a href="#">{{student.id}}</a></th>
                                 <td>{{student.name}}</td>
                                 <td>{{student.year}}</td>
                                 <td>{{student.gpax}}</td>
-                                <td><i class="fa fa-flag" style="color:#e60000;" ng-show="{{student.isflagged}}" aria-hidden="true"></i> </td>
+                                <td>
+                                    <div class="" ng-if="student.isflagged">
+                                        <i class="fa fa-flag" ng-click="flag($index)" style="color:#e60000;" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="" ng-if="!student.isflagged">
+                                        <i class="fa fa-flag" ng-click="flag($index)" style="color:#f2f2f2;" aria-hidden="true"></i>
+                                    </div>
+
+
+                                </td>
+
                                 <td>
 
 
@@ -541,7 +551,119 @@
 
 
                                                             <span><a class="btn btn-social-icon btn-twitter">
-                                                                <span class="fa fa-twitter"></span>
+                                                      <span class="fa fa-twitter"></span>
+                                                            </a>
+                                                            <a href="{{student.fbUrl}}" class="btn btn-social-icon btn-facebook">
+                                                                <span class="fa fa-facebook"></span>
+                                                            </a>
+                                                            </span>
+                                                        </div>
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m8!1m3!1d242.23621818145554!2d100.52824510028262!3d13.73179600289022!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d13.7317859!2d100.5281526!5e0!3m2!1sth!2sth!4v1461355591682" width="25%" height="100%"
+                                                            style="max-height: 500px;" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="chartwrapper">
+                                                        <div id="chart1_{{student.id}}" style="height: 200px;width:100%;"></div>
+
+                                                    </div>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="content" ng-if='isVisible === "track"'>
+                <div class="content_head">ระบบติดตามผลการเรียนนิสิต<span><i class="fa fa-print"></i></span></div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">รายชื่อนิสิตในที่ปรึกษา </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>รหัสนิสิต</th>
+                                <th>ชื่อ</th>
+                                <th>ชั้นปี</th>
+                                <th>GPAX</th>
+                                <th>ปักธง</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="student in students" ng-if="!student.isflagged">
+                                <th scope="row"><a href="#">{{student.id}}</a></th>
+                                <td>{{student.name}}</td>
+                                <td>{{student.year}}</td>
+                                <td>{{student.gpax}}</td>
+                                <td>
+                                    <div class="" ng-if="student.isflagged">
+                                        <i class="fa fa-flag" ng-click="flag($index)" style="color:#e60000;" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="" ng-if="!student.isflagged">
+                                        <i class="fa fa-flag" ng-click="flag($index)" style="color:#f2f2f2;" aria-hidden="true"></i>
+                                    </div>
+
+
+                                </td>
+
+                                <td>
+
+
+                                    <!-- Trigger the modal with a button -->
+
+
+                                    <!-- Modal -->
+
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{'modal'+student.id}}" id="more_btn{{student.id}}">{{modal_btn_text}}</button>
+                                    <div class="modal fade" id="{{'modal'+student.id}}" role="dialog">
+                                        <div class="modal-dialog modal-lg">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h2 class="modal-title">{{ prefixtitle}} <b>{{student.name}}</b></h2>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="stuwrapper">
+                                                        <div class="circle-picture" style="background:url('{{student.imgUrl}}') center center;background-size:cover;"></div>
+                                                        <div class="studata">
+                                                            <label for="">ผลการศึกษา</label>
+                                                            <hr>
+                                                            <li>GPAX : {{student.gpax}}</li>
+                                                            <li>GPA : {{student.gpa}}</li>
+                                                            <li>คะแนนการเข้าเรียน : {{student.attendScore}}</li>
+                                                        </div>
+                                                        <div class="studata">
+                                                            <label for="">ข้อมูลส่วนตัว</label>
+                                                            <hr>
+                                                            <li>เพศ : {{student.gender}}</li>
+                                                            <li>วันเกิด : {{student.birthdate| date}}</li>
+                                                            <li>คณะ : {{student.faculty}}</li>
+                                                            <li>ภาควิชา : {{student.department}}</li>
+                                                            <li>วุฒิการศึกาา : {{student.degree}}</li>
+                                                            <li>ชั้นปี : {{student.year}}</li>
+                                                            <li>เบอร์โทรศัพท์ : {{student.tel}}</li>
+                                                            <li>เบอร์โทรผู้ปกครอง : {{student.parentTel}}</li>
+
+
+                                                            <span><a class="btn btn-social-icon btn-twitter">
+                                                      <span class="fa fa-twitter"></span>
                                                             </a>
                                                             <a href="{{student.fbUrl}}" class="btn btn-social-icon btn-facebook">
                                                                 <span class="fa fa-facebook"></span>
@@ -579,21 +701,20 @@
         </div>
 
 
+
+
         <div class="footer">
 
         </div>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXhWzOAhkZp0VltRHFhwlrwOawGHP02nk&callback=initMap" async defer></script>
-        <script type="text/javascript" src="../script/overviewStuPlace.js"></script>
-        <script type="text/javascript" src="../script/stuMeter.js"></script>
-        <script type="text/javascript" src="../script/manageprofile.js"></script>
-        <script type="text/javascript" src="../script/eduOverview.js"></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXhWzOAhkZp0VltRHFhwlrwOawGHP02nk&callback=initMap" async defer></script> -->
+        <script type="text/javascript" src="../script/mapthai.js"></script>
+        <script type="text/javascript" src="../script/meter.js"></script>
+        <script type="text/javascript" src="../script/fillform.js"></script>
+        <script type="text/javascript" src="../script/chart.js"></script>
         <script type="text/javascript" src="../script/pie.js"></script>
         <script type="text/javascript" src="../script/collapse.js"></script>
-        <script type="text/javascript" src="../script/managethesis.js"></script>
-        <script type="text/javascript" src="../script/modalgpa.js"></script>
         <script type="text/javascript" src="../script/tageditor.js"></script>
-          <script type="text/javascript" src="../script/manageinternship.js"></script>
 
         <script src="script/app.js"></script>
 
@@ -645,46 +766,84 @@
 
                 $("body").find("input").attr("disabled", "true");
                 $("body").find("textarea").attr("disabled", "true");
+
+
+                //menu1
                 $('#manageprofile').click(function() {
-
-
-
-                });
-
-                overviewStuPlace(<%- JSON.stringify(province) %>);
-                eduOverview();
-                pollInerest();
-
-                $("#manageprofile").click(function() {
-
-                    setTimeout(function() {
-                        fillprofileteacher(<%- JSON.stringify(profile) %>);
-                        // initMap();
-
-                    }, 200);
+                    fillprofileteacher(<%- JSON.stringify(profile) %>);
                     setTimeout(function() {
                         $("body").find("input").attr("disabled", "true");
 
-                    }, 300);
+                    }, 100);
+                });
+
+                //menu2
+                $('#numPeople').click(function() {
+                    meternumpeople();
+
 
                 });
+                $("#eduOverview_btn").click(function() {
+                    eduoverviewchart();
+
+                });
+                $("#thesisOverview_btn").click(function() {
+                    meterthesis();
+
+                });
+                $("#pollinterest_btn").click(function() {
+                    pollInerest();
+
+                });
+                $("#track_btn").click(function() {
+                    setTimeout(function() {
+                        //oon
+                        $('#more_btn5630237221').click(function() {
+                            showchart();
+                        });
+                        //chi
+                        $('#more_btn5630520921').click(function() {
+                            showchart();
+                        });
+                        //tee
+                        $('#more_btn5631050421').click(function() {
+                            showchart();
+                        });
+                        //ball
+                        $('#more_btn5630648621').click(function() {
+                            showchart();
+                        });
+                        //fah
+                        $('#more_btn5630513521').click(function() {
+                            showchart();
+                        });
+
+                        $('#more_btn56301063621').click(function() {
+                            showchart();
+                        });
+
+
+                    }, 100);
+
+
+                });
+
+
 
             });
 
             $(function() {
-
-                $('#thesis_edit_btn').click(function() {
-                    $("#thesisdata").find("input").removeAttr("disabled", "true");
-                    $("#thesisdata").find("textarea").removeAttr("disabled", "true");
-                    //  alert("click");
-                });
-                $('#thesis_submit_btn').click(function() {
-                    $("#thesisdata").find("input").attr("disabled", "true");
-                    $("#thesisdata").find("textarea").attr("disabled", "true");
-                    //  alert("click");
-                });
-
-                modalgpa();
+                //
+                // $('#thesis_edit_btn').click(function() {
+                //     $("#thesisdata").find("input").removeAttr("disabled", "true");
+                //     $("#thesisdata").find("textarea").removeAttr("disabled", "true");
+                //     //  alert("click");
+                // });
+                // $('#thesis_submit_btn').click(function() {
+                //     $("#thesisdata").find("input").attr("disabled", "true");
+                //     $("#thesisdata").find("textarea").attr("disabled", "true");
+                //     //  alert("click");
+                // });
 
             });
         </script>
