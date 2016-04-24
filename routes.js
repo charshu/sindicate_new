@@ -216,26 +216,26 @@ module.exports = function(app, passport) {
 		});
 	});
 
-  app.get('/hometeacher',function(req,res){
+	app.get('/hometeacher',function(req,res){
 		res.render('client/hometeacher.ejs',{
 
 			msg: 'ยินดีต้อนรับ !',
 			profile : {
-        tt: 'ผู้ช่วยศาสตราจารย์',
+				tt: 'ผู้ช่วยศาสตราจารย์',
 				firstName:'เคโรโระ',
 				lastName:'เซนเซย์',
 				gender:'ชาย',
 				faculty:'วิศวกรรมศาสตร์',
 				department:'วิศวกรรมคอมพิวเตอร์',
-        position: 'รองหัวหน้าภาควิชา ฝ่ายกิจกรรม',
-        spacialize: 'Animation',
+				position: 'รองหัวหน้าภาควิชา ฝ่ายกิจกรรม',
+				spacialize: 'Animation',
 				startdate: '16-05-2547',
 				enddate: '',
 				birthdate:'09-12-2522',
 				building: 'ENG4',
 				room: '19-03'
 			},
-      province : {
+			province : {
 					ct:10,
 					bk:4,
 					nt: 26,
@@ -317,6 +317,7 @@ module.exports = function(app, passport) {
 			}
 		});
 	});
+
 
 	app.get('/mythesis', function(req, res) {
 		res.render('client/mythesis.ejs'); // load the index.ejs file

@@ -1,4 +1,4 @@
-function fillprofile(data,data2){
+function fillprofile(data){
   //manage data config
   $('#manageprofile_edit_btn').click(function() {
       $("#manageprofiledata").find("input").removeAttr("disabled", "true");
@@ -39,7 +39,7 @@ function fillprofile(data,data2){
 
 }
 
-function fillprofile(datateacher){
+function fillprofileteacher(datateacher){
   //manage data config
   $('#manageprofile_edit_btn').click(function() {
       $("#manageprofiledata").find("input").removeAttr("disabled", "true");

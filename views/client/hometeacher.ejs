@@ -507,7 +507,7 @@
 
                                     <!-- Modal -->
 
-                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{'modal'+student.id}}" id="more_btn">{{modal_btn_text}}</button>
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{'modal'+student.id}}" id="more_btn{{student.id}}">{{modal_btn_text}}</button>
                                     <div class="modal fade" id="{{'modal'+student.id}}" role="dialog">
                                         <div class="modal-dialog modal-lg">
 
@@ -583,7 +583,6 @@
 
         </div>
 
-
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXhWzOAhkZp0VltRHFhwlrwOawGHP02nk&callback=initMap" async defer></script>
         <script type="text/javascript" src="../script/overviewStuPlace.js"></script>
         <script type="text/javascript" src="../script/stuMeter.js"></script>
@@ -591,36 +590,41 @@
         <script type="text/javascript" src="../script/eduOverview.js"></script>
         <script type="text/javascript" src="../script/pie.js"></script>
         <script type="text/javascript" src="../script/collapse.js"></script>
+        <script type="text/javascript" src="../script/managethesis.js"></script>
+        <script type="text/javascript" src="../script/modalgpa.js"></script>
+        <script type="text/javascript" src="../script/tageditor.js"></script>
+          <script type="text/javascript" src="../script/manageinternship.js"></script>
+
         <script src="script/app.js"></script>
 
         <script type="text/javascript">
-            var map;
-
-            function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: {
-                        lat: 13.788399,
-                        lng: 100.544284
-                    },
-                    zoom: 10
-                });
-
-                //add location here
-                var engchula = {
-                    lat: 13.7365719,
-                    lng: 100.5332646
-                };
-
-
-                // end location variables
-                var marker = new google.maps.Marker({
-                    position: engchula,
-                    map: map,
-                    title: 'Hello World!'
-                });
-
-
-            }
+            // var map;
+            //
+            // function initMap() {
+            //     map = new google.maps.Map(document.getElementById('map'), {
+            //         center: {
+            //             lat: 13.788399,
+            //             lng: 100.544284
+            //         },
+            //         zoom: 10
+            //     });
+            //
+            //     //add location here
+            //     var engchula = {
+            //         lat: 13.7365719,
+            //         lng: 100.5332646
+            //     };
+            //
+            //
+            //     // end location variables
+            //     var marker = new google.maps.Marker({
+            //         position: engchula,
+            //         map: map,
+            //         title: 'Hello World!'
+            //     });
+            //
+            //
+            // }
 
             /*            $(document).ready(function() {
 
@@ -637,37 +641,38 @@
                         });
             */
 
+            $(document).ready(function() {
+
+                $("body").find("input").attr("disabled", "true");
+                $("body").find("textarea").attr("disabled", "true");
+                $('#manageprofile').click(function() {
 
 
 
-            $("#manageprofile").click(function() {
+                });
 
-                setTimeout(function() {
-                    fillprofile(<%- JSON.stringify(profile) %>);
-                    initMap();
+                overviewStuPlace(<%- JSON.stringify(province) %>);
+                eduOverview();
+                pollInerest();
 
-                }, 200);
-                setTimeout(function() {
-                    $("body").find("input").attr("disabled", "true");
+                $("#manageprofile").click(function() {
 
-                }, 300);
+                    setTimeout(function() {
+                        fillprofileteacher(<%- JSON.stringify(profile) %>);
+                        // initMap();
+
+                    }, 200);
+                    setTimeout(function() {
+                        $("body").find("input").attr("disabled", "true");
+
+                    }, 300);
+
+                });
 
             });
 
-
-
-
-
-
-
-
-
             $(function() {
-                $("#rateYo").rateYo({
-                    rating: 3.6
-                });
-                $("#datepicker").datepicker();
-                //  $('#test2').attr("disabled","true");
+
                 $('#thesis_edit_btn').click(function() {
                     $("#thesisdata").find("input").removeAttr("disabled", "true");
                     $("#thesisdata").find("textarea").removeAttr("disabled", "true");
@@ -679,67 +684,7 @@
                     //  alert("click");
                 });
 
-
-
-
-
-
-
-
-
-                // with jQuery UI autocomplete
-                $('#comlang').tagEditor({
-
-                });
-                $('#hobby').tagEditor({
-
-                });
-                $('#os').tagEditor({
-
-                });
-                $('#phone').tagEditor({
-
-                });
-                setTimeout(function() {
-
-                    $('#chart1_5630237221').highcharts({
-                        title: {
-                            text: 'ข้อมูล GPA ตามปีการศึกษา',
-                            x: -20 //center
-                        },
-                        chart: {
-
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'GPA'
-                            }
-                        },
-
-                        tooltip: {
-                            enabled: false
-                        },
-
-                        xAxis: {
-                            categories: ['2014/1', '2014/2', '2015/1', '2015/2', '2016/1', '2016/2', '2017/1', '2017/2', '2018/1', '2018/2', '2019/1', '2019/2', '2020/1', '2020/2']
-                        },
-
-                        series: [{
-                            data: [3.14, 2.97, 3.01, 3.34, 3.43, 3.58]
-                        }]
-                    });
-                }, 300);
-
-                $('#more_btn').click(function() {
-                    //  alert("reflow");
-                    setTimeout(function() {
-                        $("#chart1_5630237221").highcharts().reflow();
-
-                    }, 300);
-
-
-                });
-
+                modalgpa();
 
             });
         </script>
