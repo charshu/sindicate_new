@@ -53,7 +53,7 @@ function eduoverviewchart() {
         });
         $('#course1').highcharts({
             title: {
-                text: 'กราฟแสดงเกรดเฉลี่ยของนิสิตทั้งหมดในรายวิชา',
+                text: 'กราฟแสดงเกรดเฉลี่ยของนิสิตทั้งหมดในรายวิชา 2110327 Algorithm Design',
                 x: -20 //center
             },
             subtitle: {
@@ -102,7 +102,7 @@ function eduoverviewchart() {
 
         $('#course2').highcharts({
             title: {
-                text: 'กราฟแสดงเกรดเฉลี่ยของนิสิตทั้งหมดในรายวิชา',
+                text: 'กราฟแสดงเกรดเฉลี่ยของนิสิตทั้งหมดในรายวิชา 2110352 Computer System Architectures',
                 x: -20 //center
             },
             subtitle: {
@@ -151,7 +151,7 @@ function eduoverviewchart() {
 
         $('#course3').highcharts({
             title: {
-                text: 'กราฟแสดงเกรดเฉลี่ยของนิสิตทั้งหมดในรายวิชา',
+                text: 'กราฟแสดงเกรดเฉลี่ยของนิสิตทั้งหมดในรายวิชา 2110332 Systems Analysis and Design',
                 x: -20 //center
             },
             subtitle: {
