@@ -20,6 +20,7 @@ var flash    = require('connect-flash');
 
 require('./config/passport')(passport); // pass passport for configuration
 
+
 //Setup Path for Client resource
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/client',  express.static(__dirname + '/views/client'));
