@@ -3,20 +3,32 @@ var app = angular.module('sindicate',[]);
 
 
 
-app.controller("MainController", ["$scope", function($scope){
-  $scope.isVisible = ""
+app.controller("MainController", ["$scope",'$rootScope', function($scope, $rootScope){
+  $scope.isVisible = "home"
+  $rootScope.numnotcheck = '5';
 
 }
 
 ]);
 
-app.controller("modalController", ["$scope", function($scope){
+app.controller("modalController", ["$scope",'$rootScope', function($scope, $rootScope){
   $scope.modal_btn_text = "เพิ่มเติม";
   $scope.prefixtitle = "แฟ้มข้อมูลของ";
   $scope.flag = function(index){
       $scope.students[index].isflagged = !$scope.students[index].isflagged ;
 
   }
+  $scope.check = function(index){
+      $scope.students[index].ischecked = true ;
+      $rootScope.numnotcheck--;
+
+  }
+  $scope.uncheck = function(index){
+      $scope.students[index].ischecked = false ;
+      $rootScope.numnotcheck++;
+
+  }
+
     $scope.students = [{
       // left
         id:'5630237221',
@@ -25,6 +37,8 @@ app.controller("modalController", ["$scope", function($scope){
         gpa:"3.47",
         attendScore:"80",
         isflagged:true,
+        ischecked:true,
+        checkby:"พเยาว์ สนทนา",
         note:"ไม่ค่อยเข้าเรียน มาสายบ่อย",
         imgUrl:'/images/oon.jpg',
         fbUrl:'https://www.facebook.com/bosschanawit',

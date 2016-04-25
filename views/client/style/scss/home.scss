@@ -115,11 +115,16 @@ $light_grey: lighten(grey,45);
         }
       .notify{
         position: absolute;
-        border-right: 1px solid rgba(0, 0, 0, 0.2);;
+      //  border-right: 1px solid rgba(0, 0, 0, 0.2);;
         top: 0;
         height: 60px;
         line-height: 50px;
         right: 300px;
+        font-size: 15px;
+        color : $dark_gray;
+        b{
+          color:$bee;
+        }
       }
     }
     .brief-profile {
