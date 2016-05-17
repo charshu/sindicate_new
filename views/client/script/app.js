@@ -4,7 +4,8 @@ var app = angular.module('sindicate',[]);
 
 
 app.controller("MainController", ["$scope",'$rootScope', function($scope, $rootScope){
-  $scope.isVisible = "home"
+  $scope.isVisible = "home";
+  $scope.typeuser;
   $rootScope.numnotcheck = '5';
 
 }
