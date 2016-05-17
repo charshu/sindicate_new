@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "admin",
-    database: "sindicate2"
+    password: "rghpj8wb",
+    database: "sindicate"
 });
 
 
@@ -445,7 +445,7 @@ module.exports = function(app, passport) {
         var is_alumni;
         if (req.body.is_alumni === 'yes') is_alumni = "Y";
         else is_alumni = "N";
-        con.query('UPDATE `sindicate2`.`student` SET `ssn` = \'' + req.body.ssn + '\', `name` = \'' + req.body.name + '\', `surname` = \'' + req.body.surname + '\', `gender` = \'' + gender + '\', `tel` = \''+req.body.tel+'\', `birthday` = DATE_FORMAT(STR_TO_DATE(\''+req.body.birthday+'\',\'%d/%m/%Y\'),\'%Y,%m,%d\'), `email` = \'' + req.body.email + '\', `nationality` = \'' + req.body.nationality + '\', `is_alumni` = \'' + is_alumni + '\', `parent_name` = \'' + req.body.parent_name + '\', `parent_surname` = \'' + req.body.parent_surname + '\', `parent_tel` = \'' + req.body.parent_tel + '\' WHERE `student`.`ssn` = \'' + req.body.ssn + '\'', function(err, res) {
+        con.query('UPDATE `sindicate`.`student` SET `ssn` = \'' + req.body.ssn + '\', `name` = \'' + req.body.name + '\', `surname` = \'' + req.body.surname + '\', `gender` = \'' + gender + '\', `tel` = \''+req.body.tel+'\', `birthday` = DATE_FORMAT(STR_TO_DATE(\''+req.body.birthday+'\',\'%d/%m/%Y\'),\'%Y,%m,%d\'), `email` = \'' + req.body.email + '\', `nationality` = \'' + req.body.nationality + '\', `is_alumni` = \'' + is_alumni + '\', `parent_name` = \'' + req.body.parent_name + '\', `parent_surname` = \'' + req.body.parent_surname + '\', `parent_tel` = \'' + req.body.parent_tel + '\' WHERE `student`.`ssn` = \'' + req.body.ssn + '\'', function(err, res) {
             if (err) console.log(err);
             else {
                 console.log("[LOG] UPDATE PROFILE COMPLETED! ssn: " + req.body.ssn + "gender :"+ req.body.gender);
@@ -461,7 +461,7 @@ module.exports = function(app, passport) {
         // ,tel=req.body.tel,birthday=req.body.birthday,email=req.body.email,nationality=req.body.nationality,is_alumni=req.body.is_alumni
         //
 
-        con.query('UPDATE `sindicate2`.`student` SET  `addr` = \'' + req.body.addr + '\' WHERE `student`.`ssn` = \'' + req.body.ssn2 + '\'', function(err, res) {
+        con.query('UPDATE `sindicate`.`student` SET  `addr` = \'' + req.body.addr + '\' WHERE `student`.`ssn` = \'' + req.body.ssn2 + '\'', function(err, res) {
             if (err) console.log(err);
             else {
                 console.log("[LOG] UPDATE PROFILE COMPLETED! ssn: " + req.body.ssn2);
@@ -477,7 +477,7 @@ module.exports = function(app, passport) {
         // ,tel=req.body.tel,birthday=req.body.birthday,email=req.body.email,nationality=req.body.nationality,is_alumni=req.body.is_alumni
         //
 
-        con.query('UPDATE `sindicate2`.`student` SET `latitude` = \'' + req.body.latitude + '\', `longitude` = \'' + req.body.longitude + '\' WHERE `student`.`ssn` = \'' + req.body.ssn3 + '\'', function(err, res) {
+        con.query('UPDATE `sindicate`.`student` SET `latitude` = \'' + req.body.latitude + '\', `longitude` = \'' + req.body.longitude + '\' WHERE `student`.`ssn` = \'' + req.body.ssn3 + '\'', function(err, res) {
             if (err) console.log(err);
             else {
                 console.log("[LOG] UPDATE PROFILE COMPLETED! ssn: " + req.body.ssn3);
@@ -495,7 +495,7 @@ module.exports = function(app, passport) {
 				if(req.body.level==1)level="B";
 				else if(req.body.level==2)level="M";
 				else if(req.body.level==3)level="D";
-        con.query('INSERT INTO `sindicate2`.`degree` (`ssn`, `level`, `branch`, `graduate_date`, `uid`) VALUES (\''+req.body.ssn4+'\', \''+level+'\', \''+req.body.branch+'\',DATE_FORMAT(STR_TO_DATE(\''+req.body.graduate_date+'\',\'%d/%m/%Y\'),\'%Y,%m,%d\'), \''+req.body.uid+'\')' , function(err, res) {
+        con.query('INSERT INTO `sindicate`.`degree` (`ssn`, `level`, `branch`, `graduate_date`, `uid`) VALUES (\''+req.body.ssn4+'\', \''+level+'\', \''+req.body.branch+'\',DATE_FORMAT(STR_TO_DATE(\''+req.body.graduate_date+'\',\'%d/%m/%Y\'),\'%Y,%m,%d\'), \''+req.body.uid+'\')' , function(err, res) {
             if (err) console.log(err);
             else {
                 console.log("[LOG] UPDATE PROFILE COMPLETED! ssn: " + req.body.ssn4);
