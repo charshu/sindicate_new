@@ -304,7 +304,7 @@ module.exports = function(app, passport) {
 
                 if (err) console.log(err);
                 else {
-                  con.query('SELECT *,DATE_FORMAT(graduate_date,\'%d-%m-%Y\') as format_graduate_date FROM university natural join degree WHERE degree.ssn = \''+res[0].ssn+'\'', function(err, res2) {
+                  con.query('SELECT *,DATE_FORMAT(graduate_date,\'%d-%m-%Y\') as format_graduate_date FROM university natural join degree WHERE degree.ssn = \''+res[0].ssn+'\'ORDER BY  `degree`.`graduate_date` ASC', function(err, res2) {
                       if (err) console.log(err);
                       else {
 												con.query('SELECT uid as id,name as text  FROM university ', function(err, res3) {
