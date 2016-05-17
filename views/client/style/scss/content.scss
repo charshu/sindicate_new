@@ -122,5 +122,10 @@ $light_grey: lighten(grey,45);
                 filter: alpha(opacity=0);
             }
         }
+        .example{
+          font-size: 10px;
+          color: grey;
+
+        }
     }
 }

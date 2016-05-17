@@ -1,15 +1,21 @@
-function meternumpeople() {
+function meternumpeople(number_stu) {
 
     setTimeout(function() {
+      var allbstu = number_stu.allbstu;
+        var allmsstu = number_stu.allmsstu;
+          var allphdstu = number_stu.allphdstu;
+      if(number_stu.allbstu==0)allbstu=-1;else allbstu=number_stu.allbstu;
+        if(number_stu.allmsstu==0)allmsstu=-1;else allmsstu=number_stu.allmsstu;
+          if(number_stu.allphdstu==0)allphdstu=-1;else allphdstu=number_stu.allphdstu;
         var numStu = [{
             id: '#b_numStu',
-            percent: 409 / 480 * 100
+            percent: number_stu.num_bstu / allbstu * 100
         }, {
             id: '#m_numStu',
-            percent: 40 / 480 * 100
+            percent: number_stu.num_msstu / allmsstu * 100
         }, {
             id: '#d_numStu',
-            percent: 31 / 480 * 100
+            percent: number_stu.num_phdstu / allphdstu * 100
         }];
         for (var i = 0; i < numStu.length; i++) {
             $(numStu[i].id).empty();
@@ -29,19 +35,20 @@ function meternumpeople() {
                 textColor: '#666'
             });
         }
+
         var numStuExchange = [{
             id: '#b_numStuExchange',
-            percent: 20 / 480 * 100
+            percent: number_stu.num_bstu_ex / allbstu * 100
         }, {
             id: '#m_numStuExchange',
-            percent: 5 / 480 * 100
+            percent: number_stu.num_msstu_ex / allmsstu * 100
         }, {
             id: '#d_numStuExchange',
-            percent: 5 / 480 * 100
+            percent: number_stu.num_phdstu_ex / allphdstu * 100
         }];
         for (var i = 0; i < numStuExchange.length; i++) {
-            $(numStuExchange[i].id).empty();
-            $(numStuExchange[i].id).circliful({
+          $(numStuExchange[i].id).empty();
+          $(numStuExchange[i].id).circliful({
                 animationStep: 5,
                 foregroundColor: "#e600e6",
                 foregroundBorderWidth: 15,
@@ -101,7 +108,7 @@ function meternumpeople() {
         }
         var gendermale = [{
             id: '#male',
-            percent: 409 / 480 * 100
+            percent: (number_stu.bmale+number_stu.msmale+number_stu.phdmale) / number_stu.allstu * 100
         }];
         for (var i = 0; i < gendermale.length; i++) {
             $(gendermale[i].id).empty();
@@ -118,7 +125,7 @@ function meternumpeople() {
         }
         var genderfemale = [{
             id: '#female',
-            percent: 71 / 480 * 100
+            percent: (number_stu.bfemale+number_stu.msfemale+number_stu.phdfemale) / number_stu.allstu * 100
         }];
         for (var i = 0; i < genderfemale.length; i++) {
             $(genderfemale[i].id).empty();
