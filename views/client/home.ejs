@@ -451,9 +451,21 @@
                                     <td>
                                         <%= item.name %>
                                     </td>
+                                    <%= if(item.level=="B"){ %>
                                     <td>
-                                        <%= item.level %>
+                                        ปริญญาตรี
                                     </td>
+                                    <%= } %>
+                                    <%= else if(item.level=="M"){ %>
+                                    <td>
+                                        ปริญญาโท
+                                    </td>
+                                    <%= } %>
+                                    <%= else if(item.level=="D"){ %>
+                                    <td>
+                                        ปริญญาเอก
+                                    </td>
+                                    <%= } %>
                                     <td>
                                         <%= item.branch %>
                                     </td>
