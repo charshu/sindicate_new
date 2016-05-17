@@ -297,6 +297,7 @@ module.exports = function(app, passport) {
     var sid, name, surname, ssn, gender, addr, tel, format_birthday, email, nationality, is_alumni,
         parent_name, parent_surname, parent_tel, latitude, longitude;
     app.get('/home', isLoggedIn, function(req, res) {
+
         function doSomething(callback) {
             con.query('SELECT *,DATE_FORMAT(student.birthday,\'%d-%m-%Y\') as format_birthday FROM stuid natural join student natural join users WHERE stuid.ssn=student.ssn and stuid.sid = users.username and sid=\'' + req.user.username + '\'', function(err, res) {
 
@@ -514,19 +515,18 @@ module.exports = function(app, passport) {
 
             msg: 'ยินดีต้อนรับ !',
             profile: {
-                tt: 'ผู้ช่วยศาสตราจารย์',
-                firstName: 'เคโรโระ',
-                lastName: 'เซนเซย์',
-                gender: 'ชาย',
+                tt: 'ผศ.ดร.',
+                firstName: 'โชติรัตน์',
+                lastName: 'รัตนามหัทธนะ',
+                gender: 'หญิง',
                 faculty: 'วิศวกรรมศาสตร์',
                 department: 'วิศวกรรมคอมพิวเตอร์',
                 position: 'รองหัวหน้าภาควิชา ฝ่ายกิจกรรม',
-                spacialize: 'Animation',
-                startdate: '16-05-2547',
+                spacialize: 'Data mining/Knowledge Discovery',
+                startdate: '01-01-2000',
                 enddate: '',
-                birthdate: '09-12-2522',
                 building: 'ENG4',
-                room: '19-03'
+                room: '18-11'
             },
             province: objprovince
         });

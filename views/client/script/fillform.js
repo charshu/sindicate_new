@@ -159,7 +159,7 @@ function fillprofileteacher(datateacher) {
     $("#spacialize").val(datateacher.spacialize);
     $("#startdate").val(datateacher.startdate);
     $("#enddate").val(datateacher.enddate);
-    $("#birthdate").val(datateacher.birthdate);
+    
     $("#building").val(datateacher.building);
     $("#room").val(datateacher.room);
 }

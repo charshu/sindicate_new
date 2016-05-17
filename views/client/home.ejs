@@ -345,7 +345,7 @@
 
                             <textarea class="form-control" id="s_address" name="addr" rows="3"></textarea>
                             <div class="example">
-                                88/8 ถ.สุขุมวิท หมู่ 4 ต.เสม็ด อ.เมือง จ.ชลบุรี 20000
+                                ตัวอย่าง 88/8 ถ.สุขุมวิท หมู่ 4 ต.เสม็ด อ.เมือง จ.ชลบุรี 20000
                             </div>
                         </div>
 
@@ -1408,7 +1408,7 @@
                     setTimeout(function() {
                         fillstudentprofile(<%- JSON.stringify(profile) %>);
                         $(".profile1").find("input").attr("disabled", "true");
-                        $(".profile2").find("input").attr("disabled", "true");
+                        $(".profile2").find("textarea").attr("disabled", "true");
                         $(".profile3").find("input").attr("disabled", "true");
                         initMap();
 
