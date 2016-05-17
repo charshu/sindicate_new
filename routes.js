@@ -298,6 +298,7 @@ module.exports = function(app, passport) {
         parent_name, parent_surname, parent_tel, latitude, longitude;
     app.get('/home', isLoggedIn, function(req, res) {
 
+
         function doSomething(callback) {
             con.query('SELECT *,DATE_FORMAT(student.birthday,\'%d-%m-%Y\') as format_birthday FROM stuid natural join student natural join users WHERE stuid.ssn=student.ssn and stuid.sid = users.username and sid=\'' + req.user.username + '\'', function(err, res) {
 
@@ -332,10 +333,10 @@ module.exports = function(app, passport) {
 														parent_tel = res[0].parent_tel;
 														latitude = res[0].latitude;
 														longitude = res[0].longitude;
-
+														callback();
 													}
-													callback();
-													//console.log("ssn:"+res[0].ssn +"uniname: " + JSON.stringify(university_datas));
+
+													console.log("ssn:"+res[0].ssn +"uniname: " + JSON.stringify(university_datas));
 												});
                       }
                   });
