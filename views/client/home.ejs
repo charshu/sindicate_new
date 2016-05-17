@@ -449,23 +449,11 @@
                             <% profileEdus.forEach(function(item){ %>
                                 <tr>
                                     <td>
-                                        <% item.name %>
+                                        <%= item.name %>
                                     </td>
-                                    <% if(item.level==="B"){ %>
                                     <td>
-                                        ปริญญาตรี
+                                        <%= item.level %>
                                     </td>
-
-                                    <% } else if(item.level==="M"){ %>
-                                    <td>
-                                        ปริญญาโท
-                                    </td>
-
-                                    <% } else if(item.level==="D"){ %>
-                                    <td>
-                                        ปริญญาเอก
-                                    </td>
-                                    <% } %>
                                     <td>
                                         <%= item.branch %>
                                     </td>
